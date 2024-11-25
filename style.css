@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    color: white;
+    text-align: center;
+}
+
+.scene {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.title {
+    position: absolute;
+    top: 10%;
+    font-size: 3rem;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff7, 0 0 30px #ff7;
+}
+
+/* Cây thông Giáng sinh */
+.tree {
+    position: relative;
+    width: 100px;
+    height: 200px;
+    margin-bottom: 30px;
+}
+
+.star {
+    position: absolute;
+    top: -20px;
+    left: 35px;
+    width: 30px;
+    height: 30px;
+    background: gold;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    box-shadow: 0 0 10px gold, 0 0 20px gold;
+}
+
+.branches .layer {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid green;
+    margin-bottom: 10px;
+}
+
+.branches .layer:nth-child(1) {
+    bottom: 50px;
+    border-bottom: 70px solid green;
+}
+
+.branches .layer:nth-child(2) {
+    bottom: 100px;
+    border-bottom: 90px solid green;
+}
+
+.trunk {
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    width: 20px;
+    height: 30px;
+    background: #8b4513;
+}
+
+/* Hộp quà */
+.gifts {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: 10px;
+}
+
+.gift {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.gift.red {
+    background: #e74c3c;
+}
+
+.gift.green {
+    background: #27ae60;
+}
+
+.gift.blue {
+    background: #3498db;
+}
+
+/* Hiệu ứng tuyết */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite, sway linear infinite;
+}
+
+/* Hoạt ảnh rơi */
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* Hoạt ảnh đong đưa */
+@keyframes sway {
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(-10px);
+    }
+}
