@@ -1,24 +1,18 @@
-// Tạo các bông tuyết
+// Snowflake generator
 function createSnowflake() {
     const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    document.body.appendChild(snowflake);
-
-    // Kích thước và vị trí ngẫu nhiên
-    const size = Math.random() * 10 + 5;
-    snowflake.style.width = `${size}px`;
-    snowflake.style.height = `${size}px`;
+    snowflake.className = 'snowflake';
     snowflake.style.left = `${Math.random() * 100}vw`;
-
-    // Tốc độ rơi ngẫu nhiên
-    const fallDuration = Math.random() * 5 + 3;
-    snowflake.style.animationDuration = `${fallDuration}s`;
-
-    // Sau khi rơi xong, xóa khỏi DOM
-    snowflake.addEventListener('animationend', () => {
-        snowflake.remove();
-    });
-}
-
-// Tạo tuyết liên tục
-setInterval(createSnowflake, 100);
+    snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+    snowflake.style.opacity = Math.random();
+    snowflake.style.fontSize = `${Math.random() * 10 + 10}px`;
+    snowflake.innerText = '❄';
+    document.body.appendChild(snowflake);
+  
+    setTimeout(() => {
+      snowflake.remove();
+    }, 5000);
+  }
+  
+  setInterval(createSnowflake, 50);
+  
