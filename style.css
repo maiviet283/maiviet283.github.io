@@ -1,117 +1,92 @@
-/* Body styling */
+@import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
+
+/* TikTok @Code The World */
+
 body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #0d1b2a, #1b263b);
-    color: #fff;
-    font-family: 'Arial', sans-serif;
-    overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  font-family: sans-serif;
+  font-size: 1.2em;
+}
+
+body, .glass::before {
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url("https://codetheworld.io/wp-content/uploads/2023/12/chistmas-wallpaper.jpeg") 0 / cover fixed;
+  color: white;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.heading_sub {
+  font-size: 0.6em;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+}
+
+.glass {
+  position: relative;
+  width: 8.5em;
+  background: #ffffff1a;
+  border-radius: 8px;
+  box-shadow: 5px 3px 10px #00000040;
+  padding: 1.5em 0;
+}
+
+.glass::before {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  inset: 0;
+  filter: blur(5px);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.value {
+  font-size: 4em;
+}
+
+.caption {
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+.snowflake {
+  position: absolute;
+  color: #fff;
+  top: -5vh;
+  animation: fall 3s linear;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(0vh);
   }
-  
-  /* Snowflake animation */
-  .snowflakes {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
+
+  to {
+    transform: translateY(101vh);
   }
-  
-  .snowflakes::after {
-    content: '';
-    animation: snow 10s infinite linear;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  @keyframes snow {
-    from {
-      background: radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px) repeat;
-      background-size: 2px 2px;
-      transform: translateY(-100%);
-    }
-    to {
-      transform: translateY(100%);
-    }
-  }
-  
-  /* Christmas tree */
-  .tree {
-    position: relative;
-    margin: 5rem auto;
-    width: 200px;
-    text-align: center;
-  }
-  
-  .star {
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 40px solid gold;
-    margin: 0 auto;
-  }
-  
-  .branches {
-    position: relative;
-    top: 0;
-  }
-  
-  .branch {
-    width: 0;
-    height: 0;
-    border-left: 60px solid transparent;
-    border-right: 60px solid transparent;
-    border-bottom: 80px solid #2b7a0b;
-    margin: -20px auto;
-  }
-  
-  .trunk {
-    width: 40px;
-    height: 80px;
-    background: #8b4513;
-    margin: 0 auto;
-    border-radius: 5px;
-  }
-  
-  /* Gifts */
-  .gifts {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-  }
-  
-  .gift {
-    width: 40px;
-    height: 40px;
-    margin: 0 5px;
-    position: relative;
-    border-radius: 5px;
-  }
-  
-  .gift.red {
-    background: #e63946;
-  }
-  
-  .gift.blue {
-    background: #1d3557;
-  }
-  
-  .gift.green {
-    background: #2a9d8f;
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    position: fixed;
-    bottom: 1rem;
-    width: 100%;
-    font-size: 1.5rem;
-  }
-  
+}
