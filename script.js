@@ -2,6 +2,12 @@ const $ = (id) => {
     return document.getElementById(id);
 };
 
+document.body.addEventListener('click', function () {
+    var audio = document.getElementById('myAudio');
+    audio.muted = false; // Tắt chế độ mute khi người dùng nhấp chuột
+    audio.play(); // Đảm bảo âm thanh được phát sau khi nhấp chuột
+});
+
 const $days = $('days');
 const $hours = $('hours');
 const $minutes = $('minutes');
