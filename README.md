@@ -17,7 +17,20 @@
     </div>
 
 # 💫 About Me:
-👋 Hi, I'm Mai Quốc Việt !<br><br>👀 I'm into web development, always eager to learn new things and make cool stuff online.<br><br>🌱 Currently, I'm sharpening my skills in HTML, CSS, JavaScript, and diving into backend technologies like Node.js and C#.<br><br>💞️ I'm up for teaming up on any web projects that need an extra pair of hands!<br><br>📫 You can reach me via email vietmq.21it@vku.udn.vn<br><br>😄 Pronouns: He/Him<br><br>⚡ Fun fact: Nothing
+
+👋 Hi, I'm Mai Quốc Việt!  
+
+🚀 I'm passionate about backend web development and love building robust, scalable web applications.  
+
+💻 Currently, I'm focusing on Django for backend development while refining my skills in Python, JavaScript, HTML, CSS, and PHP.  
+
+🤝 Open to collaborating on web projects, especially those involving backend architecture and API development.  
+
+📩 Reach me at vietmq.21it@vku.udn.vn  
+
+😄 Pronouns: He/Him  
+
+⚡ Fun fact: Always curious about how things work under the hood!  
 
 
 ## 🌐 Socials:
