@@ -1,10 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Mai Quốc Việt</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trang cá nhân - Mai Quốc Việt</title>
+  <style>
+    /* CSS Tổng hợp */
+    :root {
+      --primary: #4e54c8;
+      --secondary: #8f94fb;
+      --text: #333;
+      --bg: #f7f9fc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary);
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .avatar:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: normal;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--secondary);
+    }
+
+    .socials {
+      margin-top: 1rem;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      font-size: 1.3rem;
+      color: var(--primary);
+      transition: transform 0.2s ease;
+      text-decoration: none;
+    }
+
+    .socials a:hover {
+      transform: scale(1.2);
+      color: var(--secondary);
+    }
+
+    @keyframes fadeIn {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Trướt</h1>
+  <div class="card">
+    <img src="https://i.pravatar.cc/150?img=3" alt="Avatar" class="avatar" />
+    <h1>Mai Quốc Việt</h1>
+    <h2>Web Developer | Sinh viên IT</h2>
+    <p>
+      Xin chào! Mình là một lập trình viên trẻ, đam mê phát triển web hiện đại.
+      Mình yêu thích học hỏi, chia sẻ kiến thức và tạo ra sản phẩm có giá trị.
+    </p>
+    <a href="mailto:maiquocviet02082003@gmail.com" class="btn">Liên hệ ngay</a>
+    <div class="socials">
+      <a href="https://facebook.com" target="_blank" title="Facebook">🌐</a>
+      <a href="https://github.com" target="_blank" title="GitHub">🐙</a>
+      <a href="https://linkedin.com" target="_blank" title="LinkedIn">💼</a>
+    </div>
+  </div>
+
+  <script>
+    // JS hiệu ứng console
+    console.log("%cChào bạn đến với profile cá nhân!", "color: #4e54c8; font-size: 16px;");
+  </script>
 </body>
 </html>
