@@ -1,0 +1,79 @@
+yarn create vite my-app --template react
+
+
+Hình 1 người:👤
+1.Hold: cầm, nắm
+2.Push: đẩy
+3.Examine: xem xét
+4.Carry: mang vác
+5.Point at: chỉ tay
+6.Wear: mặc, đội, đeo
+7.Board: đi lên (v)
+
+Hình nhiều người👥 
+1. Rest: nghỉ ngơi 
+2. Gather: tụ tập
+3. Perform: biểu diễn
+4. Shake hands: bắt tay
+5. Face each other: đối mặt 
+6. Have a conversation: có cuộc hội thoại
+
+HÌNH TẢ VẬT
+1. Place: đặt
+2. Display: trưng bày
+3. Arrange: sắp xếp 
+4. Stack/pile: chất lên
+5. Mount: gắn lên
+6. Overlook: nhìn xuống 
+7. Unoccupied: không ai ngồi
+
+Danh từ chỉ đồ vật
+1. Keyboard: bàn phím
+2. Bookshelf: kệ sách
+3. Drawer: ngăn kéo
+4. Monitor/screen: màn hình
+5. Tool: dụng cụ
+6. Helmet: nón bảo hộ
+7. Merchandise: hàng hoá
+8. Document: văn bản
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
