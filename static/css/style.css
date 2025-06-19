@@ -54,28 +54,6 @@ header {
   background: linear-gradient(145deg, #000641, #030035);
 }
 
-/* Snow Canvas */
-#snow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  pointer-events: none;
-}
-
-/* Avatar nổi phía trên lớp tuyết */
-.spotlight-wrapper {
-  position: relative;
-  z-index: 2;
-}
-
-.circle span img {
-  position: relative;
-  z-index: 3;
-}
-
 
 #about {
   color: #000; /* hoặc #111 cho đậm hơn */
@@ -161,7 +139,6 @@ header {
 }
 
 
-
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;
@@ -173,6 +150,7 @@ header {
   }
 }
 
-html {
-  scroll-behavior: smooth;
+/* avatar */
+#avatar-image {
+    transition: opacity 0.5s ease-in-out;
 }

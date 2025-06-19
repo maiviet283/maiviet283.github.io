@@ -1,7 +1,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Hoàng Văn Tình",
+  "name": "Mai Quốc Việt",
   "jobTitle": "Lập trình viên Web",
   "address": {
     "@type": "PostalAddress",
@@ -10,7 +10,7 @@
     "addressCountry": "VN"
   },
   "sameAs": [
-    "https://www.facebook.com/profile.php?id=100011489832599",
-    "https://github.com/hoangtinh942"
+    "https://www.facebook.com/maiviet283",
+    "https://github.com/maiviet283"
   ]
 }

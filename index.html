@@ -4,22 +4,23 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio - Hoàng Văn Tình</title>
+    <title>Portfolio - Mai Quốc Việt</title>
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="static/css/style.css" />
     <link rel="stylesheet" href="static/css/sound.css" />
+    <link rel="stylesheet" href="static/css/snow.css">
     <meta name="description"
-        content="Trang web cá nhân của Hoàng Văn Tình - Lập trình viên Web đến từ Kỳ Khang, Kỳ Anh. Chia sẻ kỹ năng, dự án và thông tin liên hệ.">
+        content="Trang web cá nhân của Mai Quốc Việt - Lập trình viên Web đến từ Kỳ Khang, Kỳ Anh. Chia sẻ kỹ năng, dự án và thông tin liên hệ.">
     <meta name="keywords"
-        content="Hoàng Văn Tình, lập trình viên Kỳ Khang, Hoàng Văn Tình Kỳ Anh, developer Kỳ Khang, web developer Kỳ Anh, portfolio Hoàng Văn Tình">
-    <meta name="author" content="Hoàng Văn Tình">
+        content="Mai Quốc Việt, lập trình viên Kỳ Khang, Mai Quốc Việt Kỳ Anh, developer Kỳ Khang, web developer Kỳ Anh, portfolio Mai Quốc Việt">
+    <meta name="author" content="Mai Quốc Việt">
 </head>
 
 <body>
     <!-- Tuyết rơi -->
-    <canvas id="snow"></canvas>
+    <!-- <canvas id="snow"></canvas> -->
 
     <!-- Điều khiển âm thanh nền -->
     <audio id="bg-music" loop>
@@ -36,33 +37,34 @@
         <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.3" />
     </div>
 
-
-
     <header class="bg-dark text-white">
         <div class="container">
             <nav class="d-flex justify-content-between align-items-center py-3">
                 <div class="logo fs-3 fw-bold">port<span class="text-info">folio</span></div>
                 <ul class="nav">
-                    <li class="nav-item"><a href="#home" class="nav-link text-white">Trang chủ</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link text-white">Giới thiệu</a></li>
-                    <li class="nav-item"><a href="#skills" class="nav-link text-white">Kỹ năng</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link text-white">Liên hệ</a></li>
+                    <li class="nav-item"><a href="#home" class="nav-link text-white">Home</a></li>
+                    <li class="nav-item"><a href="https://maiviet.id.vn/" class="nav-link text-white">WebSite</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link text-white">About</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link text-white">Skills</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link text-white">Contact</a></li>
                 </ul>
             </nav>
 
             <section id="home" class="row align-items-center py-5">
                 <div class="col-md-6">
-                    <h1 class="display-4">Hoàng Văn Tình <br><span class="text-info">Lập trình viên Web</span></h1>
+                    <h1 class="display-4">Mai Quoc Viet<br><span class="text-info">Web Developer</span></h1>
                     <p class="lead">
-                        Tôi là một lập trình viên web đam mê tạo ra các trang web hiện đại và đầy đủ chức năng.
-                        Mục tiêu của tôi là mang đến những giải pháp sáng tạo và hiệu quả cho khách hàng.
+                        I am a passionate web developer specializing in building secure, scalable, and modern web
+                        applications.
+                        My goal is to deliver innovative and efficient solutions that create real value for users and
+                        businesses.
                     </p>
-                    <a href="#contact" class="btn btn-info text-white mt-3">Liên hệ với tôi</a>
+                    <a href="#contact" class="btn btn-info text-white mt-3">Get in Touch</a>
                 </div>
                 <div class="col-md-6 text-center" id="avatar-zone">
                     <div class="circle mx-auto spotlight-wrapper">
                         <span>
-                            <img src="images/avatar.jpg" alt="Ảnh đại diện"
+                            <img id="avatar-image" src="images/avatars/avatar1.jpg" alt="Profile Picture"
                                 class="img-fluid rounded-circle spotlight-avatar" />
                         </span>
                     </div>
@@ -72,42 +74,51 @@
     </header>
 
 
-    <!-- Giới thiệu -->
+    <!-- About -->
     <section id="about" class="about-section py-5">
         <div class="container">
-            <h2 class="text-center section-title mb-5">Giới thiệu bản thân</h2>
+            <h2 class="text-center section-title mb-5">About Me</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <div class="about-content px-4 py-3 rounded-4 shadow-lg">
-                        <p class="intro">
-                            Xin chào! Mình là <strong class="highlight">Hoàng Văn Tình</strong>, một lập trình viên web
-                            luôn cháy hết mình với từng dòng code.
+                    <div class="about-content px-4 py-3 rounded-4 shadow-lg text-white">
+                        <p class="intro border-start border-info ps-3 fs-5 fst-italic">
+                            Hello! I'm <strong class="highlight">Mai Quoc Viet</strong>, a passionate web developer with
+                            a strong foundation in backend technologies and information security.
                         </p>
                         <p>
-                            Hiện tại, mình đang sinh sống và làm việc tại <span class="highlight">Nhật Bản</span>, nơi
-                            mình không chỉ phát triển sự nghiệp lập trình mà còn theo đuổi ước mơ vươn xa trong lĩnh vực
-                            công nghệ toàn cầu.
+                            I am currently living in <span class="highlight">Da Nang, Vietnam</span>, where I am
+                            completing my final year (5th year) as a student majoring in <strong>Information Security
+                                and Computer Networks</strong> at <span class="highlight">Vietnam-Korea University of
+                                Information and Communication Technology (VKU)</span>.
                         </p>
                         <p>
-                            Mình yêu thích việc tạo ra những giao diện <span class="emphasis">tinh tế</span>,
-                            <span class="emphasis">thân thiện</span> với người dùng, kết hợp cùng sức mạnh của các công
-                            nghệ backend hiện đại để xây dựng những sản phẩm chất lượng cao.
+                            I'm also an active member of <span class="highlight">Gia Phuoc Catholic Student
+                                Community</span>, which gives me a deeper connection to meaningful values in life while
+                            pursuing my goals in technology.
                         </p>
                         <p>
-                            Với kinh nghiệm làm việc cùng:
-                            <span class="tech-stack">HTML</span>,
-                            <span class="tech-stack">CSS</span>,
-                            <span class="tech-stack">JavaScript</span>,
-                            <span class="tech-stack">ReactJS</span>,
-                            <span class="tech-stack">Python/Django</span>, mình luôn hướng đến sự chỉn chu, tối ưu và
-                            sáng tạo trong từng dự án.
+                            My expertise focuses on building <span class="emphasis">secure</span>, <span
+                                class="emphasis">scalable</span> APIs and modern web applications using:
+                            <span class="tech-stack">Python / Django</span>,
+                            <span class="tech-stack">Node.js</span>,
+                            <span class="tech-stack">React.js</span>,
+                            <span class="tech-stack">PostgreSQL</span>, and
+                            <span class="tech-stack">Redis</span>.
                         </p>
                         <p>
-                            Mỗi dòng code không chỉ là công việc, mà là cách mình kết nối đam mê với công nghệ để góp
-                            phần xây dựng thế giới số <span class="italic">hiện đại, nhân văn và đầy cảm hứng</span>.
+                            I take pride in writing clean, efficient code and deploying full-stack systems using tools
+                            like
+                            <span class="tech-stack">Docker</span>,
+                            <span class="tech-stack">Nginx</span>, and
+                            <span class="tech-stack">Gunicorn</span>.
+                            I also pay close attention to web security and performance optimization.
+                        </p>
+                        <p>
+                            To me, coding is not just a profession—it's a way of expressing creativity, solving
+                            real-world problems, and building digital experiences that matter.
                         </p>
                         <p class="mt-4 fw-bold text-end">
-                            ~ Hành trình vẫn đang tiếp diễn... cùng nhau viết nên những điều tuyệt vời hơn nữa! 🚀
+                            ~ The journey is still going... let's create something amazing together! 🚀
                         </p>
                     </div>
                 </div>
@@ -116,68 +127,163 @@
     </section>
 
 
-    <!-- Kỹ năng -->
+    <!-- Skills -->
     <section id="skills" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-4 text-white">Kỹ năng</h2>
+            <h2 class="text-center mb-4 text-white">Skills</h2>
+            <!-- Programming Languages -->
             <div class="row text-center text-white g-4">
-                <div class="col-6 col-md-3"><i class="fab fa-html5 fa-2x"></i>
-                    <p>HTML</p>
+                <div class="col-6 col-md-3">
+                    <i class="fab fa-python fa-2x"></i>
+                    <p>Python</p>
                 </div>
-                <div class="col-6 col-md-3"><i class="fab fa-css3-alt fa-2x"></i>
-                    <p>CSS</p>
-                </div>
-                <div class="col-6 col-md-3"><i class="fab fa-js fa-2x"></i>
+                <div class="col-6 col-md-3">
+                    <i class="fab fa-js fa-2x"></i>
                     <p>JavaScript</p>
                 </div>
-                <div class="col-6 col-md-3"><i class="fab fa-python fa-2x"></i>
-                    <p>Python / Django</p>
-                </div>
-            </div>
-            <div class="row text-center text-white g-4">
-                <div class="col-6 col-md-3"><i class="fab fa-node-js fa-2x"></i>
-                    <p>Node.js</p>
-                </div>
-                <div class="col-6 col-md-3"><i class="fab fa-java fa-2x"></i>
+                <div class="col-6 col-md-3">
+                    <i class="fab fa-java fa-2x"></i>
                     <p>Java</p>
                 </div>
-                <div class="col-6 col-md-3"><i class="fas fa-language fa-2x"></i>
-                    <p>Tiếng Nhật (JLPT N4+)</p>
+                <div class="col-6 col-md-3">
+                    <i class="fab fa-html5 fa-2x"></i>
+                    <p>HTML / CSS</p>
                 </div>
-                <div class="col-6 col-md-3"><i class="fas fa-globe fa-2x"></i>
+            </div>
+
+            <!-- Frameworks -->
+            <div class="row text-center text-white g-4 mt-3">
+                <div class="col-6 col-md-3">
+                    <i class="fas fa-code fa-2x"></i>
+                    <p>Django / DRF</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <i class="fab fa-node-js fa-2x"></i>
+                    <p>Node.js / Express</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <i class="fab fa-react fa-2x"></i>
+                    <p>React.js</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <i class="fas fa-leaf fa-2x"></i>
+                    <p>Spring Boot</p>
+                </div>
+            </div>
+
+            <!-- Cơ sở dữ liệu, máy chủ, bảo mật -->
+            <div class="row text-center text-white g-4 mt-3">
+                <div class="col-6 col-md-3">
+                    <i class="fas fa-database fa-2x"></i>
+                    <p>MySQL / PostgreSQL</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <i class="fas fa-memory fa-2x"></i>
+                    <p>Redis</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <i class="fas fa-server fa-2x"></i>
+                    <p>Nginx / Gunicorn</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <i class="fas fa-key fa-2x"></i>
+                    <p>JWT / OAuth 2.0</p>
+                </div>
+            </div>
+
+            <!-- Công cụ dev & bảo mật -->
+            <div class="row text-center text-white g-4 mt-3">
+                <div class="col-6 col-md-3">
+                    <i class="fab fa-docker fa-2x"></i>
+                    <p>Docker</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <i class="fab fa-github fa-2x"></i>
+                    <p>Git / GitHub</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <i class="fas fa-bug fa-2x"></i>
+                    <p>Burp Suite</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <i class="fas fa-globe fa-2x"></i>
                     <p>Tiếng Anh (Giao tiếp)</p>
                 </div>
+
             </div>
         </div>
     </section>
 
 
-    <!-- Liên hệ -->
+    <!-- Contact -->
     <section id="contact" class="bg-dark text-white py-5">
-        <div class="container text-center">
-            <h2 class="mb-4">Liên hệ với tôi</h2>
-            <p>Email: <a href="mailto:hoangvantinh@gmail.com" class="text-info">hoangvantinh@gmail.com</a></p>
-            <p>Số điện thoại: <span class="text-info">0904 798 147</span></p>
-            <div class="social-icons mt-3">
-                <a href="https://www.facebook.com/profile.php?id=100011489832599" target="_blank"
-                    class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
-                <a href="https://github.com/hoangtinh942" target="_blank" class="text-white me-3"><i
-                        class="fab fa-github fa-2x"></i></a>
-                <a href="mailto:hoangvantinh@gmail.com" class="text-white"><i class="fas fa-envelope fa-2x"></i></a>
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Let's Connect</h2>
+
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-6 text-center">
+                    <p class="mb-2">
+                        <i class="fas fa-envelope text-info me-2"></i>
+                        <a href="mailto:maiquocviet02082003@gmail.com" class="text-info text-decoration-none">
+                            maiquocviet02082003@gmail.com
+                        </a>
+                    </p>
+                    <p class="mb-2">
+                        <i class="fas fa-phone text-info me-2"></i>
+                        <span class="text-info">0705 XXX 416</span>
+                    </p>
+                    <p class="mb-0">
+                        <i class="fas fa-globe text-info me-2"></i>
+                        <a href="https://maiviet.id.vn" target="_blank" class="text-info text-decoration-none">
+                            maiviet.id.vn
+                        </a>
+                    </p>
+                </div>
             </div>
 
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="d-flex justify-content-center flex-wrap gap-4 social-icons">
+                        <a href="https://www.facebook.com/maiviet283" target="_blank" class="text-white social-link">
+                            <i class="fab fa-facebook fa-2x"></i>
+                        </a>
+                        <a href="https://www.instagram.com/maiviet283" target="_blank" class="text-white social-link">
+                            <i class="fab fa-instagram fa-2x"></i>
+                        </a>
+                        <a href="https://github.com/maiviet283" target="_blank" class="text-white social-link">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/maiviet283/" target="_blank"
+                            class="text-white social-link">
+                            <i class="fab fa-linkedin fa-2x"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@maiviet283" target="_blank" class="text-white social-link">
+                            <i class="fab fa-tiktok fa-2x"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@MrBeast" target="_blank" class="text-white social-link">
+                            <i class="fab fa-youtube fa-2x"></i>
+                        </a>
+                        <a href="mailto:maiquocviet02082003@gmail.com" class="text-white social-link">
+                            <i class="fas fa-envelope fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+
 
     <footer class="bg-black text-center text-white py-3">
-        © 2025 Hoàng Văn Tình. All rights reserved.
+        © 2025 Mai Quốc Việt. All rights reserved.
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/javascript/avatar.js"></script>
     <script src="static/javascript/script.js"></script>
 
     <script>
-        fetch("json/hoangvantinh-schema.json")
+        fetch("json/maiquocviet-schema.json")
             .then(response => response.json())
             .then(data => {
                 const script = document.createElement("script");
