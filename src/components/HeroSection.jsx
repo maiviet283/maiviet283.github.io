@@ -5,26 +5,26 @@ function HeroSection({ text, avatar, resume, externalLinkProps }) {
         <p className="eyebrow">{text.hero.eyebrow}</p>
         <h1>{text.hero.title}</h1>
         <p className="hero-text">{text.hero.body}</p>
-
-        <div className="hero-actions" aria-label={text.meta.heroActions}>
-          <a className="primary-action" href="#vietdon">
-            {text.hero.primaryAction}
-          </a>
-          <a className="secondary-action" href={resume} {...externalLinkProps}>
-            {text.hero.secondaryAction}
-          </a>
-        </div>
       </div>
 
       <div className="hero-visual" aria-label={text.meta.profileVisual}>
-          <div className="portrait-frame reveal">
-            <img src={avatar} alt={text.hero.avatarAlt} />
-          </div>
-          <div className="signal-panel reveal">
+        <div className="portrait-frame reveal">
+          <img src={avatar} alt={text.hero.avatarAlt} />
+        </div>
+        <div className="signal-panel reveal">
           <span>{text.hero.signalLabel}</span>
           <strong>{text.hero.signalTitle}</strong>
           <small>{text.hero.signalText}</small>
         </div>
+      </div>
+
+      <div className="hero-actions reveal" aria-label={text.meta.heroActions}>
+        <a className="primary-action" href="#vietdon">
+          {text.hero.primaryAction}
+        </a>
+        <a className="secondary-action" href={resume} {...externalLinkProps}>
+          {text.hero.secondaryAction}
+        </a>
       </div>
     </section>
   )

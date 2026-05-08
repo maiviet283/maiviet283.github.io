@@ -47,7 +47,7 @@ function ProjectsSection({ text, externalLinkProps }) {
               <small key={item}>{item}</small>
             ))}
           </div>
-          <ul className={shouldCollapse ? 'is-collapsed' : ''}>
+          <ul className={`project-feature-list${shouldCollapse ? ' is-collapsed' : ''}`}>
             {project.features.map((feature) => (
               <li key={feature}>{feature}</li>
             ))}

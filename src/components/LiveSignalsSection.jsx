@@ -141,7 +141,6 @@ function LiveSignalsSection({ text, externalLinkProps }) {
 
       <div className="live-grid">
         <article className="live-card reveal">
-          <span className="live-orb" aria-hidden="true" />
           <div className="live-card-head">
             <p>{text.api.github.title}</p>
             <button type="button" onClick={loadPulse}>
@@ -177,7 +176,6 @@ function LiveSignalsSection({ text, externalLinkProps }) {
         </article>
 
         <article className="live-card reveal">
-          <span className="live-orb" aria-hidden="true" />
           <div className="live-card-head">
             <p>{text.api.weather.title}</p>
           </div>
@@ -205,7 +203,6 @@ function LiveSignalsSection({ text, externalLinkProps }) {
         </article>
 
         <article className="live-card reveal">
-          <span className="live-orb" aria-hidden="true" />
           <div className="live-card-head">
             <p>{text.api.time.title}</p>
           </div>
