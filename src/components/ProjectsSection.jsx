@@ -16,9 +16,13 @@ function ProjectsSection({ text, externalLinkProps }) {
       }
     }
 
-    mediaQuery.addEventListener('change', handleViewportChange)
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', handleViewportChange)
+      return () => mediaQuery.removeEventListener('change', handleViewportChange)
+    }
 
-    return () => mediaQuery.removeEventListener('change', handleViewportChange)
+    mediaQuery.addListener(handleViewportChange)
+    return () => mediaQuery.removeListener(handleViewportChange)
   }, [])
 
   const isVietnamese = text.language.current === 'VI'
