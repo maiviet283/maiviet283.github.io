@@ -1,0 +1,289 @@
+{
+  "meta": {
+    "pageTitle": "Mai Quốc Việt - Backend Developer",
+    "description": "Mai Quốc Việt - Backend developer from Đà Nẵng, building VietDon for Vietnam creator economy.",
+    "homeAria": "Trang chủ Mai Quốc Việt",
+    "primaryNavigation": "Điều hướng chính",
+    "heroActions": "Hành động chính",
+    "profileVisual": "Hình ảnh cá nhân",
+    "keyNumbers": "Chỉ số nổi bật",
+    "productFlow": "Luồng sản phẩm VietDon",
+    "technologyStack": "Công nghệ sử dụng",
+    "otherProjects": "Dự án khác",
+    "switchLanguage": "Switch to English",
+    "switchTheme": "Đổi giao diện sáng tối"
+  },
+  "brand": {
+    "mark": "MV",
+    "name": "Mai Quốc Việt"
+  },
+  "language": {
+    "current": "VI",
+    "next": "EN"
+  },
+  "menu": {
+    "open": "Mở menu",
+    "close": "Đóng menu",
+    "label": "Menu"
+  },
+  "theme": {
+    "light": "Sáng",
+    "dark": "Tối",
+    "toLight": "Sáng",
+    "toDark": "Tối"
+  },
+  "nav": [
+    { "label": "VietDon", "href": "#vietdon" },
+    { "label": "Công nghệ", "href": "#stack" },
+    { "label": "Kinh nghiệm", "href": "#work" },
+    { "label": "Liên hệ", "href": "#contact" }
+  ],
+  "hero": {
+    "eyebrow": "Backend developer / Indie builder / Vietnam lover",
+    "title": "Mình viết code bằng sự tò mò, sống bằng những chuyến đi.",
+    "body": "Mình là Mai Quốc Việt, một backend developer trẻ đến từ Đà Nẵng. Mình thích những buổi sáng có nắng, những chuyến đi gần thiên nhiên, thích nhìn con người Việt Nam làm ra sản phẩm tử tế cho chính thị trường Việt Nam. Code với mình không chỉ là công việc, mà là cách biến sự tò mò, lòng tự hào và năng lượng sống thành thứ chạy được ngoài đời.",
+    "primaryAction": "Xem VietDon",
+    "secondaryAction": "Mở CV",
+    "avatarAlt": "Mai Quốc Việt",
+    "signalLabel": "Building now",
+    "signalTitle": "VietDon",
+    "signalText": "Creator economy / VietQR / realtime donate"
+  },
+  "stats": [
+    { "value": "33s -> 1.2s", "label": "tối ưu routing engine trong kỳ thực tập" },
+    { "value": "3 ngày", "label": "chuyển backend sync sang async" },
+    { "value": "8.2/10", "label": "GPA tại VKU, Đà Nẵng" }
+  ],
+  "family": {
+    "eyebrow": "Roots",
+    "title": "Gia đình",
+    "body": "Có những thứ giúp mình không bị cuốn đi quá xa: gia đình, những ngày được đứng giữa cây xanh, và vài câu nói đủ ngắn để nhớ nhưng đủ nặng để tự nhắc mình sống tử tế hơn.",
+    "imageAlt": "Ảnh gia đình của Mai Quốc Việt",
+    "quotes": [
+      {
+        "text": "Nếu bạn không tìm ra cách kiếm tiền trong lúc ngủ, bạn sẽ phải làm việc đến khi chết.",
+        "author": "Warren Buffett"
+      },
+      {
+        "text": "Không có gì quý hơn độc lập, tự do.",
+        "author": "Hồ Chí Minh"
+      },
+      {
+        "text": "Hãy luôn khát khao. Hãy luôn dại khờ.",
+        "author": "Whole Earth Catalog / quoted by Steve Jobs"
+      },
+      {
+        "text": "Không phải chúng ta sống được bao lâu, mà là chúng ta sống sâu đến mức nào.",
+        "author": "Ralph Waldo Emerson"
+      },
+      {
+        "text": "Hãy là sự thay đổi mà bạn muốn thấy trên thế giới.",
+        "author": "Mahatma Gandhi"
+      }
+    ]
+  },
+  "api": {
+    "eyebrow": "Live signals",
+    "title": "Một vài tín hiệu sống kéo trực tiếp từ API.",
+    "body": "Không chỉ là chữ tĩnh trên portfolio. Mình để trang tự bắt vài nhịp thật: GitHub đang thế nào, Đà Nẵng hôm nay ra sao, và thời gian Việt Nam đang chảy tới đâu.",
+    "loading": "Đang bắt tín hiệu...",
+    "error": "Tín hiệu đang nhiễu, thử lại sau.",
+    "refresh": "Làm mới",
+    "github": {
+      "title": "GitHub radar",
+      "repos": "public repos",
+      "followers": "followers",
+      "stars": "stars",
+      "latest": "repo mới cập nhật",
+      "profile": "Mở GitHub"
+    },
+    "weather": {
+      "title": "Đà Nẵng nature pulse",
+      "temperature": "nhiệt độ",
+      "humidity": "độ ẩm",
+      "wind": "gió",
+      "codes": {
+        "0": "trời quang",
+        "1": "ít mây",
+        "2": "mây rải rác",
+        "3": "nhiều mây",
+        "45": "sương mù",
+        "48": "sương mù đóng băng",
+        "51": "mưa phùn nhẹ",
+        "53": "mưa phùn vừa",
+        "55": "mưa phùn dày",
+        "61": "mưa nhẹ",
+        "63": "mưa vừa",
+        "65": "mưa lớn",
+        "80": "mưa rào nhẹ",
+        "81": "mưa rào",
+        "82": "mưa rào mạnh",
+        "95": "dông",
+        "96": "dông kèm mưa đá",
+        "99": "dông mạnh kèm mưa đá"
+      },
+      "unknown": "thời tiết đang đổi"
+    },
+    "time": {
+      "title": "Vietnam clock",
+      "label": "giờ Việt Nam",
+      "zone": "Asia/Ho_Chi_Minh",
+      "fallback": "từ trình duyệt"
+    }
+  },
+  "vietdon": {
+    "eyebrow": "Main project",
+    "title": "VietDon: donate online cho creator Việt Nam.",
+    "body": "VietDon sinh ra từ một suy nghĩ rất Việt Nam: người xem muốn ủng hộ creator mình thích thì mọi thứ phải nhanh, quen thuộc và dễ dùng như mở app ngân hàng. Mình đang xây sản phẩm này từ core: đăng ký creator, KYC, public donate page, VietQR/Pay2s, ví streamer, dashboard doanh thu và thông báo realtime.",
+    "bannerAlt": "Logo banner VietDon",
+    "logoAlt": "Logo tròn VietDon",
+    "flow": [
+      {
+        "number": "01",
+        "title": "Creator lên kênh",
+        "body": "Đăng ký, KYC, cấu hình page và tài khoản ngân hàng nhận tiền."
+      },
+      {
+        "number": "02",
+        "title": "Viewer donate nhanh",
+        "body": "Không cần đăng nhập phức tạp, chọn số tiền và thanh toán bằng VietQR hoặc Pay2s."
+      },
+      {
+        "number": "03",
+        "title": "Tiền về ví, alert realtime",
+        "body": "Giao dịch xác nhận là dashboard cập nhật, creator theo dõi doanh thu trực tiếp."
+      }
+    ]
+  },
+  "stack": {
+    "eyebrow": "Core stack",
+    "title": "Mình thích xây phần lõi chắc, rồi đóng gói nó thành trải nghiệm có hồn.",
+    "items": [
+      "Python",
+      "Django",
+      "FastAPI",
+      "Node.js",
+      "C#",
+      ".NET",
+      "PostgreSQL",
+      "MySQL",
+      "Redis",
+      "Docker",
+      "Nginx",
+      "React",
+      "TypeScript",
+      "Postman",
+      "Git",
+      "Ubuntu"
+    ],
+    "beliefTitle": "Mình tin vào điều gì?",
+    "beliefBody": "Một sản phẩm tốt phải vừa có kỹ thuật chắc, vừa có cảm giác gần gũi với người dùng. API rõ contract, database có index đúng, cache ở điểm nóng, deploy có log và monitoring. Nhưng sau cùng, thứ quan trọng nhất vẫn là nó giúp con người làm việc gì đó dễ hơn, vui hơn, nhẹ hơn."
+  },
+  "work": {
+    "eyebrow": "Experience",
+    "title": "Học từ hệ thống thật, từ con người thật, rồi đem về xây sản phẩm riêng.",
+    "items": [
+      {
+        "period": "Hiện tại",
+        "role": "Fresher Fullstack Developer",
+        "company": "SapotarCorp",
+        "href": "https://www.sapotacorp.vn/",
+        "body": "Đang làm việc trong môi trường sản phẩm thực tế, tiếp tục rèn fullstack, tư duy hệ thống và cách đưa tính năng từ ý tưởng đến vận hành."
+      },
+      {
+        "period": "09/2025 - 12/2025",
+        "role": "Intern Backend",
+        "company": "Rikai Technology",
+        "href": "https://careers.rikai.technology/",
+        "body": "Làm routing module cho hệ thống tìm đường quy mô toàn quốc, xử lý dữ liệu bản đồ lớn với Python, FastAPI và GeoPandas. Tập trung vào tốc độ, query PostgreSQL và kiến trúc async."
+      },
+      {
+        "period": "06/2024 - 08/2024",
+        "role": "Intern Networking",
+        "company": "VNNIC Technology",
+        "href": "https://www.vnnic.vn/",
+        "body": "Chạm vào hạ tầng thật: routing, security fundamentals, monitoring với Nagios và ELK Stack. Giai đoạn này giúp mình nhìn backend không chỉ là code, mà còn là hệ thống đang chạy."
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Side quests",
+    "title": "Những dự án mình dùng để mài kỹ năng sản phẩm, backend và hệ thống.",
+    "badge": "GitHub",
+    "items": [
+      {
+        "name": "VietDon",
+        "detail": "Nền tảng donate trực tuyến cho creator Việt Nam, xây theo hướng sản phẩm thật với backend Django, PostgreSQL, Celery, Channels, R2 và Pay2s; frontend React + Tailwind; hạ tầng Docker có Nginx, Django, Celery, PostgreSQL, Redis và PgBouncer.",
+        "tech": [
+          "Django",
+          "Python",
+          "PostgreSQL",
+          "Celery",
+          "Channels",
+          "R2",
+          "Pay2s",
+          "React",
+          "Tailwind",
+          "Docker",
+          "Nginx",
+          "Redis",
+          "PgBouncer"
+        ],
+        "features": [
+          "Backend: Django + Python xử lý creator, donate flow, ví, giao dịch, KYC, tích hợp Pay2s và lưu trữ object qua R2",
+          "Realtime: Django Channels cho thông báo donate tức thời, Celery xử lý tác vụ nền và đồng bộ trạng thái giao dịch",
+          "Database: PostgreSQL làm lõi dữ liệu chính, Redis hỗ trợ cache/queue, PgBouncer tối ưu connection pooling",
+          "Frontend: React + Tailwind cho public donate page, creator dashboard và trải nghiệm donate ít ma sát",
+          "Docker stack: Nginx, Django, Celery, PostgreSQL, Redis và PgBouncer tách vai trò rõ để dễ deploy"
+        ],
+        "href": "https://github.com/maiviet283/vietdon/"
+      },
+      {
+        "name": "Network Intrusion Detection & Alert System",
+        "detail": "Hệ thống thu thập và phân tích log bảo mật từ Zeek, Nginx và Django bằng Python + Elasticsearch để phát hiện hành vi bất thường và gửi cảnh báo realtime.",
+        "tech": ["Python", "Elasticsearch", "Zeek", "Nginx", "Django Logs", "ChatGPT API", "Telegram Bot"],
+        "features": [
+          "Phát hiện DDoS, SQL Injection, directory brute-force và login brute-force",
+          "AI Advisor dùng ChatGPT API để gợi ý hướng xử lý theo từng mối đe dọa",
+          "Notifier gửi cảnh báo và khuyến nghị qua Telegram cho admin"
+        ],
+        "href": "https://github.com/maiviet283/analyze_logs"
+      },
+      {
+        "name": "BookStore",
+        "detail": "Django REST Framework, JWT, MySQL, Redis, React TypeScript",
+        "tech": ["Django", "DRF", "JWT", "MySQL", "Redis", "React TypeScript"],
+        "features": [
+          "RESTful API cho hệ thống quản lý sách",
+          "JWT authentication",
+          "Redis caching để giảm tải database"
+        ],
+        "href": "https://github.com/maiviet283/bookstore"
+      },
+      {
+        "name": "Clothing Shop API",
+        "detail": "E-commerce backend với auth, anti-spam, Redis cache, Gunicorn và Nginx",
+        "tech": ["Django", "DRF", "JWT", "MySQL", "Redis", "Gunicorn", "Nginx"],
+        "features": [
+          "API backend cho e-commerce",
+          "Cơ chế bảo mật: brute-force protection, anti-spam, request validation",
+          "Deploy production với Gunicorn và Nginx"
+        ],
+        "href": "https://github.com/maiviet283/my_shop"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Chat với mình ở đây nhé.",
+    "links": [
+      { "label": "Email", "value": "maiviet283@gmail.com", "href": "mailto:maiviet283@gmail.com" },
+      { "label": "Facebook", "value": "maiviet283", "href": "https://www.facebook.com/maiviet283" },
+      { "label": "GitHub", "value": "maiviet283", "href": "https://github.com/maiviet283" },
+      { "label": "TikTok", "value": "@maiviet283", "href": "https://www.tiktok.com/@maiviet283" },
+      { "label": "Instagram", "value": "maiviet283", "href": "https://www.instagram.com/maiviet283" },
+      { "label": "LinkedIn", "value": "maiviet283", "href": "https://www.linkedin.com/in/maiviet283/" },
+      { "label": "Locket", "value": "maiviet283", "href": "https://locket.cam/maiviet283" }
+    ]
+  }
+}

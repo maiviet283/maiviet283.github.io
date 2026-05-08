@@ -1,0 +1,289 @@
+{
+  "meta": {
+    "pageTitle": "Mai Quốc Việt - Backend Developer",
+    "description": "Mai Quốc Việt - Backend developer from Da Nang, building VietDon for Vietnam creator economy.",
+    "homeAria": "Mai Quốc Việt home",
+    "primaryNavigation": "Primary navigation",
+    "heroActions": "Hero actions",
+    "profileVisual": "Profile visual",
+    "keyNumbers": "Key numbers",
+    "productFlow": "VietDon product flow",
+    "technologyStack": "Technology stack",
+    "otherProjects": "Other projects",
+    "switchLanguage": "Chuyển sang tiếng Việt",
+    "switchTheme": "Toggle light and dark theme"
+  },
+  "brand": {
+    "mark": "MV",
+    "name": "Mai Quốc Việt"
+  },
+  "language": {
+    "current": "EN",
+    "next": "VI"
+  },
+  "menu": {
+    "open": "Open menu",
+    "close": "Close menu",
+    "label": "Menu"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "toLight": "Light",
+    "toDark": "Dark"
+  },
+  "nav": [
+    { "label": "VietDon", "href": "#vietdon" },
+    { "label": "Stack", "href": "#stack" },
+    { "label": "Work", "href": "#work" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "eyebrow": "Backend developer / Indie builder / Vietnam lover",
+    "title": "I write code with curiosity and live through small journeys.",
+    "body": "I am Mai Quốc Việt, a young backend developer from Da Nang. I love sunny mornings, small trips close to nature, and the idea of Vietnamese people building thoughtful products for the Vietnamese market. Code is not only work to me; it is a way to turn curiosity, pride, and life energy into something people can actually use.",
+    "primaryAction": "See VietDon",
+    "secondaryAction": "Open CV",
+    "avatarAlt": "Mai Quốc Việt",
+    "signalLabel": "Building now",
+    "signalTitle": "VietDon",
+    "signalText": "Creator economy / VietQR / realtime donate"
+  },
+  "stats": [
+    { "value": "33s -> 1.2s", "label": "routing engine optimization during internship" },
+    { "value": "3 days", "label": "migrated backend from sync to async" },
+    { "value": "8.2/10", "label": "GPA at VKU, Da Nang" }
+  ],
+  "family": {
+    "eyebrow": "Roots",
+    "title": "Family",
+    "body": "Some things keep me grounded: family, days spent around trees, and a few short lines that are easy to remember but heavy enough to shape how I live.",
+    "imageAlt": "Mai Quoc Viet family photo",
+    "quotes": [
+      {
+        "text": "If you don't find a way to make money while you sleep, you will work until you die.",
+        "author": "Warren Buffett"
+      },
+      {
+        "text": "Nothing is more precious than independence and freedom.",
+        "author": "Ho Chi Minh"
+      },
+      {
+        "text": "Stay hungry. Stay foolish.",
+        "author": "Whole Earth Catalog / quoted by Steve Jobs"
+      },
+      {
+        "text": "It is not length of life, but depth of life.",
+        "author": "Ralph Waldo Emerson"
+      },
+      {
+        "text": "Be the change that you wish to see in the world.",
+        "author": "Mahatma Gandhi"
+      }
+    ]
+  },
+  "api": {
+    "eyebrow": "Live signals",
+    "title": "A few living signals pulled straight from public APIs.",
+    "body": "This portfolio is not only static copy. It catches a few real pulses: how GitHub is moving, what Da Nang feels like today, and where Vietnam time is right now.",
+    "loading": "Catching signals...",
+    "error": "The signal is noisy. Try again later.",
+    "refresh": "Refresh",
+    "github": {
+      "title": "GitHub radar",
+      "repos": "public repos",
+      "followers": "followers",
+      "stars": "stars",
+      "latest": "latest updated repo",
+      "profile": "Open GitHub"
+    },
+    "weather": {
+      "title": "Da Nang nature pulse",
+      "temperature": "temperature",
+      "humidity": "humidity",
+      "wind": "wind",
+      "codes": {
+        "0": "clear sky",
+        "1": "mainly clear",
+        "2": "partly cloudy",
+        "3": "overcast",
+        "45": "fog",
+        "48": "depositing rime fog",
+        "51": "light drizzle",
+        "53": "moderate drizzle",
+        "55": "dense drizzle",
+        "61": "slight rain",
+        "63": "moderate rain",
+        "65": "heavy rain",
+        "80": "slight rain showers",
+        "81": "rain showers",
+        "82": "violent rain showers",
+        "95": "thunderstorm",
+        "96": "thunderstorm with hail",
+        "99": "strong thunderstorm with hail"
+      },
+      "unknown": "weather is shifting"
+    },
+    "time": {
+      "title": "Vietnam clock",
+      "label": "Vietnam time",
+      "zone": "Asia/Ho_Chi_Minh",
+      "fallback": "from browser"
+    }
+  },
+  "vietdon": {
+    "eyebrow": "Main project",
+    "title": "VietDon: online donations for Vietnamese creators.",
+    "body": "VietDon comes from a very Vietnamese thought: if viewers want to support the creators they love, the flow should feel fast, familiar, and as natural as opening a banking app. I am building it from the core: creator registration, KYC, public donation pages, VietQR/Pay2s, streamer wallet, revenue dashboard, and realtime notifications.",
+    "bannerAlt": "VietDon banner logo",
+    "logoAlt": "VietDon round logo",
+    "flow": [
+      {
+        "number": "01",
+        "title": "Creator sets up a channel",
+        "body": "Register, complete KYC, configure the page, and connect a bank account for payouts."
+      },
+      {
+        "number": "02",
+        "title": "Viewer donates fast",
+        "body": "No complicated login. Choose an amount and pay with VietQR or Pay2s."
+      },
+      {
+        "number": "03",
+        "title": "Wallet updates in realtime",
+        "body": "Once the payment is confirmed, the dashboard updates and the creator tracks revenue directly."
+      }
+    ]
+  },
+  "stack": {
+    "eyebrow": "Core stack",
+    "title": "I like building a solid core, then wrapping it in an experience with soul.",
+    "items": [
+      "Python",
+      "Django",
+      "FastAPI",
+      "Node.js",
+      "C#",
+      ".NET",
+      "PostgreSQL",
+      "MySQL",
+      "Redis",
+      "Docker",
+      "Nginx",
+      "React",
+      "TypeScript",
+      "Postman",
+      "Git",
+      "Ubuntu"
+    ],
+    "beliefTitle": "What do I believe in?",
+    "beliefBody": "A good product needs both strong engineering and a human feeling. Clear API contracts, database indexes that match real flows, cache in the right hot paths, and deployments with logs and monitoring. But in the end, what matters most is whether it helps people do something easier, happier, and lighter."
+  },
+  "work": {
+    "eyebrow": "Experience",
+    "title": "I learn from real systems and real people, then bring that back into my own products.",
+    "items": [
+      {
+        "period": "Present",
+        "role": "Fresher Fullstack Developer",
+        "company": "SapotarCorp",
+        "href": "https://www.sapotacorp.vn/",
+        "body": "Currently working in a real product environment, sharpening fullstack skills, system thinking, and the path from feature idea to production."
+      },
+      {
+        "period": "09/2025 - 12/2025",
+        "role": "Backend Intern",
+        "company": "Rikai Technology",
+        "href": "https://careers.rikai.technology/",
+        "body": "Built routing modules for a nationwide route-finding system, working with large map datasets using Python, FastAPI, and GeoPandas. Focused on speed, PostgreSQL queries, and async architecture."
+      },
+      {
+        "period": "06/2024 - 08/2024",
+        "role": "Networking Intern",
+        "company": "VNNIC Technology",
+        "href": "https://www.vnnic.vn/",
+        "body": "Worked close to real infrastructure: routing, security fundamentals, and monitoring with Nagios and ELK Stack. This helped me see backend as a running system, not only code."
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Side quests",
+    "title": "Projects I use to sharpen product thinking, backend engineering, and systems work.",
+    "badge": "GitHub",
+    "items": [
+      {
+        "name": "VietDon",
+        "detail": "An online donation platform for Vietnamese creators, built as a real product with Django, PostgreSQL, Celery, Channels, R2, and Pay2s on the backend; React + Tailwind on the frontend; and a Docker stack with Nginx, Django, Celery, PostgreSQL, Redis, and PgBouncer.",
+        "tech": [
+          "Django",
+          "Python",
+          "PostgreSQL",
+          "Celery",
+          "Channels",
+          "R2",
+          "Pay2s",
+          "React",
+          "Tailwind",
+          "Docker",
+          "Nginx",
+          "Redis",
+          "PgBouncer"
+        ],
+        "features": [
+          "Backend: Django + Python handles creators, donation flow, wallet, transactions, KYC, Pay2s integration, and object storage through R2",
+          "Realtime: Django Channels powers instant donation notifications, while Celery handles background jobs and transaction status sync",
+          "Database: PostgreSQL is the main data layer, Redis supports cache/queue flows, and PgBouncer improves connection pooling",
+          "Frontend: React + Tailwind powers the public donation page, creator dashboard, and low-friction donation experience",
+          "Docker stack: Nginx, Django, Celery, PostgreSQL, Redis, and PgBouncer are split by responsibility for cleaner deployment"
+        ],
+        "href": "https://github.com/maiviet283/vietdon/"
+      },
+      {
+        "name": "Network Intrusion Detection & Alert System",
+        "detail": "A Python + Elasticsearch system that collects and analyzes security logs from Zeek, Nginx, and Django to detect abnormal behavior and send realtime alerts.",
+        "tech": ["Python", "Elasticsearch", "Zeek", "Nginx", "Django Logs", "ChatGPT API", "Telegram Bot"],
+        "features": [
+          "Detects DDoS, SQL Injection, directory brute-force, and login brute-force patterns",
+          "AI Advisor uses ChatGPT API to suggest mitigation actions for each threat",
+          "Notifier sends alerts and recommendations to administrators via Telegram"
+        ],
+        "href": "https://github.com/maiviet283/analyze_logs"
+      },
+      {
+        "name": "BookStore",
+        "detail": "Django REST Framework, JWT, MySQL, Redis, React TypeScript",
+        "tech": ["Django", "DRF", "JWT", "MySQL", "Redis", "React TypeScript"],
+        "features": [
+          "RESTful APIs for a book management system",
+          "JWT authentication",
+          "Redis caching to reduce database load"
+        ],
+        "href": "https://github.com/maiviet283/bookstore"
+      },
+      {
+        "name": "Clothing Shop API",
+        "detail": "E-commerce backend with auth, anti-spam, Redis cache, Gunicorn, and Nginx",
+        "tech": ["Django", "DRF", "JWT", "MySQL", "Redis", "Gunicorn", "Nginx"],
+        "features": [
+          "Backend API for an e-commerce flow",
+          "Security mechanisms: brute-force protection, anti-spam, and request validation",
+          "Production deployment with Gunicorn and Nginx"
+        ],
+        "href": "https://github.com/maiviet283/my_shop"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Chat with me here.",
+    "links": [
+      { "label": "Email", "value": "maiviet283@gmail.com", "href": "mailto:maiviet283@gmail.com" },
+      { "label": "Facebook", "value": "maiviet283", "href": "https://www.facebook.com/maiviet283" },
+      { "label": "GitHub", "value": "maiviet283", "href": "https://github.com/maiviet283" },
+      { "label": "TikTok", "value": "@maiviet283", "href": "https://www.tiktok.com/@maiviet283" },
+      { "label": "Instagram", "value": "maiviet283", "href": "https://www.instagram.com/maiviet283" },
+      { "label": "LinkedIn", "value": "maiviet283", "href": "https://www.linkedin.com/in/maiviet283/" },
+      { "label": "Locket", "value": "maiviet283", "href": "https://locket.cam/maiviet283" }
+    ]
+  }
+}
