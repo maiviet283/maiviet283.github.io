@@ -1253,6 +1253,11 @@ img {
   transform: translateY(0) scale(1);
 }
 
+.reveal[data-reveal="visible"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 .stat-item:nth-child(2),
 .flow-step:nth-of-type(3),
 .timeline-item:nth-child(2),

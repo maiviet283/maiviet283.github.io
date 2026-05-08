@@ -51,6 +51,7 @@ function App() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible')
+            entry.target.dataset.reveal = 'visible'
             observer.unobserve(entry.target)
           }
         })
