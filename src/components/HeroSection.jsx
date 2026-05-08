@@ -2,7 +2,7 @@ function HeroSection({ text, avatar, resume, externalLinkProps }) {
   return (
     <section className="hero" id="top">
       <div className="hero-copy reveal">
-        <p className="eyebrow">{text.hero.eyebrow}</p>
+        {text.hero.eyebrow ? <p className="eyebrow">{text.hero.eyebrow}</p> : null}
         <h1>{text.hero.title}</h1>
         <p className="hero-text">{text.hero.body}</p>
       </div>

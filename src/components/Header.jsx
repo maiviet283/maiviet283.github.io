@@ -42,6 +42,13 @@ function Header({ text, theme, logo, onLanguageChange, onThemeChange }) {
       </a>
 
       <div className="header-controls">
+        <button
+          className={`menu-backdrop${isMenuOpen ? ' is-open' : ''}`}
+          type="button"
+          aria-hidden={!isMenuOpen}
+          tabIndex={-1}
+          onClick={() => setIsMenuOpen(false)}
+        />
         <nav className={isMenuOpen ? 'is-open' : ''}>
           {text.nav.map((link) => (
             <a
@@ -63,7 +70,7 @@ function Header({ text, theme, logo, onLanguageChange, onThemeChange }) {
           <span>{text.language.next}</span>
         </button>
         <button
-          className="menu-toggle"
+          className={`menu-toggle${isMenuOpen ? ' is-open' : ''}`}
           type="button"
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? text.menu.close : text.menu.open}

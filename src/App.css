@@ -157,6 +157,10 @@ img {
   border: 1px solid var(--border-soft);
   background: var(--page-bg);
   padding: 6px;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
 }
 
 .topbar nav a {
@@ -164,6 +168,11 @@ img {
   color: var(--text-body);
   font-size: 0.92rem;
   font-weight: 700;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .topbar nav a:hover {
@@ -201,6 +210,10 @@ img {
 }
 
 .menu-toggle {
+  display: none;
+}
+
+.menu-backdrop {
   display: none;
 }
 
@@ -1361,6 +1374,7 @@ img {
     position: absolute;
     right: 0;
     top: calc(100% + 8px);
+    z-index: 22;
     display: none;
     width: min(340px, calc(100vw - 24px));
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1369,34 +1383,108 @@ img {
     overflow: hidden;
     padding: 0;
     border: 0;
-    background: transparent;
+    border-radius: 18px;
+    background:
+      radial-gradient(circle at 85% 12%, var(--media-green-wash), transparent 42%),
+      radial-gradient(circle at 8% 90%, var(--media-red-wash), transparent 44%),
+      color-mix(in srgb, var(--panel-bg) 92%, transparent);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 18px 42px color-mix(in srgb, var(--shadow-dark) 42%, transparent);
+    transform: translateY(-8px) scale(0.985);
+    opacity: 0;
     transition:
-      max-height 260ms ease,
-      padding 260ms ease;
+      max-height 300ms cubic-bezier(0.22, 1, 0.36, 1),
+      padding 260ms ease,
+      border 220ms ease,
+      opacity 220ms ease,
+      transform 260ms ease;
   }
 
   .topbar nav.is-open {
     display: grid;
-    max-height: 220px;
-    padding-top: 8px;
+    max-height: 300px;
+    padding: 10px;
+    border: 1px solid var(--border-soft);
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .menu-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 21;
+    border: 0;
+    background: color-mix(in srgb, var(--shadow-dark) 45%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms ease;
+  }
+
+  .menu-backdrop.is-open {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .topbar nav a {
     border: 1px solid var(--border-soft);
-    background: var(--panel-bg);
+    background: color-mix(in srgb, var(--panel-bg) 95%, transparent);
     color: var(--text-body);
     font-weight: 800;
     padding: 12px;
     text-align: center;
+    opacity: 0;
+    transform: translateY(6px);
+    animation: menu-item-in 260ms ease forwards;
+  }
+
+  .topbar nav a:nth-child(2) {
+    animation-delay: 35ms;
+  }
+
+  .topbar nav a:nth-child(3) {
+    animation-delay: 70ms;
+  }
+
+  .topbar nav a:nth-child(4) {
+    animation-delay: 105ms;
+  }
+
+  .topbar nav a:nth-child(5) {
+    animation-delay: 140ms;
+  }
+
+  .topbar nav a:nth-child(6) {
+    animation-delay: 175ms;
   }
 
   .topbar nav a:hover {
     background: var(--text-strong);
     color: var(--text-invert);
+    transform: translateY(-2px);
   }
 
   .menu-toggle {
     display: inline-flex;
+  }
+
+  .menu-toggle.is-open {
+    background: var(--accent-red);
+    color: var(--text-invert);
+  }
+
+  .menu-toggle.is-open span {
+    background: transparent;
+  }
+
+  .menu-toggle.is-open span::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .menu-toggle.is-open span::after {
+    top: 0;
+    transform: rotate(-45deg);
   }
 
   .language-toggle,
@@ -1434,20 +1522,28 @@ img {
   }
 
   .stats-strip {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     margin-bottom: 34px;
   }
 
   .stat-item + .stat-item {
-    border-left: 0;
-    border-top: 2px solid var(--border-strong);
+    border-left: 2px solid var(--border-strong);
+    border-top: 0;
+  }
+
+  .stat-item span {
+    margin-top: 6px;
+    font-size: 0.86rem;
+    line-height: 1.35;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .section {
     padding: 34px 0;
   }
 
-  .hero-copy,
   .family-content,
   .flow-board,
   .belief-panel,
@@ -1651,6 +1747,14 @@ img {
     padding: 20px 16px;
   }
 
+  .stat-item strong {
+    font-size: clamp(1.2rem, 5vw, 1.7rem);
+  }
+
+  .stat-item span {
+    font-size: 0.74rem;
+  }
+
   .live-card {
     min-height: auto;
     gap: 18px;
@@ -1699,6 +1803,7 @@ img {
     display: grid;
     min-height: 0;
     gap: 14px;
+    justify-items: center;
   }
 
   .family-photo,
@@ -1706,7 +1811,7 @@ img {
     position: relative;
     right: auto;
     top: auto;
-    width: 100%;
+    width: min(100%, 420px);
     transform: none;
   }
 
@@ -2007,6 +2112,17 @@ img {
   }
   45% {
     filter: saturate(1.35) brightness(1.1);
+  }
+}
+
+@keyframes menu-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
