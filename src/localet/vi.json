@@ -55,7 +55,7 @@
     { "value": "8.2/10", "label": "GPA tại VKU, Đà Nẵng" }
   ],
   "family": {
-    "eyebrow": "Roots",
+    "eyebrow": "",
     "title": "Gia đình",
     "body": "Có những thứ giúp mình không bị cuốn đi quá xa: gia đình, những ngày được đứng giữa cây xanh, và vài câu nói đủ ngắn để nhớ nhưng đủ nặng để tự nhắc mình sống tử tế hơn.",
     "imageAlt": "Ảnh gia đình của Mai Quốc Việt",
@@ -211,33 +211,6 @@
     "title": "Những dự án mình dùng để mài kỹ năng sản phẩm, backend và hệ thống.",
     "badge": "GitHub",
     "items": [
-      {
-        "name": "VietDon",
-        "detail": "Nền tảng donate trực tuyến cho creator Việt Nam, xây theo hướng sản phẩm thật với backend Django, PostgreSQL, Celery, Channels, R2 và Pay2s; frontend React + Tailwind; hạ tầng Docker có Nginx, Django, Celery, PostgreSQL, Redis và PgBouncer.",
-        "tech": [
-          "Django",
-          "Python",
-          "PostgreSQL",
-          "Celery",
-          "Channels",
-          "R2",
-          "Pay2s",
-          "React",
-          "Tailwind",
-          "Docker",
-          "Nginx",
-          "Redis",
-          "PgBouncer"
-        ],
-        "features": [
-          "Backend: Django + Python xử lý creator, donate flow, ví, giao dịch, KYC, tích hợp Pay2s và lưu trữ object qua R2",
-          "Realtime: Django Channels cho thông báo donate tức thời, Celery xử lý tác vụ nền và đồng bộ trạng thái giao dịch",
-          "Database: PostgreSQL làm lõi dữ liệu chính, Redis hỗ trợ cache/queue, PgBouncer tối ưu connection pooling",
-          "Frontend: React + Tailwind cho public donate page, creator dashboard và trải nghiệm donate ít ma sát",
-          "Docker stack: Nginx, Django, Celery, PostgreSQL, Redis và PgBouncer tách vai trò rõ để dễ deploy"
-        ],
-        "href": "https://github.com/maiviet283/vietdon/"
-      },
       {
         "name": "Network Intrusion Detection & Alert System",
         "detail": "Hệ thống thu thập và phân tích log bảo mật từ Zeek, Nginx và Django bằng Python + Elasticsearch để phát hiện hành vi bất thường và gửi cảnh báo realtime.",

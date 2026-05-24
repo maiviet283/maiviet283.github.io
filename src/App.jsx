@@ -12,7 +12,6 @@ import WorkSection from './components/WorkSection'
 import resume from './data/cv/MaiQUOCVIET.pdf'
 import avatar from './data/images/avatar.png'
 import vietDonBanner from './data/images/banner_vietdon.png'
-import vietDonLogo from './data/images/logo_vietdon.png'
 import myFamily from './data/images/myfamily.jpg'
 import myFamily2 from './data/images/myfamily2.png'
 import en from './localet/en.json'
@@ -21,6 +20,7 @@ import './theme.css'
 import './App.css'
 
 const locales = { vi, en }
+const vietDonLogo = '/logo.png'
 
 function App() {
   const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'en')
@@ -83,7 +83,7 @@ function App() {
     themeSwitchTimerRef.current = window.setTimeout(() => {
       setIsThemeSwitching(false)
       themeSwitchTimerRef.current = null
-    }, 360)
+    }, 620)
   }
 
   useEffect(() => () => {

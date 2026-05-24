@@ -11,7 +11,7 @@ function FamilyQuotesSection({ text, images }) {
 
       <div className="family-content">
         <div className="section-heading compact reveal">
-          <p className="eyebrow">{text.family.eyebrow}</p>
+          {text.family.eyebrow ? <p className="eyebrow">{text.family.eyebrow}</p> : null}
           <h2>{text.family.title}</h2>
           <p>{text.family.body}</p>
         </div>

@@ -55,7 +55,7 @@
     { "value": "8.2/10", "label": "GPA at VKU, Da Nang" }
   ],
   "family": {
-    "eyebrow": "Roots",
+    "eyebrow": "",
     "title": "Family",
     "body": "Some things keep me grounded: family, days spent around trees, and a few short lines that are easy to remember but heavy enough to shape how I live.",
     "imageAlt": "Mai Quoc Viet family photo",
@@ -211,33 +211,6 @@
     "title": "Projects I use to sharpen product thinking, backend engineering, and systems work.",
     "badge": "GitHub",
     "items": [
-      {
-        "name": "VietDon",
-        "detail": "An online donation platform for Vietnamese creators, built as a real product with Django, PostgreSQL, Celery, Channels, R2, and Pay2s on the backend; React + Tailwind on the frontend; and a Docker stack with Nginx, Django, Celery, PostgreSQL, Redis, and PgBouncer.",
-        "tech": [
-          "Django",
-          "Python",
-          "PostgreSQL",
-          "Celery",
-          "Channels",
-          "R2",
-          "Pay2s",
-          "React",
-          "Tailwind",
-          "Docker",
-          "Nginx",
-          "Redis",
-          "PgBouncer"
-        ],
-        "features": [
-          "Backend: Django + Python handles creators, donation flow, wallet, transactions, KYC, Pay2s integration, and object storage through R2",
-          "Realtime: Django Channels powers instant donation notifications, while Celery handles background jobs and transaction status sync",
-          "Database: PostgreSQL is the main data layer, Redis supports cache/queue flows, and PgBouncer improves connection pooling",
-          "Frontend: React + Tailwind powers the public donation page, creator dashboard, and low-friction donation experience",
-          "Docker stack: Nginx, Django, Celery, PostgreSQL, Redis, and PgBouncer are split by responsibility for cleaner deployment"
-        ],
-        "href": "https://github.com/maiviet283/vietdon/"
-      },
       {
         "name": "Network Intrusion Detection & Alert System",
         "detail": "A Python + Elasticsearch system that collects and analyzes security logs from Zeek, Nginx, and Django to detect abnormal behavior and send realtime alerts.",

@@ -69,30 +69,56 @@ img {
 
 .site-shell::after {
   position: fixed;
-  inset: -20%;
+  inset: 0;
   z-index: 999;
   pointer-events: none;
-  transform: translateX(-120%) skewX(-14deg);
   background:
-    linear-gradient(90deg, transparent 0 18%, var(--accent-red) 28%, var(--accent-yellow) 48%, var(--accent-green) 68%, transparent 82%),
-    linear-gradient(90deg, transparent, var(--shine-line), transparent);
+    radial-gradient(circle at 18% 22%, color-mix(in srgb, var(--accent-yellow) 22%, transparent), transparent 24rem),
+    radial-gradient(circle at 82% 28%, color-mix(in srgb, var(--accent-green) 20%, transparent), transparent 26rem),
+    linear-gradient(135deg, color-mix(in srgb, var(--page-bg) 86%, transparent), color-mix(in srgb, var(--panel-bg) 78%, transparent));
   content: "";
   opacity: 0;
+  backdrop-filter: blur(0);
 }
 
 .theme-is-switching::after {
-  animation: theme-sweep 520ms cubic-bezier(0.76, 0, 0.24, 1);
+  animation: theme-soft-fade 620ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.theme-is-switching .topbar,
-.theme-is-switching .portrait-frame,
-.theme-is-switching .live-card,
-.theme-is-switching .flow-board,
-.theme-is-switching .belief-panel,
-.theme-is-switching .timeline-item,
-.theme-is-switching .project-card,
-.theme-is-switching .contact-links a {
-  animation: theme-pop 420ms ease;
+body,
+body::before,
+.topbar,
+.topbar nav,
+.topbar nav a,
+.language-toggle,
+.menu-toggle,
+.theme-toggle,
+.primary-action,
+.secondary-action,
+.contact-links a,
+.portrait-frame,
+.signal-panel,
+.stat-item,
+.family-photo,
+.quote-card,
+.live-card,
+.vietdon-media,
+.flow-board,
+.flow-step,
+.belief-panel,
+.timeline-item,
+.project-card,
+.project-tech small,
+.stack-cloud span,
+.contact-section,
+.menu-backdrop {
+  transition:
+    background-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 320ms ease,
+    border-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 320ms ease,
+    filter 320ms ease;
 }
 
 .topbar {
@@ -245,6 +271,21 @@ img {
 .theme-toggle {
   background: var(--panel-bg);
   color: var(--text-strong);
+}
+
+.theme-toggle .theme-icon {
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 320ms ease,
+    border-color 320ms ease;
+}
+
+.theme-toggle:hover .theme-icon {
+  transform: rotate(16deg) scale(1.05);
+}
+
+.theme-is-switching .theme-toggle .theme-icon {
+  animation: theme-icon-settle 620ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .language-toggle span,
@@ -2088,30 +2129,31 @@ img {
   }
 }
 
-@keyframes theme-sweep {
+@keyframes theme-soft-fade {
   0% {
     opacity: 0;
-    transform: translateX(-120%) skewX(-14deg);
+    backdrop-filter: blur(0);
   }
-  18% {
-    opacity: 0.95;
-  }
-  58% {
-    opacity: 0.95;
+  35% {
+    opacity: 0.18;
+    backdrop-filter: blur(8px);
   }
   100% {
     opacity: 0;
-    transform: translateX(120%) skewX(-14deg);
+    backdrop-filter: blur(0);
   }
 }
 
-@keyframes theme-pop {
+@keyframes theme-icon-settle {
   0%,
   100% {
-    filter: none;
+    transform: rotate(0) scale(1);
   }
-  45% {
-    filter: saturate(1.35) brightness(1.1);
+  40% {
+    transform: rotate(160deg) scale(0.92);
+  }
+  72% {
+    transform: rotate(180deg) scale(1.08);
   }
 }
 

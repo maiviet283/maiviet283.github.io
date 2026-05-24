@@ -19,7 +19,7 @@ function HeroSection({ text, avatar, resume, externalLinkProps }) {
       </div>
 
       <div className="hero-actions reveal" aria-label={text.meta.heroActions}>
-        <a className="primary-action" href="#vietdon">
+        <a className="primary-action" href="https://vietdon.vn" {...externalLinkProps}>
           {text.hero.primaryAction}
         </a>
         <a className="secondary-action" href={resume} {...externalLinkProps}>
