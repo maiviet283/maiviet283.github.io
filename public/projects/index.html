@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f5402c" />
+
+    <title>Dự án – Backend, bảo mật & hệ thống | Mai Quốc Việt</title>
+    <meta
+      name="description"
+      content="Các dự án của Mai Quốc Việt (maiviet283): hệ thống phát hiện xâm nhập mạng, BookStore API, Clothing Shop API và VietDon. Python, Django, FastAPI, Elasticsearch, Redis."
+    />
+    <meta name="author" content="Mai Quốc Việt" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://profile.vietdon.vn/projects/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://profile.vietdon.vn/projects/" />
+    <meta property="og:title" content="Dự án của Mai Quốc Việt – Backend, bảo mật & hệ thống" />
+    <meta
+      property="og:description"
+      content="Hệ thống phát hiện xâm nhập mạng, BookStore API, Clothing Shop API và VietDon."
+    />
+    <meta property="og:image" content="https://profile.vietdon.vn/og-image.png" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://profile.vietdon.vn/og-image.png" />
+
+    <link rel="stylesheet" href="/pages.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": "https://profile.vietdon.vn/" },
+          { "@type": "ListItem", "position": 2, "name": "Dự án", "item": "https://profile.vietdon.vn/projects/" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Dự án của Mai Quốc Việt",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Network Intrusion Detection & Alert System",
+              "codeRepository": "https://github.com/maiviet283/analyze_logs",
+              "programmingLanguage": "Python",
+              "author": { "@type": "Person", "name": "Mai Quốc Việt" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "BookStore",
+              "codeRepository": "https://github.com/maiviet283/bookstore",
+              "programmingLanguage": "Python",
+              "author": { "@type": "Person", "name": "Mai Quốc Việt" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Clothing Shop API",
+              "codeRepository": "https://github.com/maiviet283/my_shop",
+              "programmingLanguage": "Python",
+              "author": { "@type": "Person", "name": "Mai Quốc Việt" }
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="topnav">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <img src="/logo.png" alt="Logo VietDon" />
+          <span>Mai Quốc Việt</span>
+        </a>
+        <nav>
+          <a href="/vietdon/">VietDon</a>
+          <a href="/projects/" aria-current="page">Dự án</a>
+          <a href="/about/">Giới thiệu</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Trang chủ</a> / <span>Dự án</span>
+      </nav>
+
+      <section class="page-hero">
+        <span class="eyebrow">Dự án</span>
+        <h1>Dự án backend, bảo mật & hệ thống</h1>
+        <p class="lead">
+          Những dự án <a href="/about/">Mai Quốc Việt</a> dùng để rèn kỹ năng backend,
+          bảo mật và tư duy hệ thống. Dự án chính hiện tại là
+          <a href="/vietdon/">VietDon</a>.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="cards">
+          <article class="card">
+            <h3>Network Intrusion Detection &amp; Alert System</h3>
+            <p>
+              Hệ thống thu thập và phân tích log bảo mật từ Zeek, Nginx và Django bằng
+              Python + Elasticsearch để phát hiện hành vi bất thường và gửi cảnh báo realtime.
+            </p>
+            <ul class="clean">
+              <li>Phát hiện DDoS, SQL Injection, brute-force thư mục và đăng nhập.</li>
+              <li>AI Advisor dùng ChatGPT API gợi ý hướng xử lý theo từng mối đe dọa.</li>
+              <li>Notifier gửi cảnh báo qua Telegram cho admin.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Elasticsearch</span>
+              <span class="tag">Zeek</span>
+              <span class="tag">Nginx</span>
+              <span class="tag">Telegram Bot</span>
+            </div>
+            <div class="actions">
+              <a class="btn btn-ghost" href="https://github.com/maiviet283/analyze_logs" target="_blank" rel="noopener">Xem GitHub</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>BookStore</h3>
+            <p>API quản lý sách xây bằng Django REST Framework, JWT, MySQL, Redis và React TypeScript.</p>
+            <ul class="clean">
+              <li>RESTful API cho hệ thống quản lý sách.</li>
+              <li>Xác thực bằng JWT.</li>
+              <li>Redis caching để giảm tải database.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Django</span>
+              <span class="tag">DRF</span>
+              <span class="tag">JWT</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Redis</span>
+            </div>
+            <div class="actions">
+              <a class="btn btn-ghost" href="https://github.com/maiviet283/bookstore" target="_blank" rel="noopener">Xem GitHub</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Clothing Shop API</h3>
+            <p>Backend e-commerce với xác thực, chống spam, Redis cache, Gunicorn và Nginx.</p>
+            <ul class="clean">
+              <li>API backend cho luồng thương mại điện tử.</li>
+              <li>Bảo mật: chống brute-force, anti-spam, kiểm tra request.</li>
+              <li>Deploy production với Gunicorn và Nginx.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Django</span>
+              <span class="tag">DRF</span>
+              <span class="tag">Redis</span>
+              <span class="tag">Gunicorn</span>
+              <span class="tag">Nginx</span>
+            </div>
+            <div class="actions">
+              <a class="btn btn-ghost" href="https://github.com/maiviet283/my_shop" target="_blank" rel="noopener">Xem GitHub</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <div class="wrap">
+        <nav>
+          <a href="/">Trang chủ</a>
+          <a href="/vietdon/">VietDon</a>
+          <a href="/projects/">Dự án</a>
+          <a href="/about/">Giới thiệu</a>
+        </nav>
+        <small>© <span id="y"></span> Mai Quốc Việt — Backend Developer tại Đà Nẵng.</small>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

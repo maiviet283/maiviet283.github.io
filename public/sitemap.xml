@@ -3,11 +3,29 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://profile.vietdon.vn/</loc>
-    <lastmod>2026-05-24</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://profile.vietdon.vn/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://profile.vietdon.vn/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://profile.vietdon.vn/" />
+  </url>
+  <url>
+    <loc>https://profile.vietdon.vn/about/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://profile.vietdon.vn/vietdon/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://profile.vietdon.vn/projects/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

@@ -2,14 +2,22 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo_vietdon.png" />
+
+    <!-- Favicons / App icons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#f5402c" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary SEO -->
     <title>Mai Quốc Việt – Backend Developer | VietDon | Đà Nẵng</title>
     <meta name="title" content="Mai Quốc Việt – Backend Developer | VietDon | Đà Nẵng" />
     <meta name="description" content="Mai Quốc Việt (maiviet283) – Backend developer từ Đà Nẵng. Đang xây VietDon, nền tảng donate online cho creator Việt Nam. Chuyên Python, Django, FastAPI, Node.js." />
-    <meta name="keywords" content="Mai Quốc Việt, Mai Quoc Viet, maiviet283, VietDon, backend developer Đà Nẵng, lập trình viên Đà Nẵng, lập trình Đà Nẵng, Python developer Vietnam, Django developer, FastAPI, creator economy Vietnam, donate online Việt Nam, profile Mai Quốc Việt" />
+    <meta name="keywords" content="Mai Quốc Việt, Mai Quoc Viet, maiviet283, VietDon, Mai Quốc Việt Hà Tĩnh, Mai Quốc Việt Kỳ Anh, Mai Quốc Việt Kỳ Khang, Mai Quốc Việt VietDon, Mai Quốc Việt Đà Nẵng, backend developer Đà Nẵng, lập trình viên Đà Nẵng, lập trình Đà Nẵng, Python developer Vietnam, Django developer, FastAPI, creator economy Vietnam, donate online Việt Nam, profile Mai Quốc Việt" />
     <meta name="author" content="Mai Quốc Việt" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://profile.vietdon.vn/" />
@@ -19,9 +27,10 @@
     <meta property="og:url" content="https://profile.vietdon.vn/" />
     <meta property="og:title" content="Mai Quốc Việt – Backend Developer | VietDon" />
     <meta property="og:description" content="Mai Quốc Việt (maiviet283) – Backend developer từ Đà Nẵng. Đang xây VietDon, nền tảng donate online cho creator Việt Nam." />
-    <meta property="og:image" content="https://profile.vietdon.vn/logo_vietdon.png" />
+    <meta property="og:image" content="https://profile.vietdon.vn/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mai Quốc Việt – Backend Developer | VietDon" />
     <meta property="og:locale" content="vi_VN" />
     <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:site_name" content="Mai Quốc Việt – profile.vietdon.vn" />
@@ -31,7 +40,7 @@
     <meta name="twitter:url" content="https://profile.vietdon.vn/" />
     <meta name="twitter:title" content="Mai Quốc Việt – Backend Developer | VietDon" />
     <meta name="twitter:description" content="Mai Quốc Việt (maiviet283) – Backend developer từ Đà Nẵng. Đang xây VietDon, nền tảng donate online cho creator Việt Nam." />
-    <meta name="twitter:image" content="https://profile.vietdon.vn/logo_vietdon.png" />
+    <meta name="twitter:image" content="https://profile.vietdon.vn/og-image.png" />
     <meta name="twitter:creator" content="@maiviet283" />
 
     <!-- Geo -->
@@ -46,7 +55,7 @@
       "name": "Mai Quốc Việt",
       "alternateName": ["Mai Quoc Viet", "maiviet283"],
       "url": "https://profile.vietdon.vn",
-      "image": "https://profile.vietdon.vn/logo_vietdon.png",
+      "image": "https://profile.vietdon.vn/avatar.jpg",
       "jobTitle": "Backend Developer",
       "description": "Backend developer trẻ từ Đà Nẵng, đang xây dựng VietDon – nền tảng donate online cho creator Việt Nam.",
       "worksFor": {
@@ -63,6 +72,14 @@
         "@type": "PostalAddress",
         "addressLocality": "Đà Nẵng",
         "addressCountry": "VN"
+      },
+      "birthPlace": {
+        "@type": "Place",
+        "name": "Kỳ Khang, Kỳ Anh, Hà Tĩnh, Việt Nam"
+      },
+      "homeLocation": {
+        "@type": "Place",
+        "name": "Đà Nẵng, Việt Nam"
       },
       "email": "maiviet283@gmail.com",
       "sameAs": [
@@ -91,12 +108,32 @@
       "author": {
         "@type": "Person",
         "name": "Mai Quốc Việt"
-      }
+      },
+      "hasPart": [
+        { "@type": "WebPage", "name": "VietDon", "url": "https://profile.vietdon.vn/vietdon/" },
+        { "@type": "WebPage", "name": "Dự án", "url": "https://profile.vietdon.vn/projects/" },
+        { "@type": "WebPage", "name": "Giới thiệu", "url": "https://profile.vietdon.vn/about/" }
+      ]
     }
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <noscript>
+        <h1>Mai Quốc Việt – Backend Developer tại Đà Nẵng</h1>
+        <p>
+          Mình là Mai Quốc Việt (maiviet283), backend developer làm việc tại Đà Nẵng,
+          quê ở Hà Tĩnh. Mình tập trung vào backend với Python, Django và FastAPI, và
+          đang xây VietDon – nền tảng donate online cho creator Việt Nam.
+        </p>
+        <nav>
+          <a href="/about/">Giới thiệu Mai Quốc Việt</a> ·
+          <a href="/vietdon/">VietDon</a> ·
+          <a href="/projects/">Dự án</a> ·
+          <a href="https://github.com/maiviet283">GitHub</a>
+        </nav>
+      </noscript>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

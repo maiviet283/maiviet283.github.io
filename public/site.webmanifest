@@ -1,0 +1,14 @@
+{
+  "name": "Mai Quốc Việt – Backend Developer",
+  "short_name": "Mai Quốc Việt",
+  "description": "Trang cá nhân của Mai Quốc Việt (maiviet283) – Backend developer từ Đà Nẵng, founder VietDon.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f5402c",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

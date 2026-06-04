@@ -40,8 +40,8 @@
   ],
   "hero": {
     "eyebrow": "",
-    "title": "Mình viết code bằng sự tò mò, sống bằng những chuyến đi.",
-    "body": "Mình là Mai Quốc Việt, một backend developer trẻ đến từ Đà Nẵng. Mình thích những buổi sáng có nắng, những chuyến đi gần thiên nhiên, thích nhìn con người Việt Nam làm ra sản phẩm tử tế cho chính thị trường Việt Nam. Code với mình không chỉ là công việc, mà là cách biến sự tò mò, lòng tự hào và năng lượng sống thành thứ chạy được ngoài đời.",
+    "title": "Chào, mình là Mai Quốc Việt — backend developer đang xây VietDon.",
+    "body": "Mình làm backend tại Đà Nẵng, quê ở Hà Tĩnh, chủ yếu với Python, Django và FastAPI: thiết kế API, tối ưu database và vận hành hệ thống. VietDon — nền tảng donate online cho creator Việt Nam — là sản phẩm mình đang xây từ lõi.",
     "primaryAction": "Xem VietDon",
     "secondaryAction": "Mở CV",
     "avatarAlt": "Mai Quốc Việt",
@@ -57,7 +57,7 @@
   "family": {
     "eyebrow": "",
     "title": "Gia đình",
-    "body": "Có những thứ giúp mình không bị cuốn đi quá xa: gia đình, những ngày được đứng giữa cây xanh, và vài câu nói đủ ngắn để nhớ nhưng đủ nặng để tự nhắc mình sống tử tế hơn.",
+    "body": "Vài giá trị mình giữ khi làm việc và khi sống: gia đình, sự kỷ luật, và một vài câu nói ngắn mình hay nhắc lại.",
     "imageAlt": "Ảnh gia đình của Mai Quốc Việt",
     "quotes": [
       {
@@ -84,8 +84,8 @@
   },
   "api": {
     "eyebrow": "Live signals",
-    "title": "Một vài tín hiệu sống kéo trực tiếp từ API.",
-    "body": "Không chỉ là chữ tĩnh trên portfolio. Mình để trang tự bắt vài nhịp thật: GitHub đang thế nào, Đà Nẵng hôm nay ra sao, và thời gian Việt Nam đang chảy tới đâu.",
+    "title": "Vài tín hiệu thời gian thực lấy trực tiếp từ API công khai.",
+    "body": "Trang này không chỉ là nội dung tĩnh. Nó kéo vài dữ liệu thật theo thời gian thực: hoạt động GitHub, thời tiết Đà Nẵng và giờ Việt Nam.",
     "loading": "Đang bắt tín hiệu...",
     "error": "Tín hiệu đang nhiễu, thử lại sau.",
     "refresh": "Làm mới",
@@ -134,7 +134,7 @@
   "vietdon": {
     "eyebrow": "Main project",
     "title": "VietDon: donate online cho creator Việt Nam.",
-    "body": "VietDon sinh ra từ một suy nghĩ rất Việt Nam: người xem muốn ủng hộ creator mình thích thì mọi thứ phải nhanh, quen thuộc và dễ dùng như mở app ngân hàng. Mình đang xây sản phẩm này từ core: đăng ký creator, KYC, public donate page, VietQR/Pay2s, ví streamer, dashboard doanh thu và thông báo realtime.",
+    "body": "VietDon giải quyết một nhu cầu đơn giản: để người xem ủng hộ creator mình thích một cách nhanh, quen thuộc và dễ như mở app ngân hàng. Mình xây sản phẩm từ lõi: đăng ký creator, KYC, trang donate công khai, VietQR/Pay2s, ví streamer, dashboard doanh thu và thông báo realtime.",
     "bannerAlt": "Logo banner VietDon",
     "logoAlt": "Logo tròn VietDon",
     "flow": [
@@ -157,7 +157,7 @@
   },
   "stack": {
     "eyebrow": "Core stack",
-    "title": "Mình thích xây phần lõi chắc, rồi đóng gói nó thành trải nghiệm có hồn.",
+    "title": "Mình xây phần lõi chắc chắn, rồi hoàn thiện thành trải nghiệm rõ ràng.",
     "items": [
       "Python",
       "Django",
@@ -177,11 +177,11 @@
       "Ubuntu"
     ],
     "beliefTitle": "Mình tin vào điều gì?",
-    "beliefBody": "Một sản phẩm tốt phải vừa có kỹ thuật chắc, vừa có cảm giác gần gũi với người dùng. API rõ contract, database có index đúng, cache ở điểm nóng, deploy có log và monitoring. Nhưng sau cùng, thứ quan trọng nhất vẫn là nó giúp con người làm việc gì đó dễ hơn, vui hơn, nhẹ hơn."
+    "beliefBody": "Một sản phẩm tốt cần kỹ thuật vững và trải nghiệm rõ ràng: API có contract rõ, database index đúng, cache ở điểm nóng, deploy có log và monitoring. Mục tiêu cuối cùng là giúp người dùng làm việc nhanh hơn và dễ hơn."
   },
   "work": {
     "eyebrow": "Experience",
-    "title": "Học từ hệ thống thật, từ con người thật, rồi đem về xây sản phẩm riêng.",
+    "title": "Học từ hệ thống và đội ngũ thực tế, rồi áp dụng vào sản phẩm của mình.",
     "items": [
       {
         "period": "Hiện tại",
@@ -207,8 +207,8 @@
     ]
   },
   "projects": {
-    "eyebrow": "Side quests",
-    "title": "Những dự án mình dùng để mài kỹ năng sản phẩm, backend và hệ thống.",
+    "eyebrow": "Dự án",
+    "title": "Các dự án mình dùng để rèn backend, bảo mật và tư duy hệ thống.",
     "badge": "GitHub",
     "items": [
       {
@@ -248,7 +248,7 @@
   },
   "contact": {
     "eyebrow": "Contact",
-    "title": "Chat với mình ở đây nhé.",
+    "title": "Kết nối với mình.",
     "links": [
       { "label": "Email", "value": "maiviet283@gmail.com", "href": "mailto:maiviet283@gmail.com" },
       { "label": "Facebook", "value": "maiviet283", "href": "https://www.facebook.com/maiviet283" },
@@ -258,5 +258,15 @@
       { "label": "LinkedIn", "value": "maiviet283", "href": "https://www.linkedin.com/in/maiviet283/" },
       { "label": "Locket", "value": "maiviet283", "href": "https://locket.cam/maiviet283" }
     ]
+  },
+  "footer": {
+    "tagline": "Mai Quốc Việt — Backend Developer tại Đà Nẵng, founder VietDon.",
+    "pagesLabel": "Trang",
+    "pages": [
+      { "label": "VietDon", "href": "/vietdon/" },
+      { "label": "Dự án", "href": "/projects/" },
+      { "label": "Giới thiệu", "href": "/about/" }
+    ],
+    "rights": "Mọi quyền được bảo lưu."
   }
 }

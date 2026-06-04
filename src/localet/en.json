@@ -40,8 +40,8 @@
   ],
   "hero": {
     "eyebrow": "",
-    "title": "I write code with curiosity and live through small journeys.",
-    "body": "I am Mai Quốc Việt, a young backend developer from Da Nang. I love sunny mornings, small trips close to nature, and the idea of Vietnamese people building thoughtful products for the Vietnamese market. Code is not only work to me; it is a way to turn curiosity, pride, and life energy into something people can actually use.",
+    "title": "Hi, I'm Mai Quốc Việt — a backend developer building VietDon.",
+    "body": "I work on backend in Da Nang, originally from Hà Tĩnh, mostly with Python, Django, and FastAPI: API design, database optimization, and running systems in production. VietDon, an online donation platform for Vietnamese creators, is the product I'm building from the core.",
     "primaryAction": "See VietDon",
     "secondaryAction": "Open CV",
     "avatarAlt": "Mai Quốc Việt",
@@ -57,7 +57,7 @@
   "family": {
     "eyebrow": "",
     "title": "Family",
-    "body": "Some things keep me grounded: family, days spent around trees, and a few short lines that are easy to remember but heavy enough to shape how I live.",
+    "body": "A few things that keep me grounded: family, discipline, and a handful of short lines I keep coming back to.",
     "imageAlt": "Mai Quoc Viet family photo",
     "quotes": [
       {
@@ -84,8 +84,8 @@
   },
   "api": {
     "eyebrow": "Live signals",
-    "title": "A few living signals pulled straight from public APIs.",
-    "body": "This portfolio is not only static copy. It catches a few real pulses: how GitHub is moving, what Da Nang feels like today, and where Vietnam time is right now.",
+    "title": "A few real-time signals pulled directly from public APIs.",
+    "body": "This page isn't only static content. It pulls a few real-time data points: GitHub activity, Da Nang weather, and Vietnam time.",
     "loading": "Catching signals...",
     "error": "The signal is noisy. Try again later.",
     "refresh": "Refresh",
@@ -134,7 +134,7 @@
   "vietdon": {
     "eyebrow": "Main project",
     "title": "VietDon: online donations for Vietnamese creators.",
-    "body": "VietDon comes from a very Vietnamese thought: if viewers want to support the creators they love, the flow should feel fast, familiar, and as natural as opening a banking app. I am building it from the core: creator registration, KYC, public donation pages, VietQR/Pay2s, streamer wallet, revenue dashboard, and realtime notifications.",
+    "body": "VietDon solves a simple need: let viewers support the creators they love quickly, with a flow as familiar and easy as opening a banking app. I'm building it from the core: creator registration, KYC, public donation pages, VietQR/Pay2s, streamer wallet, revenue dashboard, and realtime notifications.",
     "bannerAlt": "VietDon banner logo",
     "logoAlt": "VietDon round logo",
     "flow": [
@@ -157,7 +157,7 @@
   },
   "stack": {
     "eyebrow": "Core stack",
-    "title": "I like building a solid core, then wrapping it in an experience with soul.",
+    "title": "I build a solid core, then finish it into a clear experience.",
     "items": [
       "Python",
       "Django",
@@ -177,11 +177,11 @@
       "Ubuntu"
     ],
     "beliefTitle": "What do I believe in?",
-    "beliefBody": "A good product needs both strong engineering and a human feeling. Clear API contracts, database indexes that match real flows, cache in the right hot paths, and deployments with logs and monitoring. But in the end, what matters most is whether it helps people do something easier, happier, and lighter."
+    "beliefBody": "A good product needs solid engineering and a clear experience: well-defined API contracts, database indexes that match real flows, caching on hot paths, and deployments with logging and monitoring. The end goal is simple: help people work faster and more easily."
   },
   "work": {
     "eyebrow": "Experience",
-    "title": "I learn from real systems and real people, then bring that back into my own products.",
+    "title": "Learning from real systems and teams, then applying it to my own products.",
     "items": [
       {
         "period": "Present",
@@ -207,8 +207,8 @@
     ]
   },
   "projects": {
-    "eyebrow": "Side quests",
-    "title": "Projects I use to sharpen product thinking, backend engineering, and systems work.",
+    "eyebrow": "Projects",
+    "title": "Projects I use to sharpen backend, security, and systems skills.",
     "badge": "GitHub",
     "items": [
       {
@@ -248,7 +248,7 @@
   },
   "contact": {
     "eyebrow": "Contact",
-    "title": "Chat with me here.",
+    "title": "Get in touch.",
     "links": [
       { "label": "Email", "value": "maiviet283@gmail.com", "href": "mailto:maiviet283@gmail.com" },
       { "label": "Facebook", "value": "maiviet283", "href": "https://www.facebook.com/maiviet283" },
@@ -258,5 +258,15 @@
       { "label": "LinkedIn", "value": "maiviet283", "href": "https://www.linkedin.com/in/maiviet283/" },
       { "label": "Locket", "value": "maiviet283", "href": "https://locket.cam/maiviet283" }
     ]
+  },
+  "footer": {
+    "tagline": "Mai Quốc Việt — Backend Developer in Da Nang, founder of VietDon.",
+    "pagesLabel": "Pages",
+    "pages": [
+      { "label": "VietDon", "href": "/vietdon/" },
+      { "label": "Projects", "href": "/projects/" },
+      { "label": "About", "href": "/about/" }
+    ],
+    "rights": "All rights reserved."
   }
 }

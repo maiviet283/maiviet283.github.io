@@ -5,11 +5,11 @@ import Header from './components/Header'
 import HeroSection from './components/HeroSection'
 import LiveSignalsSection from './components/LiveSignalsSection'
 import ProjectsSection from './components/ProjectsSection'
+import SiteFooter from './components/SiteFooter'
 import StackSection from './components/StackSection'
 import StatsStrip from './components/StatsStrip'
 import VietDonSection from './components/VietDonSection'
 import WorkSection from './components/WorkSection'
-import resume from './data/cv/MaiQUOCVIET.pdf'
 import avatar from './data/images/avatar.png'
 import vietDonBanner from './data/images/banner_vietdon.png'
 import myFamily from './data/images/myfamily.jpg'
@@ -21,9 +21,10 @@ import './App.css'
 
 const locales = { vi, en }
 const vietDonLogo = '/logo.png'
+const resume = '/MAI_QUOC_VIET.pdf'
 
 function App() {
-  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'en')
+  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'vi')
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark')
   const [isThemeSwitching, setIsThemeSwitching] = useState(false)
   const themeSwitchTimerRef = useRef(null)
@@ -115,6 +116,7 @@ function App() {
       <WorkSection text={text} externalLinkProps={externalLinkProps} />
       <ProjectsSection text={text} externalLinkProps={externalLinkProps} />
       <ContactSection text={text} externalLinkProps={externalLinkProps} />
+      <SiteFooter text={text} />
     </main>
   )
 }
