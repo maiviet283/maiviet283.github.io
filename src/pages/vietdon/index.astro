@@ -1,0 +1,83 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro'
+
+const webAppJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'VietDon',
+  url: 'https://maiviet.vietdon.vn/vietdon/',
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Web',
+  description:
+    'Nền tảng donate online cho creator Việt Nam: VietQR, ví streamer, dashboard doanh thu và thông báo realtime.',
+  inLanguage: 'vi',
+  creator: {
+    '@type': 'Person',
+    name: 'Mai Quốc Việt',
+    url: 'https://maiviet.vietdon.vn/',
+  },
+}
+---
+
+<PageLayout
+  title="VietDon – Nền tảng donate online cho creator Việt Nam | Mai Quốc Việt"
+  description="VietDon là nền tảng donate online cho creator Việt Nam: VietQR, ví streamer, dashboard doanh thu và thông báo realtime. Dự án do Mai Quốc Việt (maiviet283) xây dựng."
+  path="/vietdon/"
+  crumbLabel="VietDon"
+  jsonLd={[webAppJsonLd]}
+>
+  <section class="page-hero">
+    <span class="eyebrow">Dự án chính</span>
+    <h1>VietDon — donate online cho creator Việt Nam</h1>
+    <p class="lead">
+      VietDon là nền tảng giúp người xem ủng hộ creator mình yêu thích một cách
+      nhanh, quen thuộc và dễ như mở app ngân hàng. Sản phẩm được xây từ lõi bởi
+      <a href="/about/">Mai Quốc Việt</a>, backend developer tại Đà Nẵng.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://vietdon.vn" target="_blank" rel="noopener">Mở VietDon</a>
+      <a class="btn btn-ghost" href="/">Về trang chủ</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>VietDon hoạt động thế nào</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="step-num">01</span>
+        <h3>Creator lên kênh</h3>
+        <p>Đăng ký, hoàn tất KYC, cấu hình trang donate và kết nối tài khoản ngân hàng nhận tiền.</p>
+      </div>
+      <div class="card">
+        <span class="step-num">02</span>
+        <h3>Viewer donate nhanh</h3>
+        <p>Không cần đăng nhập phức tạp: chọn số tiền và thanh toán bằng VietQR hoặc Pay2s.</p>
+      </div>
+      <div class="card">
+        <span class="step-num">03</span>
+        <h3>Ví cập nhật realtime</h3>
+        <p>Giao dịch xác nhận xong là dashboard cập nhật ngay, creator theo dõi doanh thu trực tiếp.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Tính năng chính</h2>
+    <ul class="clean">
+      <li>Đăng ký creator và xác minh danh tính (KYC).</li>
+      <li>Trang donate công khai cho từng creator.</li>
+      <li>Thanh toán qua VietQR / Pay2s.</li>
+      <li>Ví streamer và dashboard doanh thu.</li>
+      <li>Thông báo (alert) realtime khi có donate.</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">Django</span>
+      <span class="tag">FastAPI</span>
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">Redis</span>
+      <span class="tag">VietQR</span>
+      <span class="tag">Realtime</span>
+    </div>
+  </section>
+</PageLayout>

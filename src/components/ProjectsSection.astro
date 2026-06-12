@@ -1,0 +1,62 @@
+---
+import type { Locale } from '../types'
+
+interface Props {
+  text: Locale
+}
+
+const { text } = Astro.props
+
+const isVietnamese = text.language.current === 'VI'
+const expandLabel = isVietnamese ? 'Xem chi tiết' : 'View details'
+const collapseLabel = isVietnamese ? 'Thu gọn' : 'Collapse'
+const openGithubLabel = isVietnamese ? 'Mở GitHub' : 'Open GitHub'
+---
+
+<section class="section projects-grid" aria-label={text.meta.otherProjects}>
+  <div class="section-heading compact reveal">
+    <p class="eyebrow">{text.projects.eyebrow}</p>
+    <h2>{text.projects.title}</h2>
+  </div>
+
+  {text.projects.items.map((project) => (
+    <article class="project-card reveal">
+      <span>{text.projects.badge}</span>
+      <h3>{project.name}</h3>
+      <p class="project-summary is-collapsed">{project.detail}</p>
+      <div class="project-tech">
+        {project.tech.map((item) => <small>{item}</small>)}
+      </div>
+      <ul class="project-feature-list is-collapsed">
+        {project.features.map((feature) => <li>{feature}</li>)}
+      </ul>
+      <div class="project-actions">
+        <button
+          class="project-toggle"
+          type="button"
+          aria-expanded="false"
+          data-label-expand={expandLabel}
+          data-label-collapse={collapseLabel}
+        >
+          {expandLabel}
+        </button>
+        <a href={project.href} target="_blank" rel="noreferrer">
+          {openGithubLabel}
+        </a>
+      </div>
+    </article>
+  ))}
+</section>
+
+<style is:global>
+  /* The expand/collapse toggle only exists on compact viewports (matches the old JS behavior). */
+  .project-toggle {
+    display: none;
+  }
+
+  @media (max-width: 860px) {
+    .project-toggle {
+      display: inline-flex;
+    }
+  }
+</style>

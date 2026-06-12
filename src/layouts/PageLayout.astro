@@ -1,0 +1,107 @@
+---
+interface Props {
+  title: string
+  description: string
+  keywords?: string
+  path: string
+  ogType?: string
+  crumbLabel: string
+  jsonLd?: object[]
+}
+
+const { title, description, keywords, path, ogType = 'website', crumbLabel, jsonLd = [] } = Astro.props
+
+const siteUrl = 'https://maiviet.vietdon.vn'
+const canonical = `${siteUrl}${path}`
+const year = new Date().getFullYear()
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: `${siteUrl}/` },
+    { '@type': 'ListItem', position: 2, name: crumbLabel, item: canonical },
+  ],
+}
+
+const navLinks = [
+  { href: '/vietdon/', label: 'VietDon' },
+  { href: '/projects/', label: 'Dự án' },
+  { href: '/about/', label: 'Giới thiệu' },
+]
+---
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#f5402c" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords ? <meta name="keywords" content={keywords} /> : null}
+    <meta name="author" content="Mai Quốc Việt" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+    <meta property="og:locale" content="vi_VN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={`${siteUrl}/og-image.png`} />
+
+    <link rel="stylesheet" href="/pages.css" />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+    {jsonLd.map((schema) => (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+  </head>
+  <body>
+    <header class="topnav">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <img src="/logo.png" alt="Logo VietDon" />
+          <span>Mai Quốc Việt</span>
+        </a>
+        <nav>
+          {navLinks.map((link) => (
+            <a href={link.href} aria-current={link.href === path ? 'page' : undefined}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Trang chủ</a> / <span>{crumbLabel}</span>
+      </nav>
+
+      <slot />
+    </main>
+
+    <footer class="page-footer">
+      <div class="wrap">
+        <nav>
+          <a href="/">Trang chủ</a>
+          <a href="/vietdon/">VietDon</a>
+          <a href="/projects/">Dự án</a>
+          <a href="/about/">Giới thiệu</a>
+        </nav>
+        <small>© {year} Mai Quốc Việt — Backend Developer tại Đà Nẵng.</small>
+      </div>
+    </footer>
+  </body>
+</html>

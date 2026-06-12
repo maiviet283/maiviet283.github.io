@@ -1,0 +1,189 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro'
+
+const profilePageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Mai Quốc Việt',
+    alternateName: ['Mai Quoc Viet', 'maiviet283'],
+    url: 'https://maiviet.vietdon.vn/',
+    image: 'https://maiviet.vietdon.vn/avatar.jpg',
+    jobTitle: 'Backend Developer',
+    description:
+      'Mai Quốc Việt – backend developer tại Đà Nẵng, sinh ra ở Kỳ Khang, Kỳ Anh, Hà Tĩnh. Cựu sinh viên VKU (mã sinh viên 21IT595, lớp 21NS), founder VietDon.',
+    birthPlace: { '@type': 'Place', name: 'Kỳ Khang, Kỳ Anh, Hà Tĩnh, Việt Nam' },
+    homeLocation: { '@type': 'Place', name: 'Đà Nẵng, Việt Nam' },
+    nationality: { '@type': 'Country', name: 'Việt Nam' },
+    worksFor: { '@type': 'Organization', name: 'SapotarCorp', url: 'https://www.sapotacorp.vn/' },
+    alumniOf: {
+      '@type': 'CollegeOrUniversity',
+      name: 'VKU – Trường Đại học Công nghệ Thông tin và Truyền thông Việt – Hàn',
+      alternateName: ['VKU', 'Trường Việt Hàn', 'Vietnam-Korea University of Information and Communication Technology'],
+      sameAs: 'https://vku.udn.vn/',
+    },
+    identifier: [
+      { '@type': 'PropertyValue', name: 'Mã sinh viên VKU', value: '21IT595' },
+      { '@type': 'PropertyValue', name: 'Lớp', value: '21NS' },
+    ],
+    sameAs: [
+      'https://github.com/maiviet283',
+      'https://www.facebook.com/maiviet283',
+      'https://www.linkedin.com/in/maiviet283/',
+      'https://www.tiktok.com/@maiviet283',
+      'https://www.instagram.com/maiviet283',
+    ],
+    knowsAbout: ['Python', 'Django', 'FastAPI', 'Node.js', 'PostgreSQL', 'Redis', 'Docker', 'Backend Development'],
+    knowsLanguage: ['vi', 'en'],
+  },
+}
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Mai Quốc Việt là ai?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Mai Quốc Việt (maiviet283) là backend developer làm việc tại Đà Nẵng, chuyên Python, Django và FastAPI. Anh là founder của VietDon – nền tảng donate online cho creator Việt Nam, hiện làm việc tại SapotarCorp.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Mai Quốc Việt quê ở đâu?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Mai Quốc Việt sinh ra và lớn lên ở xã Kỳ Khang, huyện Kỳ Anh, tỉnh Hà Tĩnh, Việt Nam. Hiện anh sống và làm việc tại Đà Nẵng.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Mai Quốc Việt học trường gì?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Mai Quốc Việt là sinh viên VKU – Trường Đại học Công nghệ Thông tin và Truyền thông Việt – Hàn (Đại học Đà Nẵng), mã sinh viên 21IT595, lớp 21NS, GPA 8.2/10.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Mai Quốc Việt đang làm dự án gì?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dự án chính của Mai Quốc Việt là VietDon – nền tảng donate online cho creator Việt Nam với VietQR, ví streamer, dashboard doanh thu và thông báo realtime.',
+      },
+    },
+  ],
+}
+---
+
+<PageLayout
+  title="Mai Quốc Việt – Backend Developer Đà Nẵng, quê Kỳ Anh, Hà Tĩnh | Giới thiệu"
+  description="Giới thiệu Mai Quốc Việt (maiviet283) – Backend developer tại Đà Nẵng, quê Kỳ Khang, Kỳ Anh, Hà Tĩnh. Sinh viên VKU (21IT595, lớp 21NS), làm việc tại SapotarCorp, founder VietDon. Python, Django, FastAPI."
+  keywords="Mai Quốc Việt, Mai Quoc Viet, maiviet283, Mai Quốc Việt Hà Tĩnh, Mai Quốc Việt Kỳ Anh, Mai Quốc Việt Kỳ Khang, Mai Quốc Việt VKU, Mai Quốc Việt 21IT595, Mai Quốc Việt Đà Nẵng, Mai Quốc Việt VietDon, backend developer Đà Nẵng"
+  path="/about/"
+  ogType="profile"
+  crumbLabel="Giới thiệu"
+  jsonLd={[profilePageJsonLd, faqJsonLd]}
+>
+  <section class="page-hero">
+    <span class="eyebrow">Giới thiệu</span>
+    <h1>Mai Quốc Việt — Backend Developer tại Đà Nẵng</h1>
+    <p class="lead">
+      Mình là Mai Quốc Việt (maiviet283), backend developer làm việc tại Đà Nẵng,
+      sinh ra ở Kỳ Khang, Kỳ Anh, Hà Tĩnh. Mình tập trung vào backend với Python, Django và FastAPI:
+      thiết kế API, tối ưu database và vận hành hệ thống. Hiện mình đang xây
+      <a href="/vietdon/">VietDon</a> — nền tảng donate online cho creator Việt Nam.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/MAI_QUOC_VIET.pdf" target="_blank" rel="noopener">Mở CV</a>
+      <a class="btn btn-ghost" href="/projects/">Xem dự án</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Thông tin nhanh</h2>
+    <ul class="facts">
+      <li><b>Họ tên</b><span>Mai Quốc Việt</span></li>
+      <li><b>Vai trò</b><span>Backend / Fullstack Developer</span></li>
+      <li><b>Nơi làm việc</b><span>Đà Nẵng, Việt Nam</span></li>
+      <li><b>Quê quán</b><span>Kỳ Khang, Kỳ Anh, Hà Tĩnh, Việt Nam</span></li>
+      <li><b>Học vấn</b><span>VKU – ĐH Công nghệ Thông tin và Truyền thông Việt – Hàn</span></li>
+      <li><b>Mã sinh viên</b><span>21IT595 — lớp 21NS</span></li>
+      <li><b>GPA</b><span>8.2/10</span></li>
+      <li><b>Công ty</b><span>SapotarCorp</span></li>
+      <li><b>Dự án chính</b><span>VietDon</span></li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Mai Quốc Việt là ai?</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Quê quán: Kỳ Khang, Kỳ Anh, Hà Tĩnh</h3>
+        <p>
+          Mai Quốc Việt sinh ra và lớn lên ở xã Kỳ Khang, huyện Kỳ Anh, tỉnh Hà Tĩnh —
+          vùng đất miền Trung nhiều nắng gió. Sau khi tốt nghiệp phổ thông, mình vào Đà Nẵng
+          học đại học và gắn bó với thành phố này đến nay.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Sinh viên VKU — 21IT595, lớp 21NS</h3>
+        <p>
+          Mình là sinh viên VKU – Trường Đại học Công nghệ Thông tin và Truyền thông
+          Việt – Hàn (Đại học Đà Nẵng), mã sinh viên 21IT595, lớp 21NS, GPA 8.2/10.
+          Tại đây mình bắt đầu con đường backend với Python và hệ thống.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Founder VietDon</h3>
+        <p>
+          Dự án tâm huyết nhất của mình là <a href="/vietdon/">VietDon</a> — nền tảng
+          donate online cho creator Việt Nam: VietQR, ví streamer, dashboard doanh thu
+          và thông báo realtime, xây từ lõi bằng Python.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Kinh nghiệm</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="step-num">Hiện tại</span>
+        <h3>Fresher Fullstack Developer — SapotarCorp</h3>
+        <p>Làm việc trong môi trường sản phẩm thực tế, rèn fullstack, tư duy hệ thống và đưa tính năng từ ý tưởng đến vận hành.</p>
+      </div>
+      <div class="card">
+        <span class="step-num">09/2025 – 12/2025</span>
+        <h3>Intern Backend — Rikai Technology</h3>
+        <p>Xây routing module cho hệ thống tìm đường quy mô toàn quốc, xử lý dữ liệu bản đồ lớn với Python, FastAPI và GeoPandas. Tập trung tốc độ, query PostgreSQL và kiến trúc async.</p>
+      </div>
+      <div class="card">
+        <span class="step-num">06/2024 – 08/2024</span>
+        <h3>Intern Networking — VNNIC Technology</h3>
+        <p>Tiếp xúc hạ tầng thật: routing, security fundamentals, monitoring với Nagios và ELK Stack.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Công nghệ</h2>
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">Django</span>
+      <span class="tag">FastAPI</span>
+      <span class="tag">Node.js</span>
+      <span class="tag">C# / .NET</span>
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">MySQL</span>
+      <span class="tag">Redis</span>
+      <span class="tag">Docker</span>
+      <span class="tag">Nginx</span>
+      <span class="tag">React</span>
+      <span class="tag">TypeScript</span>
+    </div>
+  </section>
+</PageLayout>

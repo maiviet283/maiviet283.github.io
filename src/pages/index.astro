@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ContactSection from '../components/ContactSection.astro'
+import FamilyQuotesSection from '../components/FamilyQuotesSection.astro'
+import Header from '../components/Header.astro'
+import HeroSection from '../components/HeroSection.astro'
+import LiveSignalsSection from '../components/LiveSignalsSection.astro'
+import ProjectsSection from '../components/ProjectsSection.astro'
+import SiteFooter from '../components/SiteFooter.astro'
+import StackSection from '../components/StackSection.astro'
+import StatsStrip from '../components/StatsStrip.astro'
+import VietDonSection from '../components/VietDonSection.astro'
+import WorkSection from '../components/WorkSection.astro'
+import avatar from '../data/images/avatar.png'
+import vietDonBanner from '../data/images/banner_vietdon.png'
+import myFamily from '../data/images/myfamily.jpg'
+import myFamily2 from '../data/images/myfamily2.png'
+import text from '../localet/vi.json'
+
+const vietDonLogo = '/logo.png'
+const resume = '/MAI_QUOC_VIET.pdf'
+---
+
+<Layout lang="vi" text={text}>
+  <main class="site-shell">
+    <Header text={text} logo={vietDonLogo} langHref="/en/" />
+    <HeroSection text={text} avatar={avatar.src} resume={resume} />
+    <StatsStrip text={text} />
+    <FamilyQuotesSection text={text} images={[myFamily.src, myFamily2.src]} />
+    <LiveSignalsSection text={text} />
+    <VietDonSection text={text} banner={vietDonBanner.src} logo={vietDonLogo} />
+    <StackSection text={text} />
+    <WorkSection text={text} />
+    <ProjectsSection text={text} />
+    <ContactSection text={text} />
+    <SiteFooter text={text} />
+  </main>
+</Layout>

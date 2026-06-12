@@ -1,0 +1,29 @@
+---
+import type { Locale } from '../types'
+
+interface Props {
+  text: Locale
+}
+
+const { text } = Astro.props
+---
+
+<section class="section work-section" id="work">
+  <div class="section-heading compact reveal">
+    <p class="eyebrow">{text.work.eyebrow}</p>
+    <h2>{text.work.title}</h2>
+  </div>
+
+  <div class="timeline">
+    {text.work.items.map((item) => (
+      <article class="timeline-item reveal">
+        <span>{item.period}</span>
+        <h3>{item.role}</h3>
+        <a class="company-link" href={item.href} target="_blank" rel="noreferrer">
+          {item.company}
+        </a>
+        <p>{item.body}</p>
+      </article>
+    ))}
+  </div>
+</section>

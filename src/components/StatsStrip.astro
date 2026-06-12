@@ -1,0 +1,18 @@
+---
+import type { Locale } from '../types'
+
+interface Props {
+  text: Locale
+}
+
+const { text } = Astro.props
+---
+
+<section class="stats-strip" aria-label={text.meta.keyNumbers}>
+  {text.stats.map((item) => (
+    <div class="stat-item reveal">
+      <strong>{item.value}</strong>
+      <span>{item.label}</span>
+    </div>
+  ))}
+</section>

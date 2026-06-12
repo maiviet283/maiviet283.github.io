@@ -1,0 +1,39 @@
+---
+import type { Locale } from '../types'
+
+interface Props {
+  text: Locale
+  images: string[]
+}
+
+const { text, images } = Astro.props
+---
+
+<section class="section family-section">
+  <div class="family-gallery reveal">
+    {images.map((image, index) => (
+      <div class="family-photo">
+        <img src={image} alt={`${text.family.imageAlt} ${index + 1}`} />
+      </div>
+    ))}
+  </div>
+
+  <div class="family-content">
+    <div class="section-heading compact reveal">
+      {text.family.eyebrow ? <p class="eyebrow">{text.family.eyebrow}</p> : null}
+      <h2>{text.family.title}</h2>
+      <p>{text.family.body}</p>
+    </div>
+
+    <div class="quote-list">
+      {text.family.quotes.map((quote) => (
+        <figure class="quote-card reveal">
+          <blockquote>{quote.text}</blockquote>
+          <figcaption>
+            <strong>{quote.author}</strong>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

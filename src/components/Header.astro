@@ -1,0 +1,51 @@
+---
+import type { Locale } from '../types'
+
+interface Props {
+  text: Locale
+  logo: string
+  langHref: string
+}
+
+const { text, logo, langHref } = Astro.props
+---
+
+<header class="topbar" aria-label={text.meta.primaryNavigation}>
+  <a class="brand" href="#top" aria-label={text.meta.homeAria}>
+    <span class="brand-mark">
+      <img src={logo} alt="" aria-hidden="true" />
+    </span>
+    <span>{text.brand.name}</span>
+  </a>
+
+  <div class="header-controls">
+    <button class="menu-backdrop" type="button" aria-hidden="true" tabindex="-1"></button>
+    <nav>
+      {text.nav.map((link) => <a href={link.href}>{link.label}</a>)}
+    </nav>
+    <a class="language-toggle" href={langHref} aria-label={text.meta.switchLanguage}>
+      {text.language.current}
+      <span>{text.language.next}</span>
+    </a>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-label={text.menu.open}
+      data-label-open={text.menu.open}
+      data-label-close={text.menu.close}
+    >
+      <span aria-hidden="true"></span>
+      {text.menu.label}
+    </button>
+    <button
+      class="theme-toggle"
+      type="button"
+      aria-label={text.meta.switchTheme}
+      data-label-to-light={text.theme.toLight}
+      data-label-to-dark={text.theme.toDark}
+    >
+      <span class="theme-icon moon-icon" aria-hidden="true"></span>{text.theme.toLight}
+    </button>
+  </div>
+</header>

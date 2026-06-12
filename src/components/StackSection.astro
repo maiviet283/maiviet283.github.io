@@ -1,0 +1,25 @@
+---
+import type { Locale } from '../types'
+
+interface Props {
+  text: Locale
+}
+
+const { text } = Astro.props
+---
+
+<section class="section split-section" id="stack">
+  <div class="section-heading compact reveal">
+    <p class="eyebrow">{text.stack.eyebrow}</p>
+    <h2>{text.stack.title}</h2>
+  </div>
+
+  <div class="stack-cloud reveal" aria-label={text.meta.technologyStack}>
+    {text.stack.items.map((item) => <span>{item}</span>)}
+  </div>
+
+  <div class="belief-panel reveal">
+    <h3>{text.stack.beliefTitle}</h3>
+    <p>{text.stack.beliefBody}</p>
+  </div>
+</section>

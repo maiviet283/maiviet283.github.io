@@ -1,0 +1,52 @@
+---
+import type { Locale } from '../types'
+
+interface Props {
+  text: Locale
+}
+
+const { text } = Astro.props
+---
+
+<section class="section live-section" aria-live="polite" data-live-signals>
+  <script is:inline type="application/json" data-live-i18n set:html={JSON.stringify(text.api)} />
+
+  <div class="section-heading reveal">
+    <p class="eyebrow">{text.api.eyebrow}</p>
+    <h2>{text.api.title}</h2>
+    <p>{text.api.body}</p>
+  </div>
+
+  <div class="live-grid">
+    <article class="live-card reveal" data-live-card="github">
+      <div class="live-card-head">
+        <p>{text.api.github.title}</p>
+        <button type="button" data-live-refresh>{text.api.refresh}</button>
+      </div>
+      <div class="signal-loader" role="status" aria-live="polite">
+        <span aria-hidden="true"></span>
+        <strong>{text.api.loading}</strong>
+      </div>
+    </article>
+
+    <article class="live-card reveal" data-live-card="weather">
+      <div class="live-card-head">
+        <p>{text.api.weather.title}</p>
+      </div>
+      <div class="signal-loader" role="status" aria-live="polite">
+        <span aria-hidden="true"></span>
+        <strong>{text.api.loading}</strong>
+      </div>
+    </article>
+
+    <article class="live-card reveal" data-live-card="time">
+      <div class="live-card-head">
+        <p>{text.api.time.title}</p>
+      </div>
+      <div class="signal-loader" role="status" aria-live="polite">
+        <span aria-hidden="true"></span>
+        <strong>{text.api.loading}</strong>
+      </div>
+    </article>
+  </div>
+</section>

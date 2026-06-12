@@ -1,0 +1,36 @@
+---
+import type { Locale } from '../types'
+
+interface Props {
+  text: Locale
+  banner: string
+  logo: string
+}
+
+const { text, banner, logo } = Astro.props
+---
+
+<section class="section project-section" id="vietdon">
+  <div class="section-heading reveal">
+    <p class="eyebrow">{text.vietdon.eyebrow}</p>
+    <h2>{text.vietdon.title}</h2>
+    <p>{text.vietdon.body}</p>
+  </div>
+
+  <div class="vietdon-showcase">
+    <div class="vietdon-media reveal">
+      <img src={banner} alt={text.vietdon.bannerAlt} />
+    </div>
+
+    <div class="flow-board reveal" aria-label={text.meta.productFlow}>
+      <img class="round-logo" src={logo} alt={text.vietdon.logoAlt} />
+      {text.vietdon.flow.map((step) => (
+        <div class="flow-step reveal">
+          <span>{step.number}</span>
+          <strong>{step.title}</strong>
+          <p>{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

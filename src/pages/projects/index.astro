@@ -1,0 +1,129 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro'
+
+const itemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Dự án của Mai Quốc Việt',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      item: {
+        '@type': 'SoftwareSourceCode',
+        name: 'Network Intrusion Detection & Alert System',
+        codeRepository: 'https://github.com/maiviet283/analyze_logs',
+        programmingLanguage: 'Python',
+        author: { '@type': 'Person', name: 'Mai Quốc Việt' },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      item: {
+        '@type': 'SoftwareSourceCode',
+        name: 'BookStore',
+        codeRepository: 'https://github.com/maiviet283/bookstore',
+        programmingLanguage: 'Python',
+        author: { '@type': 'Person', name: 'Mai Quốc Việt' },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      item: {
+        '@type': 'SoftwareSourceCode',
+        name: 'Clothing Shop API',
+        codeRepository: 'https://github.com/maiviet283/my_shop',
+        programmingLanguage: 'Python',
+        author: { '@type': 'Person', name: 'Mai Quốc Việt' },
+      },
+    },
+  ],
+}
+---
+
+<PageLayout
+  title="Dự án – Backend, bảo mật & hệ thống | Mai Quốc Việt"
+  description="Các dự án của Mai Quốc Việt (maiviet283): hệ thống phát hiện xâm nhập mạng, BookStore API, Clothing Shop API và VietDon. Python, Django, FastAPI, Elasticsearch, Redis."
+  path="/projects/"
+  crumbLabel="Dự án"
+  jsonLd={[itemListJsonLd]}
+>
+  <section class="page-hero">
+    <span class="eyebrow">Dự án</span>
+    <h1>Dự án backend, bảo mật & hệ thống</h1>
+    <p class="lead">
+      Những dự án <a href="/about/">Mai Quốc Việt</a> dùng để rèn kỹ năng backend,
+      bảo mật và tư duy hệ thống. Dự án chính hiện tại là
+      <a href="/vietdon/">VietDon</a>.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="cards">
+      <article class="card">
+        <h3>Network Intrusion Detection &amp; Alert System</h3>
+        <p>
+          Hệ thống thu thập và phân tích log bảo mật từ Zeek, Nginx và Django bằng
+          Python + Elasticsearch để phát hiện hành vi bất thường và gửi cảnh báo realtime.
+        </p>
+        <ul class="clean">
+          <li>Phát hiện DDoS, SQL Injection, brute-force thư mục và đăng nhập.</li>
+          <li>AI Advisor dùng ChatGPT API gợi ý hướng xử lý theo từng mối đe dọa.</li>
+          <li>Notifier gửi cảnh báo qua Telegram cho admin.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Elasticsearch</span>
+          <span class="tag">Zeek</span>
+          <span class="tag">Nginx</span>
+          <span class="tag">Telegram Bot</span>
+        </div>
+        <div class="actions">
+          <a class="btn btn-ghost" href="https://github.com/maiviet283/analyze_logs" target="_blank" rel="noopener">Xem GitHub</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>BookStore</h3>
+        <p>API quản lý sách xây bằng Django REST Framework, JWT, MySQL, Redis và React TypeScript.</p>
+        <ul class="clean">
+          <li>RESTful API cho hệ thống quản lý sách.</li>
+          <li>Xác thực bằng JWT.</li>
+          <li>Redis caching để giảm tải database.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Django</span>
+          <span class="tag">DRF</span>
+          <span class="tag">JWT</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Redis</span>
+        </div>
+        <div class="actions">
+          <a class="btn btn-ghost" href="https://github.com/maiviet283/bookstore" target="_blank" rel="noopener">Xem GitHub</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Clothing Shop API</h3>
+        <p>Backend e-commerce với xác thực, chống spam, Redis cache, Gunicorn và Nginx.</p>
+        <ul class="clean">
+          <li>API backend cho luồng thương mại điện tử.</li>
+          <li>Bảo mật: chống brute-force, anti-spam, kiểm tra request.</li>
+          <li>Deploy production với Gunicorn và Nginx.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Django</span>
+          <span class="tag">DRF</span>
+          <span class="tag">Redis</span>
+          <span class="tag">Gunicorn</span>
+          <span class="tag">Nginx</span>
+        </div>
+        <div class="actions">
+          <a class="btn btn-ghost" href="https://github.com/maiviet283/my_shop" target="_blank" rel="noopener">Xem GitHub</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</PageLayout>

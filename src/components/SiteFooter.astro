@@ -1,0 +1,22 @@
+---
+import type { Locale } from '../types'
+
+interface Props {
+  text: Locale
+}
+
+const { text } = Astro.props
+
+const year = new Date().getFullYear()
+const footer = text.footer
+---
+
+<footer class="site-footer" aria-label="Footer">
+  <div class="site-footer-inner">
+    <p class="site-footer-tagline">{footer.tagline}</p>
+    <nav class="site-footer-nav" aria-label={footer.pagesLabel}>
+      {footer.pages.map((page) => <a href={page.href}>{page.label}</a>)}
+    </nav>
+    <p class="site-footer-rights">© {year} Mai Quốc Việt. {footer.rights}</p>
+  </div>
+</footer>

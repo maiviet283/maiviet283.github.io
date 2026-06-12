@@ -1,0 +1,39 @@
+---
+import type { Locale } from '../types'
+
+interface Props {
+  text: Locale
+  avatar: string
+  resume: string
+}
+
+const { text, avatar, resume } = Astro.props
+---
+
+<section class="hero" id="top">
+  <div class="hero-copy reveal">
+    {text.hero.eyebrow ? <p class="eyebrow">{text.hero.eyebrow}</p> : null}
+    <h1>{text.hero.title}</h1>
+    <p class="hero-text">{text.hero.body}</p>
+  </div>
+
+  <div class="hero-visual" aria-label={text.meta.profileVisual}>
+    <div class="portrait-frame reveal">
+      <img src={avatar} alt={text.hero.avatarAlt} />
+    </div>
+    <div class="signal-panel reveal">
+      <span>{text.hero.signalLabel}</span>
+      <strong>{text.hero.signalTitle}</strong>
+      <small>{text.hero.signalText}</small>
+    </div>
+  </div>
+
+  <div class="hero-actions reveal" aria-label={text.meta.heroActions}>
+    <a class="primary-action" href="https://vietdon.vn" target="_blank" rel="noreferrer">
+      {text.hero.primaryAction}
+    </a>
+    <a class="secondary-action" href={resume} target="_blank" rel="noreferrer">
+      {text.hero.secondaryAction}
+    </a>
+  </div>
+</section>

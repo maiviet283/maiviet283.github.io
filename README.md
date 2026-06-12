@@ -1,6 +1,6 @@
 # Mai Quốc Việt Profile
 
-Personal profile website for `maiviet283.github.io`, built with React and Vite.
+Personal profile website for `maiviet283.github.io`, built with Astro. Every page is pre-rendered to static HTML for SEO, with a small vanilla JS script for the theme toggle, mobile menu and live API cards. Two locales are served as separate pages: `/` (Vietnamese) and `/en/` (English).
 
 ## Local
 

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://profile.vietdon.vn/sitemap.xml
+Sitemap: https://maiviet.vietdon.vn/sitemap.xml
