@@ -1,4 +1,10 @@
 ---
+import '../theme.css'
+import '../App.css'
+import Header from '../components/Header.astro'
+import SiteFooter from '../components/SiteFooter.astro'
+import text from '../localet/vi.json'
+
 interface Crumb {
   label: string
   href?: string
@@ -37,7 +43,16 @@ const {
 const siteUrl = 'https://maiviet.vietdon.vn'
 const canonical = `${siteUrl}${path}`
 const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`
-const year = new Date().getFullYear()
+
+// Page links shared by the header nav and the footer so every page exposes
+// the same primary destinations.
+const navLinks = [
+  { href: '/', label: 'Trang chủ' },
+  { href: '/vietdon/', label: 'VietDon' },
+  { href: '/projects/', label: 'Dự án' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/about/', label: 'Giới thiệu' },
+]
 
 // Breadcrumb: prefer explicit crumbItems, otherwise fall back to the
 // simple "Trang chủ / <crumbLabel>" two-level structure.
@@ -56,13 +71,6 @@ const breadcrumbJsonLd = {
     item: crumb.href ? `${siteUrl}${crumb.href}` : canonical,
   })),
 }
-
-const navLinks = [
-  { href: '/vietdon/', label: 'VietDon' },
-  { href: '/projects/', label: 'Dự án' },
-  { href: '/blog/', label: 'Blog' },
-  { href: '/about/', label: 'Giới thiệu' },
-]
 ---
 
 <!doctype html>
@@ -121,52 +129,43 @@ const navLinks = [
     {jsonLd.map((schema) => (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
     ))}
+
+    <!-- Apply saved theme before first paint to avoid flashing. -->
+    <script is:inline>
+      (function () {
+        document.documentElement.classList.add('js')
+        var theme = 'dark'
+        try {
+          theme = localStorage.getItem('theme') || 'dark'
+        } catch (error) {}
+        document.documentElement.dataset.theme = theme
+      })()
+    </script>
   </head>
   <body>
-    <header class="topnav">
-      <div class="wrap">
-        <a class="brand" href="/">
-          <img src="/logo.png" alt="Logo VietDon" />
-          <span>Mai Quốc Việt</span>
-        </a>
-        <nav>
-          {navLinks.map((link) => (
-            <a href={link.href} aria-current={link.href === path ? 'page' : undefined}>
-              {link.label}
-            </a>
+    <main class="site-shell">
+      <Header text={text} logo="/logo.png" langHref="/en/" nav={navLinks} brandHref="/" />
+
+      <div class="page-wrap">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          {crumbs.map((crumb, index) => (
+            <>
+              {index > 0 ? <span> / </span> : null}
+              {crumb.href && index < crumbs.length - 1 ? (
+                <a href={crumb.href}>{crumb.label}</a>
+              ) : (
+                <span>{crumb.label}</span>
+              )}
+            </>
           ))}
         </nav>
+
+        <slot />
       </div>
-    </header>
 
-    <main class="wrap">
-      <nav class="crumbs" aria-label="Breadcrumb">
-        {crumbs.map((crumb, index) => (
-          <>
-            {index > 0 ? <span> / </span> : null}
-            {crumb.href && index < crumbs.length - 1 ? (
-              <a href={crumb.href}>{crumb.label}</a>
-            ) : (
-              <span>{crumb.label}</span>
-            )}
-          </>
-        ))}
-      </nav>
-
-      <slot />
+      <SiteFooter text={text} />
     </main>
 
-    <footer class="page-footer">
-      <div class="wrap">
-        <nav>
-          <a href="/">Trang chủ</a>
-          <a href="/vietdon/">VietDon</a>
-          <a href="/projects/">Dự án</a>
-          <a href="/blog/">Blog</a>
-          <a href="/about/">Giới thiệu</a>
-        </nav>
-        <small>© {year} Mai Quốc Việt — Backend Developer tại Đà Nẵng.</small>
-      </div>
-    </footer>
+    <script src="../scripts/main.js"></script>
   </body>
 </html>

@@ -34,9 +34,11 @@
   },
   "nav": [
     { "label": "VietDon", "href": "#vietdon" },
+    { "label": "Dự án", "href": "/projects/" },
     { "label": "Công nghệ", "href": "#stack" },
     { "label": "Kinh nghiệm", "href": "#work" },
     { "label": "Blog", "href": "/blog/" },
+    { "label": "Giới thiệu", "href": "/about/" },
     { "label": "Liên hệ", "href": "#contact" }
   ],
   "hero": {

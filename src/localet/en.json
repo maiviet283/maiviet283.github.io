@@ -34,9 +34,11 @@
   },
   "nav": [
     { "label": "VietDon", "href": "#vietdon" },
+    { "label": "Projects", "href": "/projects/" },
     { "label": "Stack", "href": "#stack" },
     { "label": "Work", "href": "#work" },
     { "label": "Blog", "href": "/blog/" },
+    { "label": "About", "href": "/about/" },
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {

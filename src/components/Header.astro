@@ -5,13 +5,17 @@ interface Props {
   text: Locale
   logo: string
   langHref: string
+  /** Override the displayed nav links (defaults to the home in-page nav). */
+  nav?: { label: string; href: string }[]
+  /** Where the brand logo links to (home uses #top, subpages use /). */
+  brandHref?: string
 }
 
-const { text, logo, langHref } = Astro.props
+const { text, logo, langHref, nav = text.nav, brandHref = '#top' } = Astro.props
 ---
 
 <header class="topbar" aria-label={text.meta.primaryNavigation}>
-  <a class="brand" href="#top" aria-label={text.meta.homeAria}>
+  <a class="brand" href={brandHref} aria-label={text.meta.homeAria}>
     <span class="brand-mark">
       <img src={logo} alt="" aria-hidden="true" />
     </span>
@@ -21,7 +25,7 @@ const { text, logo, langHref } = Astro.props
   <div class="header-controls">
     <button class="menu-backdrop" type="button" aria-hidden="true" tabindex="-1"></button>
     <nav>
-      {text.nav.map((link) => <a href={link.href}>{link.label}</a>)}
+      {nav.map((link) => <a href={link.href}>{link.label}</a>)}
     </nav>
     <a class="language-toggle" href={langHref} aria-label={text.meta.switchLanguage}>
       {text.language.current}
