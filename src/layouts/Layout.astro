@@ -22,7 +22,14 @@ const personJsonLd = {
   name: 'Mai Quốc Việt',
   alternateName: ['Mai Quoc Viet', 'maiviet283'],
   url: siteUrl,
-  image: `${siteUrl}/avatar.jpg`,
+  mainEntityOfPage: siteUrl,
+  image: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/avatar.jpg`,
+    width: 800,
+    height: 800,
+    caption: 'Mai Quốc Việt – Backend Developer tại Đà Nẵng',
+  },
   jobTitle: 'Backend Developer',
   description:
     'Backend developer trẻ từ Đà Nẵng, đang xây dựng VietDon – nền tảng donate online cho creator Việt Nam.',
@@ -89,15 +96,40 @@ const websiteJsonLd = {
   url: siteUrl,
   description:
     'Trang cá nhân của Mai Quốc Việt (maiviet283) – Backend developer từ Đà Nẵng, founder VietDon.',
+  inLanguage: ['vi', 'en'],
+  image: `${siteUrl}/og-image.png`,
   author: {
     '@type': 'Person',
     name: 'Mai Quốc Việt',
   },
+  publisher: {
+    '@type': 'Person',
+    name: 'Mai Quốc Việt',
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` },
+  },
   hasPart: [
     { '@type': 'WebPage', name: 'VietDon', url: `${siteUrl}/vietdon/` },
     { '@type': 'WebPage', name: 'Dự án', url: `${siteUrl}/projects/` },
+    { '@type': 'WebPage', name: 'Blog', url: `${siteUrl}/blog/` },
     { '@type': 'WebPage', name: 'Giới thiệu', url: `${siteUrl}/about/` },
   ],
+}
+
+// Marks the home page as a ProfilePage with a primary image, which gives
+// Google an explicit avatar to associate with the result.
+const profilePageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: canonical,
+  inLanguage: lang,
+  mainEntity: { '@type': 'Person', name: 'Mai Quốc Việt', url: siteUrl },
+  primaryImageOfPage: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/avatar.jpg`,
+    width: 800,
+    height: 800,
+    caption: 'Mai Quốc Việt – Backend Developer tại Đà Nẵng',
+  },
 }
 ---
 
@@ -123,8 +155,9 @@ const websiteJsonLd = {
     <meta name="description" content={text.meta.description} />
     <meta name="keywords" content="Mai Quốc Việt, Mai Quoc Viet, maiviet283, VietDon, Mai Quốc Việt Hà Tĩnh, Mai Quốc Việt Kỳ Anh, Mai Quốc Việt Kỳ Khang, Mai Quốc Việt VietDon, Mai Quốc Việt Đà Nẵng, backend developer Đà Nẵng, lập trình viên Đà Nẵng, lập trình Đà Nẵng, Python developer Vietnam, Django developer, FastAPI, creator economy Vietnam, donate online Việt Nam, profile Mai Quốc Việt" />
     <meta name="author" content="Mai Quốc Việt" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href={canonical} />
+    <link rel="image_src" href={`${siteUrl}/avatar.jpg`} />
 
     <!-- Language alternates -->
     <link rel="alternate" hreflang="vi" href={`${siteUrl}/`} />
@@ -159,6 +192,7 @@ const websiteJsonLd = {
     <!-- JSON-LD Structured Data -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(profilePageJsonLd)} />
 
     <!-- Apply saved theme before first paint to avoid flashing.
          The "js" class enables the reveal-on-scroll hidden state. -->

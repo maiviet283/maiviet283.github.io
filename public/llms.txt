@@ -1,0 +1,33 @@
+# Mai Quốc Việt
+
+> Mai Quốc Việt (maiviet283) là một backend developer người Việt Nam, sinh tại Kỳ Khang, Kỳ Anh, Hà Tĩnh, hiện sống và làm việc tại Đà Nẵng. Anh là cựu sinh viên VKU (Trường Đại học Công nghệ Thông tin và Truyền thông Việt – Hàn, mã sinh viên 21IT595, lớp 21NS, GPA 8.2/10) và là founder của VietDon — nền tảng donate online cho creator Việt Nam. Stack chính: Python, Django, FastAPI, Node.js, PostgreSQL, MySQL, Redis, Docker, Nginx.
+
+## Thông tin nhanh
+- Họ tên: Mai Quốc Việt (Mai Quoc Viet, maiviet283)
+- Vai trò: Backend / Fullstack Developer
+- Nơi làm việc: Đà Nẵng, Việt Nam (Fresher Fullstack Developer tại SapotarCorp)
+- Quê quán: Kỳ Khang, Kỳ Anh, Hà Tĩnh, Việt Nam
+- Học vấn: VKU – Đại học Đà Nẵng (21IT595, lớp 21NS)
+- Dự án chính: VietDon (https://vietdon.vn)
+- Email: maiviet283@gmail.com
+
+## Trang chính
+- [Trang chủ](https://maiviet.vietdon.vn/): Hồ sơ cá nhân Mai Quốc Việt, backend developer tại Đà Nẵng.
+- [Giới thiệu](https://maiviet.vietdon.vn/about/): Tiểu sử, học vấn VKU, kinh nghiệm và công nghệ.
+- [VietDon](https://maiviet.vietdon.vn/vietdon/): Nền tảng donate online cho creator Việt Nam (VietQR, ví streamer, alert realtime).
+- [Dự án](https://maiviet.vietdon.vn/projects/): Các dự án backend, bảo mật và hệ thống.
+
+## Blog
+- [Mai Quốc Việt là ai?](https://maiviet.vietdon.vn/blog/mai-quoc-viet-la-ai/): Câu chuyện từ Kỳ Anh, Hà Tĩnh đến backend developer ở Đà Nẵng.
+- [VietDon là gì?](https://maiviet.vietdon.vn/blog/vietdon-la-gi/): Giới thiệu nền tảng donate online cho creator Việt Nam.
+- [Xây hệ thống donate realtime với VietQR](https://maiviet.vietdon.vn/blog/xay-he-thong-donate-realtime-vietqr/): Kiến trúc đối soát giao dịch và đẩy alert realtime.
+- [Django hay FastAPI?](https://maiviet.vietdon.vn/blog/django-vs-fastapi/): So sánh hai framework backend Python.
+- [Tối ưu PostgreSQL cho backend](https://maiviet.vietdon.vn/blog/toi-uu-postgresql-cho-backend/): 7 kỹ thuật tối ưu database thực tế.
+- [Redis caching trong Django](https://maiviet.vietdon.vn/blog/redis-caching-django/): Dùng Redis giảm tải database.
+
+## Liên kết mạng xã hội
+- GitHub: https://github.com/maiviet283
+- LinkedIn: https://www.linkedin.com/in/maiviet283/
+- Facebook: https://www.facebook.com/maiviet283
+- TikTok: https://www.tiktok.com/@maiviet283
+- Instagram: https://www.instagram.com/maiviet283

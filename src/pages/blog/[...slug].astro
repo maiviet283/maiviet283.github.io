@@ -1,0 +1,103 @@
+---
+import { getCollection, render } from 'astro:content'
+import PageLayout from '../../layouts/PageLayout.astro'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft)
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }))
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+
+const siteUrl = 'https://maiviet.vietdon.vn'
+const url = `${siteUrl}/blog/${post.id}/`
+const published = post.data.pubDate.toISOString()
+const modified = (post.data.updatedDate ?? post.data.pubDate).toISOString()
+
+const dateFmt = (d: Date) =>
+  new Intl.DateTimeFormat('vi-VN', { day: '2-digit', month: 'long', year: 'numeric' }).format(d)
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  url,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+  datePublished: published,
+  dateModified: modified,
+  inLanguage: 'vi',
+  image: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}${post.data.heroImage}`,
+    width: 1200,
+    height: 630,
+  },
+  keywords: post.data.tags.join(', '),
+  author: {
+    '@type': 'Person',
+    name: 'Mai Quốc Việt',
+    url: `${siteUrl}/`,
+    sameAs: [
+      'https://github.com/maiviet283',
+      'https://www.linkedin.com/in/maiviet283/',
+      'https://www.facebook.com/maiviet283',
+    ],
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Mai Quốc Việt',
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` },
+  },
+}
+---
+
+<PageLayout
+  title={`${post.data.title} | Mai Quốc Việt`}
+  description={post.data.description}
+  keywords={post.data.keywords}
+  path={`/blog/${post.id}/`}
+  ogType="article"
+  crumbLabel={post.data.title}
+  crumbItems={[
+    { label: 'Trang chủ', href: '/' },
+    { label: 'Blog', href: '/blog/' },
+    { label: post.data.title },
+  ]}
+  image={post.data.heroImage}
+  imageAlt={post.data.heroImageAlt}
+  publishedTime={published}
+  modifiedTime={modified}
+  jsonLd={[articleJsonLd]}
+>
+  <article class="post">
+    <header class="post-header">
+      <span class="eyebrow">Blog</span>
+      <h1>{post.data.title}</h1>
+      <p class="post-meta">
+        Bởi <strong>Mai Quốc Việt</strong> ·
+        <time datetime={published}>{dateFmt(post.data.pubDate)}</time>
+      </p>
+      <div class="tags">
+        {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+      </div>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    <footer class="post-footer">
+      <p>
+        Mình là <a href="/about/">Mai Quốc Việt</a> — backend developer tại Đà Nẵng,
+        founder <a href="/vietdon/">VietDon</a>. Nếu thấy bài viết hữu ích, ghé
+        <a href="/blog/">blog</a> đọc thêm hoặc kết nối qua
+        <a href="https://github.com/maiviet283" target="_blank" rel="noopener">GitHub</a>.
+      </p>
+      <div class="actions">
+        <a class="btn btn-ghost" href="/blog/">← Quay lại Blog</a>
+      </div>
+    </footer>
+  </article>
+</PageLayout>

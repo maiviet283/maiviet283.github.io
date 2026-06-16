@@ -1,4 +1,9 @@
 ---
+interface Crumb {
+  label: string
+  href?: string
+}
+
 interface Props {
   title: string
   description: string
@@ -6,27 +11,56 @@ interface Props {
   path: string
   ogType?: string
   crumbLabel: string
+  crumbItems?: Crumb[]
+  image?: string
+  imageAlt?: string
+  publishedTime?: string
+  modifiedTime?: string
   jsonLd?: object[]
 }
 
-const { title, description, keywords, path, ogType = 'website', crumbLabel, jsonLd = [] } = Astro.props
+const {
+  title,
+  description,
+  keywords,
+  path,
+  ogType = 'website',
+  crumbLabel,
+  crumbItems,
+  image = '/og-image.png',
+  imageAlt,
+  publishedTime,
+  modifiedTime,
+  jsonLd = [],
+} = Astro.props
 
 const siteUrl = 'https://maiviet.vietdon.vn'
 const canonical = `${siteUrl}${path}`
+const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`
 const year = new Date().getFullYear()
+
+// Breadcrumb: prefer explicit crumbItems, otherwise fall back to the
+// simple "Trang chủ / <crumbLabel>" two-level structure.
+const crumbs: Crumb[] = crumbItems ?? [
+  { label: 'Trang chủ', href: '/' },
+  { label: crumbLabel },
+]
 
 const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: `${siteUrl}/` },
-    { '@type': 'ListItem', position: 2, name: crumbLabel, item: canonical },
-  ],
+  itemListElement: crumbs.map((crumb, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: crumb.label,
+    item: crumb.href ? `${siteUrl}${crumb.href}` : canonical,
+  })),
 }
 
 const navLinks = [
   { href: '/vietdon/', label: 'VietDon' },
   { href: '/projects/', label: 'Dự án' },
+  { href: '/blog/', label: 'Blog' },
   { href: '/about/', label: 'Giới thiệu' },
 ]
 ---
@@ -45,20 +79,41 @@ const navLinks = [
     <meta name="theme-color" content="#f5402c" />
 
     <title>{title}</title>
+    <meta name="title" content={title} />
     <meta name="description" content={description} />
     {keywords ? <meta name="keywords" content={keywords} /> : null}
     <meta name="author" content="Mai Quốc Việt" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="vi" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
 
+    <!-- Open Graph / Facebook / Zalo -->
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt ?? title} />
     <meta property="og:locale" content="vi_VN" />
+    <meta property="og:site_name" content="Mai Quốc Việt – maiviet.vietdon.vn" />
+    {publishedTime ? <meta property="article:published_time" content={publishedTime} /> : null}
+    {modifiedTime ? <meta property="article:modified_time" content={modifiedTime} /> : null}
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content={`${siteUrl}/og-image.png`} />
+    <meta name="twitter:url" content={canonical} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={imageAlt ?? title} />
+    <meta name="twitter:creator" content="@maiviet283" />
+
+    <!-- Geo -->
+    <meta name="geo.region" content="VN-DN" />
+    <meta name="geo.placename" content="Đà Nẵng, Việt Nam" />
 
     <link rel="stylesheet" href="/pages.css" />
 
@@ -86,7 +141,16 @@ const navLinks = [
 
     <main class="wrap">
       <nav class="crumbs" aria-label="Breadcrumb">
-        <a href="/">Trang chủ</a> / <span>{crumbLabel}</span>
+        {crumbs.map((crumb, index) => (
+          <>
+            {index > 0 ? <span> / </span> : null}
+            {crumb.href && index < crumbs.length - 1 ? (
+              <a href={crumb.href}>{crumb.label}</a>
+            ) : (
+              <span>{crumb.label}</span>
+            )}
+          </>
+        ))}
       </nav>
 
       <slot />
@@ -98,6 +162,7 @@ const navLinks = [
           <a href="/">Trang chủ</a>
           <a href="/vietdon/">VietDon</a>
           <a href="/projects/">Dự án</a>
+          <a href="/blog/">Blog</a>
           <a href="/about/">Giới thiệu</a>
         </nav>
         <small>© {year} Mai Quốc Việt — Backend Developer tại Đà Nẵng.</small>

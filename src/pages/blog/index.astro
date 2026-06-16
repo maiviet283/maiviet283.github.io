@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content'
+import PageLayout from '../../layouts/PageLayout.astro'
+
+const siteUrl = 'https://maiviet.vietdon.vn'
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => {
+  const oa = a.data.order ?? Infinity
+  const ob = b.data.order ?? Infinity
+  if (oa !== ob) return oa - ob
+  return b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+})
+
+const dateFmt = (d: Date) =>
+  new Intl.DateTimeFormat('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(d)
+
+const blogJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Blog của Mai Quốc Việt',
+  description:
+    'Bài viết về backend, Python, Django, FastAPI, VietDon và hành trình làm developer của Mai Quốc Việt.',
+  url: `${siteUrl}/blog/`,
+  author: { '@type': 'Person', name: 'Mai Quốc Việt', url: `${siteUrl}/` },
+  blogPost: posts.map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.data.title,
+    description: post.data.description,
+    url: `${siteUrl}/blog/${post.id}/`,
+    datePublished: post.data.pubDate.toISOString(),
+    dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+    image: `${siteUrl}${post.data.heroImage}`,
+    author: { '@type': 'Person', name: 'Mai Quốc Việt' },
+  })),
+}
+---
+
+<PageLayout
+  title="Blog – Backend, Python, Django, VietDon | Mai Quốc Việt"
+  description="Blog của Mai Quốc Việt (maiviet283): bài viết về backend developer, Python, Django, FastAPI, tối ưu PostgreSQL, Redis, VietQR và hành trình xây VietDon từ Đà Nẵng."
+  keywords="blog Mai Quốc Việt, blog backend developer, blog Python Django FastAPI, VietDon blog, lập trình backend Việt Nam, maiviet283 blog"
+  path="/blog/"
+  crumbLabel="Blog"
+  jsonLd={[blogJsonLd]}
+>
+  <section class="page-hero">
+    <span class="eyebrow">Blog</span>
+    <h1>Blog của Mai Quốc Việt</h1>
+    <p class="lead">
+      Mình viết lại những thứ mình học và làm: backend với Python, Django, FastAPI,
+      tối ưu database, và hành trình xây <a href="/vietdon/">VietDon</a> — nền tảng
+      donate online cho creator Việt Nam.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="post-list">
+      {posts.map((post) => (
+        <article class="post-card">
+          <a class="post-thumb" href={`/blog/${post.id}/`} aria-hidden="true" tabindex="-1">
+            <img src={post.data.heroImage} alt={post.data.heroImageAlt} loading="lazy" />
+          </a>
+          <div class="post-body">
+            <time datetime={post.data.pubDate.toISOString()}>{dateFmt(post.data.pubDate)}</time>
+            <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+            <p>{post.data.description}</p>
+            <div class="tags">
+              {post.data.tags.slice(0, 4).map((tag) => <span class="tag">{tag}</span>)}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</PageLayout>

@@ -36,6 +36,7 @@
     { "label": "VietDon", "href": "#vietdon" },
     { "label": "Stack", "href": "#stack" },
     { "label": "Work", "href": "#work" },
+    { "label": "Blog", "href": "/blog/" },
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {
@@ -265,6 +266,7 @@
     "pages": [
       { "label": "VietDon", "href": "/vietdon/" },
       { "label": "Projects", "href": "/projects/" },
+      { "label": "Blog", "href": "/blog/" },
       { "label": "About", "href": "/about/" }
     ],
     "rights": "All rights reserved."
