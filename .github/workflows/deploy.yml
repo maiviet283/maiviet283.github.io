@@ -20,6 +20,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          # Sitemap lấy <lastmod> từ ngày commit cuối của từng file nguồn,
+          # nên build cần lịch sử git đầy đủ (shallow clone chỉ có 1 commit).
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v5
