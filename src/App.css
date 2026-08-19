@@ -94,6 +94,7 @@ body::before,
 .menu-toggle,
 .theme-toggle,
 .primary-action,
+.secondary-action,
 .contact-links a,
 .portrait-frame,
 .signal-panel,
@@ -353,9 +354,7 @@ body::before,
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
-  grid-template-areas:
-    "copy visual"
-    "actions visual";
+  grid-template-areas: "copy visual";
   gap: 46px;
   align-items: center;
   min-height: calc(100svh - 80px);
@@ -407,12 +406,11 @@ body::before,
 }
 
 .hero-actions {
-  grid-area: actions;
-  align-self: start;
   margin-top: 34px;
 }
 
 .primary-action,
+.secondary-action,
 .contact-links a {
   display: inline-flex;
   min-height: 48px;
@@ -463,6 +461,7 @@ body::before,
 }
 
 .primary-action,
+.secondary-action,
 .contact-links a {
   position: relative;
   overflow: hidden;
@@ -472,6 +471,7 @@ body::before,
 }
 
 .primary-action::after,
+.secondary-action::after,
 .contact-links a::after {
   position: absolute;
   inset: -40% auto -40% -55%;
@@ -483,15 +483,18 @@ body::before,
 }
 
 .primary-action:hover,
+.secondary-action:hover,
 .contact-links a:hover {
   transform: translate(-2px, -2px);
 }
 
 .primary-action:hover::after,
+.secondary-action:hover::after,
 .contact-links a:hover::after {
   transform: translateX(340%) rotate(18deg);
 }
 
+.secondary-action,
 .contact-links a {
   background: var(--panel-bg);
 }
@@ -1549,8 +1552,7 @@ html.js .reveal[data-reveal="visible"] {
   .hero {
     grid-template-areas:
       "copy"
-      "visual"
-      "actions";
+      "visual";
     min-height: auto;
     gap: 22px;
     padding: 14px 0 30px;
@@ -1739,7 +1741,7 @@ html.js .reveal[data-reveal="visible"] {
 
   .hero-actions {
     gap: 8px;
-    margin-top: 0;
+    margin-top: 22px;
   }
 
   .hero-actions a,
@@ -1966,6 +1968,7 @@ html.js .reveal[data-reveal="visible"] {
   }
 
   .primary-action,
+  .secondary-action,
   .contact-links a {
     min-height: 46px;
   }

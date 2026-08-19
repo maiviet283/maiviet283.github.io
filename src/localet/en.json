@@ -46,6 +46,7 @@
     "title": "Hi, I'm Mai Quốc Việt — a backend developer building VietDon.",
     "body": "I work on backend in Da Nang, originally from Hà Tĩnh, mostly with Python, Django, and FastAPI: API design, database optimization, and running systems in production. VietDon, an online donation platform for Vietnamese creators, is the product I'm building from the core.",
     "primaryAction": "See VietDon",
+    "contactAction": "Get in touch",
     "avatarAlt": "Mai Quốc Việt",
     "signalLabel": "Building now",
     "signalTitle": "VietDon",

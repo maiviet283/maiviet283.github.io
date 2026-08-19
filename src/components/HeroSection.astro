@@ -14,6 +14,14 @@ const { text, avatar } = Astro.props
     {text.hero.eyebrow ? <p class="eyebrow">{text.hero.eyebrow}</p> : null}
     <h1>{text.hero.title}</h1>
     <p class="hero-text">{text.hero.body}</p>
+    <div class="hero-actions" aria-label={text.meta.heroActions}>
+      <a class="primary-action" href="https://vietdon.vn" target="_blank" rel="noreferrer">
+        {text.hero.primaryAction}
+      </a>
+      <a class="secondary-action" href="#contact">
+        {text.hero.contactAction}
+      </a>
+    </div>
   </div>
 
   <div class="hero-visual" aria-label={text.meta.profileVisual}>
@@ -25,11 +33,5 @@ const { text, avatar } = Astro.props
       <strong>{text.hero.signalTitle}</strong>
       <small>{text.hero.signalText}</small>
     </div>
-  </div>
-
-  <div class="hero-actions reveal" aria-label={text.meta.heroActions}>
-    <a class="primary-action" href="https://vietdon.vn" target="_blank" rel="noreferrer">
-      {text.hero.primaryAction}
-    </a>
   </div>
 </section>

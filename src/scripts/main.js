@@ -129,7 +129,7 @@ const setupMenuAndScroll = () => {
     setMenuOpen(false)
   }
 
-  topbar.querySelectorAll('a[href^="#"]').forEach((link) => {
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (event) => scrollToSection(event, link.getAttribute('href')))
   })
 }
