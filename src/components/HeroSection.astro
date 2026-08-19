@@ -4,10 +4,9 @@ import type { Locale } from '../types'
 interface Props {
   text: Locale
   avatar: string
-  resume: string
 }
 
-const { text, avatar, resume } = Astro.props
+const { text, avatar } = Astro.props
 ---
 
 <section class="hero" id="top">
@@ -31,9 +30,6 @@ const { text, avatar, resume } = Astro.props
   <div class="hero-actions reveal" aria-label={text.meta.heroActions}>
     <a class="primary-action" href="https://vietdon.vn" target="_blank" rel="noreferrer">
       {text.hero.primaryAction}
-    </a>
-    <a class="secondary-action" href={resume} target="_blank" rel="noreferrer">
-      {text.hero.secondaryAction}
     </a>
   </div>
 </section>

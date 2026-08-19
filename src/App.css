@@ -94,7 +94,6 @@ body::before,
 .menu-toggle,
 .theme-toggle,
 .primary-action,
-.secondary-action,
 .contact-links a,
 .portrait-frame,
 .signal-panel,
@@ -414,7 +413,6 @@ body::before,
 }
 
 .primary-action,
-.secondary-action,
 .contact-links a {
   display: inline-flex;
   min-height: 48px;
@@ -465,7 +463,6 @@ body::before,
 }
 
 .primary-action,
-.secondary-action,
 .contact-links a {
   position: relative;
   overflow: hidden;
@@ -475,7 +472,6 @@ body::before,
 }
 
 .primary-action::after,
-.secondary-action::after,
 .contact-links a::after {
   position: absolute;
   inset: -40% auto -40% -55%;
@@ -487,18 +483,15 @@ body::before,
 }
 
 .primary-action:hover,
-.secondary-action:hover,
 .contact-links a:hover {
   transform: translate(-2px, -2px);
 }
 
 .primary-action:hover::after,
-.secondary-action:hover::after,
 .contact-links a:hover::after {
   transform: translateX(340%) rotate(18deg);
 }
 
-.secondary-action,
 .contact-links a {
   background: var(--panel-bg);
 }
@@ -1973,7 +1966,6 @@ html.js .reveal[data-reveal="visible"] {
   }
 
   .primary-action,
-  .secondary-action,
   .contact-links a {
     min-height: 46px;
   }

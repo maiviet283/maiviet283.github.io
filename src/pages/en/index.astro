@@ -18,13 +18,12 @@ import myFamily2 from '../../data/images/myfamily2.png'
 import text from '../../localet/en.json'
 
 const vietDonLogo = '/logo.png'
-const resume = '/MAI_QUOC_VIET.pdf'
 ---
 
 <Layout lang="en" text={text}>
   <main class="site-shell">
     <Header text={text} logo={vietDonLogo} langHref="/" />
-    <HeroSection text={text} avatar={avatar.src} resume={resume} />
+    <HeroSection text={text} avatar={avatar.src} />
     <StatsStrip text={text} />
     <FamilyQuotesSection text={text} images={[myFamily.src, myFamily2.src]} />
     <LiveSignalsSection text={text} />
