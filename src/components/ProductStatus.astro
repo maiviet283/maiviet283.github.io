@@ -1,0 +1,61 @@
+---
+interface Props {
+  status: string
+  label: string
+}
+
+const { status, label } = Astro.props
+---
+
+<span class:list={['status', `is-${status}`]}>
+  <span class="dot" aria-hidden="true"></span>{label}
+</span>
+
+<style>
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    border: 2px solid #1a1613;
+    border-radius: 999px;
+    background: #fffaf2;
+    color: #1a1613;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .dot {
+    position: relative;
+    width: 9px;
+    height: 9px;
+    border: 2px solid #1a1613;
+    border-radius: 50%;
+    background: #34c27a;
+  }
+
+  .is-building .dot {
+    background: var(--sun);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .is-building .dot::after {
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      background: var(--sun);
+      content: '';
+      animation: ping 1.8s ease-out infinite;
+    }
+  }
+
+  .is-ended {
+    background: #e9e2d6;
+  }
+
+  .is-ended .dot {
+    background: transparent;
+  }
+</style>

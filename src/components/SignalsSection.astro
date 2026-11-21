@@ -1,0 +1,285 @@
+---
+import SectionHead from './SectionHead.astro'
+import type { Locale } from '../types'
+
+interface Props {
+  text: Locale
+  num: number
+}
+
+const { text, num } = Astro.props
+const api = text.api
+---
+
+<section class="section wrap" id="signals" aria-labelledby="signals-title" data-live-signals>
+  <script is:inline type="application/json" data-live-i18n set:html={JSON.stringify(api)} />
+
+  <SectionHead num={num} eyebrow={api.eyebrow} title={api.title} id="signals-title">
+    <p>{api.body}</p>
+  </SectionHead>
+
+  <div class="console card" data-reveal>
+    <div class="bar">
+      <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="live"><span class="live-dot" aria-hidden="true"></span>LIVE</span>
+      <span class="src">api.github.com · open-meteo.com</span>
+      <button class="btn btn-sm btn-sun refresh" type="button" data-live-refresh>
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"></path></svg>
+        {api.refresh}
+      </button>
+    </div>
+
+    <div class="cells" aria-live="polite">
+      <article class="cell" data-live-card="github">
+        <h3>{api.github.title}</h3>
+        <div class="cell-body" data-live-body><p class="wait">{api.loading}</p></div>
+      </article>
+      <article class="cell" data-live-card="weather">
+        <h3>{api.weather.title}</h3>
+        <div class="cell-body" data-live-body><p class="wait">{api.loading}</p></div>
+      </article>
+      <article class="cell" data-live-card="time">
+        <h3>{api.time.title}</h3>
+        <div class="cell-body">
+          <p class="clock" data-live-clock>--:--:--</p>
+          <p class="note" data-live-date></p>
+          <p class="note mono">{api.time.label}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .console {
+    overflow: hidden;
+    background: #1a1613;
+    color: #f2ebdf;
+    border-color: var(--ink);
+  }
+
+  :global(:root[data-theme='dark']) .console {
+    background: #0c0a08;
+  }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 18px;
+    padding: 14px clamp(16px, 2.4vw, 24px);
+    border-bottom: 3px solid rgb(242 235 223 / 0.16);
+  }
+
+  .lights {
+    display: flex;
+    gap: 7px;
+  }
+
+  .lights i {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--tomato);
+  }
+
+  .lights i:nth-child(2) {
+    background: var(--sun);
+  }
+
+  .lights i:nth-child(3) {
+    background: var(--mint);
+  }
+
+  .live {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
+  .live :global(.live-dot) {
+    border-color: #f2ebdf;
+  }
+
+  .src {
+    font-size: 13px;
+    color: #a39a8c;
+  }
+
+  .refresh {
+    margin-left: auto;
+    border-color: #f2ebdf;
+    box-shadow: 3px 3px 0 #f2ebdf;
+  }
+
+  .refresh[aria-busy='true'] svg {
+    animation: spin 0.9s linear infinite;
+  }
+
+  .cells {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cell {
+    min-height: 260px;
+    padding: clamp(20px, 2.6vw, 30px);
+  }
+
+  .cell + .cell {
+    border-left: 3px solid rgb(242 235 223 / 0.16);
+  }
+
+  h3 {
+    justify-self: start;
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 999px;
+    background: var(--sun);
+    color: #1a1613;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+  }
+
+  [data-live-card='weather'] h3 {
+    background: var(--mint);
+  }
+
+  [data-live-card='time'] h3 {
+    background: var(--pink);
+  }
+
+  .cell-body {
+    margin-top: 22px;
+  }
+
+  .cell-body :global(.wait) {
+    font-size: 15px;
+    color: #a39a8c;
+  }
+
+  .cell-body :global(.wait)::after {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    margin-left: 4px;
+    vertical-align: -2px;
+    background: currentColor;
+    content: '';
+    animation: blink 1s steps(1) infinite;
+  }
+
+  .cell-body :global(.metrics) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .cell-body :global(.metrics div) {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+
+  .cell-body :global(.metrics dd) {
+    font-family: var(--display);
+    font-size: clamp(36px, 3.6vw, 48px);
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .cell-body :global(.metrics dt) {
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.3;
+    color: #a39a8c;
+  }
+
+  .cell-body :global(.big) {
+    margin-bottom: 18px;
+    font-family: var(--display);
+    font-size: clamp(32px, 3.2vw, 42px);
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--mint);
+  }
+
+  .cell-body :global(.line) {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 2px dashed rgb(242 235 223 / 0.2);
+    font-size: 14px;
+    color: #a39a8c;
+  }
+
+  .cell-body :global(.line strong) {
+    color: var(--sun);
+  }
+
+  .cell-body :global(.link) {
+    display: inline-flex;
+    margin-top: 12px;
+    font-weight: 700;
+    text-decoration: underline 3px var(--sun);
+    text-underline-offset: 4px;
+  }
+
+  .clock {
+    font-family: var(--display);
+    font-size: clamp(56px, 6vw, 80px);
+    font-weight: 800;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .clock :global(.sec) {
+    color: var(--tomato);
+  }
+
+  .note {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #a39a8c;
+  }
+
+  .note.mono {
+    margin-top: 2px;
+    font-size: 13px;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 860px) {
+    .cells {
+      grid-template-columns: 1fr;
+    }
+
+    .cell {
+      min-height: 0;
+    }
+
+    .cell + .cell {
+      border-left: 0;
+      border-top: 3px solid rgb(242 235 223 / 0.16);
+    }
+
+    .src {
+      display: none;
+    }
+  }
+</style>

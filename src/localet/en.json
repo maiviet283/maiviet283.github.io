@@ -1,20 +1,17 @@
 {
   "meta": {
-    "pageTitle": "Mai Quoc Viet – Backend Developer | VietDon | Da Nang",
-    "description": "Mai Quoc Viet (maiviet283) – Backend developer from Da Nang. Building VietDon, an online donation platform for Vietnamese creators. Python, Django, FastAPI, Node.js.",
+    "pageTitle": "Mai Quoc Viet – Full-stack Developer & Team Lead | Da Nang",
+    "description": "Mai Quoc Viet (maiviet283) – Full-stack developer & team lead in Da Nang. Co-founder of Haven, previously built VietDon. Python, Django, FastAPI, React, PostgreSQL.",
     "homeAria": "Mai Quốc Việt home",
     "primaryNavigation": "Primary navigation",
-    "heroActions": "Hero actions",
-    "profileVisual": "Profile visual",
-    "keyNumbers": "Key numbers",
-    "productFlow": "VietDon product flow",
-    "technologyStack": "Technology stack",
-    "otherProjects": "Other projects",
     "switchLanguage": "Chuyển sang tiếng Việt",
-    "switchTheme": "Toggle light and dark theme"
+    "switchTheme": "Toggle light / dark theme",
+    "skipToContent": "Skip to main content",
+    "backToTop": "Back to top",
+    "loading": "Opening page",
+    "openMenu": "Open menu"
   },
   "brand": {
-    "mark": "MV",
     "name": "Mai Quốc Việt"
   },
   "language": {
@@ -24,84 +21,261 @@
   "menu": {
     "open": "Open menu",
     "close": "Close menu",
-    "label": "Menu"
-  },
-  "theme": {
-    "light": "Light",
-    "dark": "Dark",
-    "toLight": "Light",
-    "toDark": "Dark"
+    "label": "Menu",
+    "closeLabel": "Close"
   },
   "nav": [
-    { "label": "VietDon", "href": "#vietdon" },
-    { "label": "Projects", "href": "/projects/" },
-    { "label": "Stack", "href": "#stack" },
-    { "label": "Work", "href": "#work" },
-    { "label": "Blog", "href": "/blog/" },
-    { "label": "About", "href": "/about/" },
-    { "label": "Contact", "href": "#contact" }
+    {
+      "label": "Products",
+      "href": "#products"
+    },
+    {
+      "label": "Work",
+      "href": "#work"
+    },
+    {
+      "label": "Projects",
+      "href": "/projects/"
+    },
+    {
+      "label": "About",
+      "href": "/about/"
+    }
   ],
+  "navCta": {
+    "label": "Contact",
+    "href": "#contact"
+  },
   "hero": {
-    "eyebrow": "",
-    "title": "Hi, I'm Mai Quốc Việt — a backend developer building VietDon.",
-    "body": "I work on backend in Da Nang, originally from Hà Tĩnh, mostly with Python, Django, and FastAPI: API design, database optimization, and running systems in production. VietDon, an online donation platform for Vietnamese creators, is the product I'm building from the core.",
-    "primaryAction": "See VietDon",
+    "kicker": "Profile · maiviet283",
+    "location": "Da Nang · 16°02′N 108°12′E",
+    "lead": "Full-stack developer in Da Nang. Leading a team at BNH Digital and building Haven.",
+    "body": "I design, ship and run production systems end to end with Python, Django, FastAPI and React. B.Eng. in Information Security & Computer Networks (VKU), originally from Kỳ Anh, Hà Tĩnh.",
+    "primaryAction": "See products",
     "contactAction": "Get in touch",
-    "avatarAlt": "Mai Quốc Việt",
-    "signalLabel": "Building now",
-    "signalTitle": "VietDon",
-    "signalText": "Creator economy / VietQR / realtime donate"
+    "avatarAlt": "Portrait of Mai Quốc Việt",
+    "caption": "Mai Quốc Việt, Da Nang.",
+    "status": "Building Haven",
+    "facts": [
+      {
+        "label": "Role",
+        "value": "Full-stack Developer & Team Lead"
+      },
+      {
+        "label": "Now",
+        "value": "BNH Digital · remote (AU)"
+      },
+      {
+        "label": "Based in",
+        "value": "Da Nang"
+      },
+      {
+        "label": "From",
+        "value": "Kỳ Anh, Hà Tĩnh"
+      },
+      {
+        "label": "Studied",
+        "value": "VKU · InfoSec · 8.2/10"
+      }
+    ],
+    "greeting": "Hi! I'm Việt.",
+    "eyebrow": "Full-stack · Team Lead · Da Nang",
+    "stickers": [
+      "Django",
+      "React Native",
+      "PostgreSQL",
+      "Team Lead"
+    ]
   },
   "stats": [
-    { "value": "33s -> 1.2s", "label": "routing engine optimization during internship" },
-    { "value": "3 days", "label": "migrated backend from sync to async" },
-    { "value": "8.2/10", "label": "GPA at VKU, Da Nang" }
+    {
+      "value": "6 apps",
+      "label": "web & mobile shipped to production in 5 months with a 3-person team"
+    },
+    {
+      "value": "6,000+",
+      "label": "automated tests across the projects I lead"
+    },
+    {
+      "value": "33s → 1.2s",
+      "label": "routing engine optimization, ~27× faster"
+    }
   ],
-  "family": {
-    "eyebrow": "",
-    "title": "Family",
-    "body": "A few things that keep me grounded: family, discipline, and a handful of short lines I keep coming back to.",
-    "imageAlt": "Mai Quoc Viet family photo",
-    "quotes": [
+  "work": {
+    "eyebrow": "Experience",
+    "title": "Learning from real systems and teams, then leading them to ship real products.",
+    "items": [
       {
-        "text": "If you don't find a way to make money while you sleep, you will work until you die.",
-        "author": "Warren Buffett"
+        "period": "06/2026 – now",
+        "role": "Full-Stack Developer & Team Lead",
+        "company": "BNH Digital",
+        "href": "https://www.bnh-digital.com/",
+        "body": "Australia-based software agency, remote. Lead a 3-person engineering team: turn client requirements into technical designs and schemas, plan sprints, and review every pull request — including AI-assisted code. Shipped 6 production web and mobile apps in 5 months; set the team's standards for automated tests, CI and OpenAPI docs; run production with Docker, Cloudflare, Sentry and zero-downtime blue-green releases."
       },
       {
-        "text": "Nothing is more precious than independence and freedom.",
-        "author": "Ho Chi Minh"
+        "period": "03/2026 – 05/2026",
+        "role": "Backend Developer",
+        "company": "SapotaCorp",
+        "href": "https://www.sapotacorp.vn/",
+        "body": "Shipped features and bug fixes for the AttituX HR Platform (.NET) across authentication, profile and admin modules, plus internal admin tools. Worked in an Agile/Scrum team through pull requests, code reviews and issue tracking."
       },
       {
-        "text": "Stay hungry. Stay foolish.",
-        "author": "Whole Earth Catalog / quoted by Steve Jobs"
+        "period": "09/2025 – 12/2025",
+        "role": "Backend Intern",
+        "company": "Rikai Technology",
+        "href": "https://careers.rikai.technology/",
+        "body": "Built routing modules for a nationwide route-finding system in Japan (FastAPI, GeoPandas, pgRouting). Cut route computation from 33s to 1.2s (~27× faster), migrated services from sync to async in 3 days, and redesigned PostgreSQL schemas, indexes and queries to reduce latency."
       },
       {
-        "text": "It is not length of life, but depth of life.",
-        "author": "Ralph Waldo Emerson"
-      },
-      {
-        "text": "Be the change that you wish to see in the world.",
-        "author": "Mahatma Gandhi"
+        "period": "06/2024 – 08/2024",
+        "role": "Networking Intern",
+        "company": "VNNIC Technology",
+        "href": "https://www.vnnic.vn/",
+        "body": "Worked close to real infrastructure: routing, security fundamentals, and monitoring with Nagios and ELK Stack. This helped me see backend as a running system, not only code."
       }
     ]
   },
+  "projects": {
+    "eyebrow": "Source",
+    "title": "Personal projects I use to sharpen backend, security and systems skills.",
+    "openGithub": "Source on GitHub",
+    "viewAll": "All projects",
+    "items": [
+      {
+        "name": "Network Intrusion Detection & Alert System",
+        "detail": "A Python + Elasticsearch system that collects and analyzes security logs from Zeek, Nginx, and Django to detect abnormal behavior and send realtime alerts.",
+        "tech": [
+          "Python",
+          "Elasticsearch",
+          "Zeek",
+          "Nginx",
+          "Django Logs",
+          "ChatGPT API",
+          "Telegram Bot"
+        ],
+        "features": [
+          "Detects DDoS, SQL Injection, directory brute-force, and login brute-force patterns",
+          "AI Advisor uses ChatGPT API to suggest mitigation actions for each threat",
+          "Notifier sends alerts and recommendations to administrators via Telegram"
+        ],
+        "href": "https://github.com/maiviet283/analyze_logs"
+      },
+      {
+        "name": "BookStore",
+        "detail": "A book management API built with Django REST Framework, JWT, MySQL, Redis, and React TypeScript.",
+        "tech": [
+          "Django",
+          "DRF",
+          "JWT",
+          "MySQL",
+          "Redis",
+          "React TypeScript"
+        ],
+        "features": [
+          "RESTful APIs for a book management system",
+          "JWT authentication",
+          "Redis caching to reduce database load"
+        ],
+        "href": "https://github.com/maiviet283/bookstore"
+      },
+      {
+        "name": "Clothing Shop API",
+        "detail": "E-commerce backend with auth, anti-spam, Redis cache, Gunicorn, and Nginx.",
+        "tech": [
+          "Django",
+          "DRF",
+          "JWT",
+          "MySQL",
+          "Redis",
+          "Gunicorn",
+          "Nginx"
+        ],
+        "features": [
+          "Backend API for an e-commerce flow",
+          "Security mechanisms: brute-force protection, anti-spam, and request validation",
+          "Production deployment with Gunicorn and Nginx"
+        ],
+        "href": "https://github.com/maiviet283/my_shop"
+      }
+    ]
+  },
+  "stack": {
+    "eyebrow": "Stack",
+    "title": "I build a solid core, then finish it into a clear experience.",
+    "groups": [
+      {
+        "label": "Backend",
+        "items": [
+          "Python",
+          "Django",
+          "DRF",
+          "FastAPI",
+          "Celery",
+          "Django Channels",
+          "WebSocket"
+        ]
+      },
+      {
+        "label": "Frontend & Mobile",
+        "items": [
+          "React",
+          "TypeScript",
+          "React Native",
+          "Tauri v2",
+          "Astro"
+        ]
+      },
+      {
+        "label": "Data",
+        "items": [
+          "PostgreSQL",
+          "PgBouncer",
+          "pgRouting",
+          "Redis",
+          "MySQL"
+        ]
+      },
+      {
+        "label": "DevOps",
+        "items": [
+          "Docker",
+          "Nginx",
+          "Cloudflare",
+          "Sentry",
+          "CI/CD"
+        ]
+      },
+      {
+        "label": "Security",
+        "items": [
+          "RBAC",
+          "2FA",
+          "JWT / OAuth",
+          "Tenant isolation",
+          "Audit log"
+        ]
+      }
+    ],
+    "beliefTitle": "How do I work?",
+    "beliefBody": "Clear API contracts with OpenAPI, automated tests on every project, CI on every repository, zero-downtime blue-green deploys and Sentry watching production. I use AI to move faster, but every line still goes through careful review before merge."
+  },
   "api": {
-    "eyebrow": "Live signals",
+    "eyebrow": "Signals",
     "title": "A few real-time signals pulled directly from public APIs.",
     "body": "This page isn't only static content. It pulls a few real-time data points: GitHub activity, Da Nang weather, and Vietnam time.",
-    "loading": "Catching signals...",
+    "loading": "Catching signals…",
     "error": "The signal is noisy. Try again later.",
     "refresh": "Refresh",
     "github": {
-      "title": "GitHub radar",
+      "title": "GitHub",
       "repos": "public repos",
       "followers": "followers",
       "stars": "stars",
-      "latest": "latest updated repo",
+      "latest": "Latest updated repo",
       "profile": "Open GitHub"
     },
     "weather": {
-      "title": "Da Nang nature pulse",
+      "title": "Da Nang weather",
       "temperature": "temperature",
       "humidity": "humidity",
       "wind": "wind",
@@ -123,154 +297,301 @@
         "82": "violent rain showers",
         "95": "thunderstorm",
         "96": "thunderstorm with hail",
-        "99": "strong thunderstorm with hail"
+        "99": "heavy thunderstorm with hail"
       },
-      "unknown": "weather is shifting"
+      "unknown": "weather is changing"
     },
     "time": {
-      "title": "Vietnam clock",
-      "label": "Vietnam time",
-      "zone": "Asia/Ho_Chi_Minh",
-      "fallback": "from browser"
+      "title": "Vietnam time",
+      "label": "Asia/Ho_Chi_Minh · UTC+7"
     }
   },
-  "vietdon": {
-    "eyebrow": "Main project",
-    "title": "VietDon: online donations for Vietnamese creators.",
-    "body": "VietDon solves a simple need: let viewers support the creators they love quickly, with a flow as familiar and easy as opening a banking app. I'm building it from the core: creator registration, KYC, public donation pages, VietQR/Pay2s, streamer wallet, revenue dashboard, and realtime notifications.",
-    "bannerAlt": "VietDon banner logo",
-    "logoAlt": "VietDon round logo",
-    "flow": [
+  "family": {
+    "eyebrow": "Family",
+    "title": "Family, friends, and a few lines I keep coming back to.",
+    "body": "The people who keep me grounded at work and in life — and a handful of short lines I keep coming back to.",
+    "imageAlt": "Mai Quoc Viet family photo",
+    "quotes": [
       {
-        "number": "01",
-        "title": "Creator sets up a channel",
-        "body": "Register, complete KYC, configure the page, and connect a bank account for payouts."
+        "text": "If you don't find a way to make money while you sleep, you will work until you die.",
+        "author": "Warren Buffett"
       },
       {
-        "number": "02",
-        "title": "Viewer donates fast",
-        "body": "No complicated login. Choose an amount and pay with VietQR or Pay2s."
+        "text": "Nothing is more precious than independence and freedom.",
+        "author": "Ho Chi Minh"
       },
       {
-        "number": "03",
-        "title": "Wallet updates in realtime",
-        "body": "Once the payment is confirmed, the dashboard updates and the creator tracks revenue directly."
+        "text": "Stay hungry. Stay foolish.",
+        "author": "Whole Earth Catalog / Steve Jobs"
+      },
+      {
+        "text": "It is not length of life, but depth of life.",
+        "author": "Ralph Waldo Emerson"
+      },
+      {
+        "text": "Be the change that you wish to see in the world.",
+        "author": "Mahatma Gandhi"
       }
-    ]
-  },
-  "stack": {
-    "eyebrow": "Core stack",
-    "title": "I build a solid core, then finish it into a clear experience.",
-    "items": [
-      "Python",
-      "Django",
-      "FastAPI",
-      "Node.js",
-      "C#",
-      ".NET",
-      "PostgreSQL",
-      "MySQL",
-      "Redis",
-      "Docker",
-      "Nginx",
-      "React",
-      "TypeScript",
-      "Postman",
-      "Git",
-      "Ubuntu"
     ],
-    "beliefTitle": "What do I believe in?",
-    "beliefBody": "A good product needs solid engineering and a clear experience: well-defined API contracts, database indexes that match real flows, caching on hot paths, and deployments with logging and monitoring. The end goal is simple: help people work faster and more easily."
-  },
-  "work": {
-    "eyebrow": "Experience",
-    "title": "Learning from real systems and teams, then applying it to my own products.",
-    "items": [
-      {
-        "period": "Present",
-        "role": "Fresher Fullstack Developer",
-        "company": "SapotarCorp",
-        "href": "https://www.sapotacorp.vn/",
-        "body": "Currently working in a real product environment, sharpening fullstack skills, system thinking, and the path from feature idea to production."
-      },
-      {
-        "period": "09/2025 - 12/2025",
-        "role": "Backend Intern",
-        "company": "Rikai Technology",
-        "href": "https://careers.rikai.technology/",
-        "body": "Built routing modules for a nationwide route-finding system, working with large map datasets using Python, FastAPI, and GeoPandas. Focused on speed, PostgreSQL queries, and async architecture."
-      },
-      {
-        "period": "06/2024 - 08/2024",
-        "role": "Networking Intern",
-        "company": "VNNIC Technology",
-        "href": "https://www.vnnic.vn/",
-        "body": "Worked close to real infrastructure: routing, security fundamentals, and monitoring with Nagios and ELK Stack. This helped me see backend as a running system, not only code."
-      }
-    ]
-  },
-  "projects": {
-    "eyebrow": "Projects",
-    "title": "Projects I use to sharpen backend, security, and systems skills.",
-    "badge": "GitHub",
-    "items": [
-      {
-        "name": "Network Intrusion Detection & Alert System",
-        "detail": "A Python + Elasticsearch system that collects and analyzes security logs from Zeek, Nginx, and Django to detect abnormal behavior and send realtime alerts.",
-        "tech": ["Python", "Elasticsearch", "Zeek", "Nginx", "Django Logs", "ChatGPT API", "Telegram Bot"],
-        "features": [
-          "Detects DDoS, SQL Injection, directory brute-force, and login brute-force patterns",
-          "AI Advisor uses ChatGPT API to suggest mitigation actions for each threat",
-          "Notifier sends alerts and recommendations to administrators via Telegram"
-        ],
-        "href": "https://github.com/maiviet283/analyze_logs"
-      },
-      {
-        "name": "BookStore",
-        "detail": "Django REST Framework, JWT, MySQL, Redis, React TypeScript",
-        "tech": ["Django", "DRF", "JWT", "MySQL", "Redis", "React TypeScript"],
-        "features": [
-          "RESTful APIs for a book management system",
-          "JWT authentication",
-          "Redis caching to reduce database load"
-        ],
-        "href": "https://github.com/maiviet283/bookstore"
-      },
-      {
-        "name": "Clothing Shop API",
-        "detail": "E-commerce backend with auth, anti-spam, Redis cache, Gunicorn, and Nginx",
-        "tech": ["Django", "DRF", "JWT", "MySQL", "Redis", "Gunicorn", "Nginx"],
-        "features": [
-          "Backend API for an e-commerce flow",
-          "Security mechanisms: brute-force protection, anti-spam, and request validation",
-          "Production deployment with Gunicorn and Nginx"
-        ],
-        "href": "https://github.com/maiviet283/my_shop"
-      }
-    ]
+    "photos": {
+      "parents": "My parents",
+      "birthday": "Turning 17",
+      "friends": "With friends"
+    }
   },
   "contact": {
     "eyebrow": "Contact",
     "title": "Get in touch.",
+    "body": "Got a product idea, need a team to ship it, or just want to talk backend? Email is the fastest way to reach me.",
     "links": [
-      { "label": "Email", "value": "maiviet283@gmail.com", "href": "mailto:maiviet283@gmail.com" },
-      { "label": "Facebook", "value": "maiviet283", "href": "https://www.facebook.com/maiviet283" },
-      { "label": "GitHub", "value": "maiviet283", "href": "https://github.com/maiviet283" },
-      { "label": "TikTok", "value": "@maiviet283", "href": "https://www.tiktok.com/@maiviet283" },
-      { "label": "Instagram", "value": "maiviet283", "href": "https://www.instagram.com/maiviet283" },
-      { "label": "LinkedIn", "value": "maiviet283", "href": "https://www.linkedin.com/in/maiviet283/" },
-      { "label": "Locket", "value": "maiviet283", "href": "https://locket.cam/maiviet283" }
-    ]
+      {
+        "label": "Email",
+        "value": "maiviet283@gmail.com",
+        "href": "mailto:maiviet283@gmail.com"
+      },
+      {
+        "label": "GitHub",
+        "value": "maiviet283",
+        "href": "https://github.com/maiviet283"
+      },
+      {
+        "label": "LinkedIn",
+        "value": "maiviet283",
+        "href": "https://www.linkedin.com/in/maiviet283/"
+      },
+      {
+        "label": "Facebook",
+        "value": "maiviet283",
+        "href": "https://www.facebook.com/maiviet283"
+      },
+      {
+        "label": "TikTok",
+        "value": "@maiviet283",
+        "href": "https://www.tiktok.com/@maiviet283"
+      },
+      {
+        "label": "Instagram",
+        "value": "maiviet283",
+        "href": "https://www.instagram.com/maiviet283"
+      },
+      {
+        "label": "Locket",
+        "value": "maiviet283",
+        "href": "https://locket.cam/maiviet283"
+      }
+    ],
+    "emailCta": "Email me",
+    "socialLabel": "Or find me on"
   },
   "footer": {
-    "tagline": "Mai Quốc Việt — Backend Developer in Da Nang, founder of VietDon.",
+    "tagline": "Mai Quốc Việt — Full-stack developer & team lead in Da Nang.",
     "pagesLabel": "Pages",
     "pages": [
-      { "label": "VietDon", "href": "/vietdon/" },
-      { "label": "Projects", "href": "/projects/" },
-      { "label": "Blog", "href": "/blog/" },
-      { "label": "About", "href": "/about/" }
+      {
+        "label": "Home",
+        "href": "/en/"
+      },
+      {
+        "label": "Projects",
+        "href": "/projects/"
+      },
+      {
+        "label": "About",
+        "href": "/about/"
+      },
+      {
+        "label": "VietDon (archive)",
+        "href": "/vietdon/"
+      }
     ],
-    "rights": "All rights reserved."
-  }
+    "elsewhereLabel": "Elsewhere",
+    "rights": "All rights reserved.",
+    "made": "Hand-drawn in code in Da Nang."
+  },
+  "products": {
+    "eyebrow": "Products",
+    "title": "Products I've built, the ones running now, and one I've closed.",
+    "status": {
+      "building": "Building",
+      "live": "Live",
+      "ended": "Closed"
+    },
+    "roleLabel": "Role",
+    "periodLabel": "Period",
+    "stackLabel": "Stack",
+    "items": [
+      {
+        "key": "haven",
+        "name": "Haven",
+        "tagline": "On-demand home doctor visits and a health platform.",
+        "period": "09/2026 – now",
+        "role": "Co-founder & Lead Engineer",
+        "status": "building",
+        "summary": "Building the entire product solo: an Astro website (live), a 14-module Django REST API, an operations admin system for Haven staff, and a React Native app for patients and doctors (pre-release).",
+        "points": [
+          "End-to-end care flow: radius-based doctor search, doctor KYC review, bookings with automated reminders, VietQR payments, and care plans with medication tracking for whole families.",
+          "AI food recognition with Gemini for calorie tracking, alongside a library of 566 exercises.",
+          "Hardened for health data: 2FA-protected admin, OTP and Google/Apple sign-in, presigned uploads to Cloudflare R2, Celery on 4 queues, blue-green deploys."
+        ],
+        "metrics": [
+          {
+            "value": "14",
+            "label": "API modules"
+          },
+          {
+            "value": "2,000+",
+            "label": "automated tests"
+          },
+          {
+            "value": "566",
+            "label": "exercises"
+          }
+        ],
+        "stack": [
+          "Django REST",
+          "React Native (Expo)",
+          "Astro",
+          "PostgreSQL 17",
+          "PgBouncer",
+          "Redis",
+          "Celery",
+          "Cloudflare R2",
+          "Sentry"
+        ],
+        "link": {
+          "label": "havenmed.vn",
+          "href": "https://havenmed.vn/"
+        }
+      },
+      {
+        "key": "oms",
+        "name": "One Management System",
+        "tagline": "Sales, accounting & tax SaaS for SMEs.",
+        "period": "07/2026 – 10/2026",
+        "role": "Full-stack Developer",
+        "status": "live",
+        "summary": "Built the full system in about 3.5 months: a web app where SMEs and household businesses run their sales, plus an operations admin system for OMS staff. Launched in production in 11/2026.",
+        "points": [
+          "Multi-tenant architecture: one account runs many businesses, and every business API is tenant-scoped to keep financial data isolated.",
+          "~50 modules: sales, e-invoicing, tax filing, finance, payroll, CRM, purchasing, logistics and an AI legal assistant — shipped as a web app and a Windows desktop app.",
+          "Email, e-invoice, reporting and scheduled backup jobs automated with Celery + Beat."
+        ],
+        "metrics": [
+          {
+            "value": "~50",
+            "label": "business modules"
+          },
+          {
+            "value": "4,000+",
+            "label": "automated tests"
+          }
+        ],
+        "stack": [
+          "Django",
+          "React",
+          "TypeScript",
+          "Tauri v2",
+          "PostgreSQL",
+          "Redis",
+          "Celery + Beat"
+        ],
+        "link": {
+          "label": "oms.com.vn",
+          "href": "https://oms.com.vn/"
+        }
+      },
+      {
+        "key": "eightytwenty",
+        "name": "EightyTwenty",
+        "tagline": "Back office, ordering app and POS API for a café chain in Australia.",
+        "period": "10/2026",
+        "role": "Backend Lead",
+        "status": "live",
+        "summary": "The Back Office System and the shared REST API behind the customer app, POS terminals and kitchen displays — running daily operations across 10 stores in Australia.",
+        "points": [
+          "Ordering that is safe against retries and price tampering: server-side pricing and idempotent order creation.",
+          "Loyalty, gift cards, table booking, catering and push notifications; POS with PIN login, till shifts, refunds and a live order feed to kitchen displays.",
+          "Owner / manager / staff roles, an audit log on every write, and revenue reports by day, store, item and payment channel."
+        ],
+        "metrics": [
+          {
+            "value": "10",
+            "label": "stores in Australia"
+          },
+          {
+            "value": "300+",
+            "label": "automated tests"
+          }
+        ],
+        "stack": [
+          "Django REST",
+          "PostgreSQL",
+          "Redis",
+          "OpenAPI"
+        ],
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/maiviet283/EightyTwenty"
+        }
+      },
+      {
+        "key": "vietdon",
+        "name": "VietDon",
+        "tagline": "Real-time donation platform for Vietnamese streamers.",
+        "period": "02/2026 – 11/2026",
+        "role": "Founder & Developer",
+        "status": "ended",
+        "summary": "A personal product I built and ran for 9 months, reaching 200+ active users and about 12M VND in monthly revenue. VietDon stopped operating in 11/2026.",
+        "points": [
+          "Pay2s QR payments with asynchronous processing on Celery.",
+          "Real-time donation alerts through Django Channels and WebSocket.",
+          "Redis caching, media on Cloudflare R2, deployed with Docker and Nginx."
+        ],
+        "metrics": [
+          {
+            "value": "9 months",
+            "label": "in operation"
+          },
+          {
+            "value": "200+",
+            "label": "active users"
+          },
+          {
+            "value": "~$470",
+            "label": "monthly revenue"
+          }
+        ],
+        "stack": [
+          "Django",
+          "DRF",
+          "React",
+          "PostgreSQL",
+          "Redis",
+          "Celery",
+          "Django Channels",
+          "Docker",
+          "Nginx"
+        ],
+        "link": {
+          "label": "VietDon retrospective",
+          "href": "/vietdon/"
+        }
+      }
+    ]
+  },
+  "marquee": [
+    "Haven",
+    "One Management System",
+    "EightyTwenty",
+    "Django",
+    "FastAPI",
+    "React",
+    "React Native",
+    "PostgreSQL",
+    "Redis",
+    "Celery",
+    "Docker",
+    "Cloudflare"
+  ],
+  "stats_title": "A few numbers"
 }

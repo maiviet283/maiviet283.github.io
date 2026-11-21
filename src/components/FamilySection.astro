@@ -1,0 +1,265 @@
+---
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+import SectionHead from './SectionHead.astro'
+import familyNow from '../data/images/myfamily2.png'
+import familyThen from '../data/images/myfamily.jpg'
+import parents from '../data/images/parents.jpg'
+import birthday from '../data/images/birthday-17.jpg'
+import littleOne from '../data/images/little-one.jpg'
+import boat from '../data/images/boat.jpg'
+import friends from '../data/images/friends.webp'
+import type { Locale } from '../types'
+
+interface Props {
+  text: Locale
+  num: number
+}
+
+const { text, num } = Astro.props
+const family = text.family
+
+interface Photo {
+  src: ImageMetadata
+  alt: string
+  caption?: string
+  tape: 'sun' | 'mint' | 'pink'
+}
+
+// Order reads well as a three-column masonry (columns fill top to bottom).
+const photos: Photo[] = [
+  { src: familyNow, alt: `${family.imageAlt} 1`, tape: 'sun' },
+  { src: birthday, alt: family.photos.birthday, caption: family.photos.birthday, tape: 'pink' },
+  { src: littleOne, alt: `${family.imageAlt} 3`, tape: 'mint' },
+  { src: parents, alt: family.photos.parents, caption: family.photos.parents, tape: 'sun' },
+  { src: boat, alt: `${family.imageAlt} 4`, tape: 'pink' },
+  { src: familyThen, alt: `${family.imageAlt} 2`, tape: 'mint' },
+  { src: friends, alt: family.photos.friends, caption: family.photos.friends, tape: 'sun' },
+]
+const tilts = [-3, 2, -1.5, 2.5, -2, 1.5, -2.5]
+---
+
+<section class="section family" id="family" aria-labelledby="family-title">
+  <div class="wrap">
+    <SectionHead num={num} eyebrow={family.eyebrow} title={family.title} id="family-title">
+      <p>{family.body}</p>
+    </SectionHead>
+
+    <div class="wall">
+      {photos.map((photo, index) => (
+        <figure class="polaroid" data-reveal style={`--tilt: ${tilts[index]}deg; --reveal-rot: ${tilts[index] * 2}deg`}>
+          <span class:list={['tape', `tape-${photo.tape}`]} aria-hidden="true"></span>
+          <Image src={photo.src} alt={photo.alt} widths={[360, 560, 820]} sizes="(min-width: 960px) 30vw, (min-width: 600px) 45vw, 90vw" />
+          <figcaption>
+            <span>Fig. {String(index + 2).padStart(2, '0')}</span>
+            {photo.caption ? <b>{photo.caption}</b> : null}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+
+  <div class="quotes-wrap">
+    <ul class="quotes wrap" tabindex="0" aria-label={family.eyebrow} data-reveal-group>
+      {family.quotes.map((quote, index) => (
+        <li class:list={['quote', 'card', `q${index % 4}`]} style={`--i: ${index}`}>
+          <svg class="mark" viewBox="0 0 48 36" aria-hidden="true"><path d="M0 36V20C0 8 7 1 19 0v8c-6 1-9 5-9 11h9v17Zm29 0V20C29 8 36 1 48 0v8c-6 1-9 5-9 11h9v17Z"></path></svg>
+          <blockquote><p>{quote.text}</p></blockquote>
+          <p class="who">— {quote.author}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .family {
+    overflow: hidden;
+    border-top: var(--line);
+    background-color: var(--paper-2);
+    background-image: radial-gradient(color-mix(in srgb, var(--ink) 10%, transparent) 1.6px, transparent 2px);
+    background-size: 22px 22px;
+  }
+
+  .wall {
+    columns: 3 260px;
+    column-gap: clamp(20px, 3vw, 36px);
+  }
+
+  .polaroid {
+    position: relative;
+    display: block;
+    margin: 0 0 clamp(26px, 3vw, 40px);
+    padding: 12px 12px 0;
+    border: var(--line);
+    border-radius: 6px;
+    background: #fffaf2;
+    box-shadow: var(--shadow);
+    break-inside: avoid;
+    rotate: var(--tilt);
+    transition-property: rotate, scale, box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: var(--ease-pop);
+  }
+
+  @media (hover: hover) {
+    .polaroid:hover {
+      z-index: 2;
+      rotate: 0deg;
+      scale: 1.03;
+      box-shadow: var(--shadow-lg);
+    }
+  }
+
+  .polaroid img {
+    width: 100%;
+    border: 2px solid #1a1613;
+    border-radius: 3px;
+    outline: 1px solid oklch(0 0 0 / 0.1);
+    outline-offset: -1px;
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 10px;
+    padding: 10px 4px 12px;
+    color: #1a1613;
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  figcaption span {
+    color: #6e645a;
+  }
+
+  figcaption b {
+    font-size: 22px;
+    letter-spacing: 0.02em;
+  }
+
+  .tape {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    z-index: 1;
+    width: 96px;
+    height: 28px;
+    border: 2px solid rgb(26 22 19 / 0.35);
+    opacity: 0.9;
+    translate: -50% 0;
+    rotate: calc(var(--tilt) * -2);
+  }
+
+  .tape-sun {
+    background: var(--sun);
+  }
+
+  .tape-mint {
+    background: var(--mint);
+  }
+
+  .tape-pink {
+    background: var(--pink);
+  }
+
+  /* ---------- Quotes strip ---------- */
+  .quotes-wrap {
+    margin-top: clamp(24px, 4vw, 48px);
+  }
+
+  .quotes {
+    display: grid;
+    grid-auto-columns: minmax(280px, 360px);
+    grid-auto-flow: column;
+    gap: 22px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding: 8px 12px 28px 4px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--ink) transparent;
+  }
+
+  .quote {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+    padding: 24px;
+    scroll-snap-align: start;
+  }
+
+  .q0 {
+    background: var(--sun);
+    color: #1a1613;
+  }
+
+  .q1 {
+    background: var(--card);
+  }
+
+  .q2 {
+    background: var(--mint);
+    color: #1a1613;
+  }
+
+  .q3 {
+    background: var(--pink);
+    color: #1a1613;
+  }
+
+  .mark {
+    width: 40px;
+    height: 30px;
+    fill: currentColor;
+    opacity: 0.85;
+  }
+
+  .quote blockquote p {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.12;
+    text-transform: uppercase;
+  }
+
+  .who {
+    margin-top: auto;
+    font-size: 14px;
+    font-weight: 700;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 600px) {
+    .wall {
+      columns: 2;
+      column-gap: 14px;
+    }
+
+    .polaroid {
+      margin-bottom: 22px;
+      padding: 6px 6px 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tape {
+      width: 60px;
+      height: 20px;
+      top: -10px;
+    }
+
+    figcaption {
+      padding: 6px 2px 8px;
+      font-size: 12px;
+    }
+
+    figcaption b {
+      font-size: 15px;
+    }
+  }
+</style>

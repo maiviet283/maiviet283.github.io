@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Mascot from '../components/Mascot.astro'
+import text from '../localet/vi.json'
+---
+
+<Layout
+  lang="vi"
+  text={text}
+  title="Không tìm thấy trang | Mai Quốc Việt"
+  description="Trang bạn tìm không tồn tại hoặc đã được dời đi."
+  path="/404/"
+  noindex
+>
+  <section class="nf dots">
+    <div class="wrap inner">
+      <div class="art" data-reveal>
+        <Mascot size="min(280px, 64vw)" alive />
+        <span class="bubble">Ơ… lạc rồi!</span>
+      </div>
+      <div class="copy">
+        <p class="code" data-reveal style="--i: 1">404</p>
+        <h1 data-reveal style="--i: 2">Trang này không có ở đây</h1>
+        <p class="lead" data-reveal style="--i: 3">
+          Có thể đường dẫn đã cũ — blog và vài trang cũ đã được dọn đi. Quay về trang chủ hoặc xem các
+          sản phẩm mình đang làm nhé.
+        </p>
+        <div class="actions" data-reveal style="--i: 4">
+          <a class="btn btn-sun btn-lg" href="/">Về trang chủ</a>
+          <a class="btn btn-lg" href="/projects/">Xem dự án</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .nf {
+    border-bottom: var(--line);
+    color: #fffaf2;
+  }
+
+  .inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(32px, 6vw, 72px);
+    align-items: center;
+    min-height: calc(100svh - var(--header-h) - 120px);
+    padding-block: 64px;
+  }
+
+  .art {
+    position: relative;
+  }
+
+  .art :global(.mascot) {
+    box-shadow: 12px 12px 0 #1a1613;
+    rotate: -8deg;
+  }
+
+  .bubble {
+    position: absolute;
+    top: -6%;
+    right: -18%;
+    padding: 10px 16px;
+    border: var(--line-w) solid #1a1613;
+    border-radius: 16px 16px 16px 4px;
+    background: #fffaf2;
+    color: #1a1613;
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0 #1a1613;
+  }
+
+  .code {
+    font-family: var(--display);
+    font-size: clamp(110px, 20vw, 220px);
+    font-weight: 800;
+    line-height: 0.8;
+    color: var(--sun);
+    text-shadow: 8px 8px 0 #1a1613;
+  }
+
+  h1 {
+    margin-top: 12px;
+    font-size: clamp(40px, 6vw, 72px);
+    text-shadow: 4px 4px 0 #1a1613;
+  }
+
+  .lead {
+    max-width: 48ch;
+    margin-top: 16px;
+    color: rgb(255 250 242 / 0.9);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .actions .btn {
+    border-color: #1a1613;
+    box-shadow: 4px 4px 0 #1a1613;
+  }
+
+  .actions .btn:not(.btn-sun) {
+    --bg: #fffaf2;
+    --fg: #1a1613;
+  }
+
+  @media (max-width: 760px) {
+    .inner {
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
+  }
+</style>

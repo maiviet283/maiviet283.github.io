@@ -1,0 +1,204 @@
+---
+/**
+ * The opening moment on the home page, once per visit: a ring draws around
+ * the mark, the mark pops in, a counter runs to 100 while the name rises
+ * letter by letter, then three paint stripes lift the curtain.
+ * Pure CSS (the counter is an animated @property integer), about 2.3 s.
+ * The boot script in Layout.astro sets data-intro="seen" to skip it.
+ */
+import Mascot from './Mascot.astro'
+
+interface Props {
+  name: string
+}
+
+const { name } = Astro.props
+const letters = [...name]
+---
+
+<div class="preloader" aria-hidden="true">
+  <span class="pl-band"></span>
+  <span class="pl-band"></span>
+  <div class="pl-stage dots">
+    <div class="pl-mark">
+      <svg class="pl-ring" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="94" pathLength="1"></circle>
+      </svg>
+      <Mascot size={150} />
+    </div>
+    <p class="pl-name">
+      {letters.map((ch, i) => <span style={`--i: ${i}`}>{ch === ' ' ? ' ' : ch}</span>)}
+    </p>
+    <p class="pl-count"><span></span>%</p>
+  </div>
+</div>
+
+<style>
+  @property --pct {
+    syntax: '<integer>';
+    inherits: false;
+    initial-value: 0;
+  }
+
+  .preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 350;
+    display: grid;
+    pointer-events: none;
+  }
+
+  :global(:root[data-intro='seen']) .preloader {
+    display: none;
+  }
+
+  .pl-band,
+  .pl-stage {
+    grid-area: 1 / 1;
+  }
+
+  .pl-band:nth-child(1) {
+    background: var(--sun);
+    animation: lift 700ms var(--ease-io) 2.15s both;
+  }
+
+  .pl-band:nth-child(2) {
+    background: var(--tomato);
+    animation: lift 700ms var(--ease-io) 2.05s both;
+  }
+
+  .pl-stage {
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 18px;
+    color: #fffaf2;
+    animation: lift 700ms var(--ease-io) 1.95s both;
+  }
+
+  .pl-mark {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 190px;
+    height: 190px;
+  }
+
+  .pl-mark :global(.mascot) {
+    border-radius: 50%;
+    box-shadow: 8px 8px 0 #1a1613;
+    animation: pop 600ms var(--ease-pop) 350ms both;
+  }
+
+  .pl-ring {
+    position: absolute;
+    inset: 0;
+    transform: rotate(-90deg);
+  }
+
+  .pl-ring circle {
+    fill: none;
+    stroke: var(--sun);
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 1.4s var(--ease-io) 150ms forwards;
+  }
+
+  .pl-name {
+    display: flex;
+    overflow: hidden;
+    font-family: var(--display);
+    font-size: clamp(40px, 8vw, 72px);
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  .pl-name span {
+    display: inline-block;
+    animation: letter 600ms var(--ease-pop) both;
+    animation-delay: calc(600ms + var(--i) * 45ms);
+  }
+
+  .pl-count {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    font-variant-numeric: tabular-nums;
+    color: var(--sun);
+  }
+
+  .pl-count span {
+    counter-reset: pct var(--pct);
+    animation: count 1.7s var(--ease-io) 150ms forwards;
+  }
+
+  .pl-count span::before {
+    content: counter(pct);
+  }
+
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: scale(0.3) rotate(-30deg);
+    }
+  }
+
+  @keyframes letter {
+    from {
+      opacity: 0;
+      transform: translateY(110%) rotate(8deg);
+    }
+  }
+
+  @keyframes count {
+    to {
+      --pct: 100;
+    }
+  }
+
+  @keyframes lift {
+    to {
+      transform: translateY(-105%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .preloader {
+      animation: fade 400ms ease-out 900ms both;
+    }
+
+    .pl-band,
+    .pl-stage,
+    .pl-mark :global(.mascot),
+    .pl-name span,
+    .pl-ring circle,
+    .pl-count span {
+      animation: none;
+    }
+
+    .pl-ring circle {
+      stroke-dashoffset: 0;
+    }
+
+    .pl-count span {
+      --pct: 100;
+    }
+
+    @keyframes fade {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+</style>

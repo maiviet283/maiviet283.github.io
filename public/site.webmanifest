@@ -1,13 +1,14 @@
 {
-  "name": "Mai Quốc Việt – Backend Developer",
+  "name": "Mai Quốc Việt – Full-stack Developer",
   "short_name": "Mai Quốc Việt",
-  "description": "Trang cá nhân của Mai Quốc Việt (maiviet283) – Backend developer từ Đà Nẵng, founder VietDon.",
+  "description": "Trang cá nhân của Mai Quốc Việt (maiviet283) – Full-stack developer & team lead tại Đà Nẵng.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#f5402c",
+  "background_color": "#f5eee2",
+  "theme_color": "#2f55d4",
   "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
     { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ]

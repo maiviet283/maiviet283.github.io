@@ -1,29 +1,201 @@
 ---
+/** Experience as a timeline: a thick ink spine, numbered nodes, sticker cards. */
+import SectionHead from './SectionHead.astro'
 import type { Locale } from '../types'
 
 interface Props {
   text: Locale
+  num: number
 }
 
-const { text } = Astro.props
+const { text, num } = Astro.props
+const tones = ['sun', 'mint', 'pink', 'card']
 ---
 
-<section class="section work-section" id="work">
-  <div class="section-heading compact reveal">
-    <p class="eyebrow">{text.work.eyebrow}</p>
-    <h2>{text.work.title}</h2>
-  </div>
+<section class="section work" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <SectionHead num={num} eyebrow={text.work.eyebrow} title={text.work.title} id="work-title" />
 
-  <div class="timeline">
-    {text.work.items.map((item) => (
-      <article class="timeline-item reveal">
-        <span>{item.period}</span>
-        <h3>{item.role}</h3>
-        <a class="company-link" href={item.href} target="_blank" rel="noreferrer">
-          {item.company}
-        </a>
-        <p>{item.body}</p>
-      </article>
-    ))}
+    <ol class="timeline">
+      {text.work.items.map((item, index) => (
+        <li class:list={['entry', { 'is-current': index === 0 }]} data-reveal style={`--reveal-rot: ${index % 2 ? 2 : -2}deg`}>
+          <span class:list={['node', `tone-${tones[index % tones.length]}`]} aria-hidden="true">{String(text.work.items.length - index).padStart(2, '0')}</span>
+          <div class="card lift body">
+            <p class="period">{item.period}</p>
+            <h3>{item.role}</h3>
+            <a class="company" href={item.href} target="_blank" rel="noreferrer">
+              {item.company}
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+            </a>
+            <p class="text">{item.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
   </div>
 </section>
+
+<style>
+  .work {
+    border-block: var(--line);
+    background: var(--paper-2);
+  }
+
+  .timeline {
+    position: relative;
+    display: grid;
+    gap: clamp(24px, 3vw, 36px);
+  }
+
+  .timeline::before {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 27px;
+    width: 6px;
+    border-radius: 3px;
+    background: var(--ink);
+    content: '';
+  }
+
+  .entry {
+    position: relative;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: clamp(16px, 3vw, 32px);
+    align-items: start;
+  }
+
+  .node {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    border: var(--line);
+    border-radius: 50%;
+    color: #1a1613;
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 800;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tone-sun {
+    background: var(--sun);
+  }
+
+  .tone-mint {
+    background: var(--mint);
+  }
+
+  .tone-pink {
+    background: var(--pink);
+  }
+
+  .tone-card {
+    background: var(--card);
+  }
+
+  .body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 6px clamp(20px, 4vw, 48px);
+    padding: clamp(20px, 3vw, 32px);
+  }
+
+  .is-current .body {
+    background: var(--card);
+    box-shadow: 6px 6px 0 var(--blue);
+    border-color: var(--ink);
+  }
+
+  .period {
+    grid-column: 1;
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--blue-text);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .is-current .node::after {
+      position: absolute;
+      inset: -3px;
+      border: var(--line);
+      border-radius: 50%;
+      content: '';
+      animation: ping 2.2s ease-out infinite;
+    }
+  }
+
+  h3 {
+    grid-column: 1;
+    font-size: clamp(30px, 3.4vw, 42px);
+  }
+
+  .company {
+    grid-column: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    justify-self: start;
+    font-weight: 800;
+  }
+
+  .company svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 200ms var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .company:hover svg {
+      transform: translate(2px, -2px);
+    }
+
+    .company:hover {
+      text-decoration: underline 3px var(--sun);
+      text-underline-offset: 4px;
+    }
+  }
+
+  .text {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    color: var(--ink-2);
+  }
+
+  @media (max-width: 860px) {
+    .body {
+      grid-template-columns: 1fr;
+    }
+
+    .text {
+      grid-column: 1;
+      grid-row: auto;
+      margin-top: 8px;
+    }
+
+    .entry {
+      grid-template-columns: 44px 1fr;
+    }
+
+    .node {
+      width: 44px;
+      height: 44px;
+      font-size: 18px;
+    }
+
+    .timeline::before {
+      left: 19px;
+    }
+  }
+</style>

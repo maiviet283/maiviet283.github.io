@@ -1,0 +1,19 @@
+---
+interface Props {
+  num: number
+  eyebrow: string
+  title: string
+  id?: string
+}
+
+const { num, eyebrow, title, id } = Astro.props
+---
+
+<header class="section-head" data-reveal-group>
+  <div class="section-top">
+    <span class="section-num" aria-hidden="true">{String(num).padStart(2, '0')}</span>
+    <span class="eyebrow">{eyebrow}</span>
+  </div>
+  <h2 id={id}>{title}</h2>
+  <slot />
+</header>

@@ -1,0 +1,97 @@
+---
+/** An endless sticker ticker. The list is doubled so the loop is seamless. */
+interface Props {
+  items: string[]
+  tone?: 'sun' | 'ink'
+}
+
+const { items, tone = 'sun' } = Astro.props
+---
+
+<div class:list={['marquee', `tone-${tone}`]} data-marquee>
+  <p class="sr-only">{items.join(', ')}</p>
+  <div class="track" aria-hidden="true">
+    {[0, 1].map(() => (
+      <ul>
+        {items.map((item) => (
+          <li>
+            {item}
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6Z"></path></svg>
+          </li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee {
+    overflow: hidden;
+    border-top: var(--line-w) solid #1a1613;
+    padding-block: 14px;
+  }
+
+  .tone-sun {
+    background: var(--sun);
+    color: #1a1613;
+  }
+
+  .tone-ink {
+    background: #1a1613;
+    color: #f2ebdf;
+    border-color: #1a1613;
+  }
+
+  .track {
+    display: flex;
+    width: max-content;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .track {
+      animation: marquee 36s linear infinite;
+    }
+
+    .marquee:hover .track,
+    .marquee.is-idle .track {
+      animation-play-state: paused;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex: none;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    padding-right: 26px;
+    font-family: var(--display);
+    font-size: clamp(26px, 3.4vw, 38px);
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  svg {
+    width: 26px;
+    height: 26px;
+    fill: var(--tomato);
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linejoin: round;
+  }
+
+  .tone-ink svg {
+    fill: var(--sun);
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>

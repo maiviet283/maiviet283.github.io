@@ -1,29 +1,23 @@
 # Mai Quốc Việt
 
-> Mai Quốc Việt (maiviet283) là một backend developer người Việt Nam, sinh tại Kỳ Khang, Kỳ Anh, Hà Tĩnh, hiện sống và làm việc tại Đà Nẵng. Anh là cựu sinh viên VKU (Trường Đại học Công nghệ Thông tin và Truyền thông Việt – Hàn, mã sinh viên 21IT595, lớp 21NS, GPA 8.2/10) và là founder của VietDon — nền tảng donate online cho creator Việt Nam. Stack chính: Python, Django, FastAPI, Node.js, PostgreSQL, MySQL, Redis, Docker, Nginx.
+> Mai Quốc Việt (maiviet283) là full-stack developer & team lead người Việt Nam, sinh tại Kỳ Khang, Kỳ Anh, Hà Tĩnh, hiện sống và làm việc tại Đà Nẵng. Anh dẫn một team 3 kỹ sư tại BNH Digital (agency phần mềm tại Úc, làm remote), là co-founder & lead engineer của Haven — nền tảng bác sĩ khám tại nhà — và từng xây VietDon, nền tảng donate realtime cho streamer (02/2026 – 11/2026, đã dừng hoạt động). Kỹ sư An toàn thông tin & Mạng máy tính tại VKU (2021 – 2026, GPA 8.2/10). Stack chính: Python, Django, DRF, FastAPI, React, TypeScript, React Native, PostgreSQL, Redis, Celery, Docker, Nginx, Cloudflare.
 
 ## Thông tin nhanh
 - Họ tên: Mai Quốc Việt (Mai Quoc Viet, maiviet283)
-- Vai trò: Backend / Fullstack Developer
-- Nơi làm việc: Đà Nẵng, Việt Nam (Fresher Fullstack Developer tại SapotarCorp)
+- Vai trò: Full-stack Developer & Team Lead
+- Công việc hiện tại: BNH Digital (từ 06/2026, remote)
+- Trước đó: Backend Developer tại SapotaCorp (03/2026 – 05/2026); Backend Intern tại Rikai Technology (09/2025 – 12/2025); Intern Networking tại VNNIC (06/2024 – 08/2024)
+- Sản phẩm: Haven (https://havenmed.vn, co-founder), One Management System (https://oms.com.vn), EightyTwenty (chuỗi cà phê 10 cửa hàng tại Úc), VietDon (đã dừng 11/2026)
+- Nơi làm việc: Đà Nẵng, Việt Nam
 - Quê quán: Kỳ Khang, Kỳ Anh, Hà Tĩnh, Việt Nam
-- Học vấn: VKU – Đại học Đà Nẵng (21IT595, lớp 21NS)
-- Dự án chính: VietDon (https://vietdon.vn)
+- Học vấn: VKU – Đại học Đà Nẵng, ngành An toàn thông tin & Mạng máy tính (21IT595, lớp 21NS, GPA 8.2/10)
 - Email: maiviet283@gmail.com
 
 ## Trang chính
-- [Trang chủ](https://maiviet.vietdon.vn/): Hồ sơ cá nhân Mai Quốc Việt, backend developer tại Đà Nẵng.
+- [Trang chủ](https://maiviet.vietdon.vn/): Hồ sơ cá nhân Mai Quốc Việt, full-stack developer & team lead tại Đà Nẵng.
 - [Giới thiệu](https://maiviet.vietdon.vn/about/): Tiểu sử, học vấn VKU, kinh nghiệm và công nghệ.
-- [VietDon](https://maiviet.vietdon.vn/vietdon/): Nền tảng donate online cho creator Việt Nam (VietQR, ví streamer, alert realtime).
-- [Dự án](https://maiviet.vietdon.vn/projects/): Các dự án backend, bảo mật và hệ thống.
-
-## Blog
-- [Mai Quốc Việt là ai?](https://maiviet.vietdon.vn/blog/mai-quoc-viet-la-ai/): Câu chuyện từ Kỳ Anh, Hà Tĩnh đến backend developer ở Đà Nẵng.
-- [VietDon là gì?](https://maiviet.vietdon.vn/blog/vietdon-la-gi/): Giới thiệu nền tảng donate online cho creator Việt Nam.
-- [Xây hệ thống donate realtime với VietQR](https://maiviet.vietdon.vn/blog/xay-he-thong-donate-realtime-vietqr/): Kiến trúc đối soát giao dịch và đẩy alert realtime.
-- [Django hay FastAPI?](https://maiviet.vietdon.vn/blog/django-vs-fastapi/): So sánh hai framework backend Python.
-- [Tối ưu PostgreSQL cho backend](https://maiviet.vietdon.vn/blog/toi-uu-postgresql-cho-backend/): 7 kỹ thuật tối ưu database thực tế.
-- [Redis caching trong Django](https://maiviet.vietdon.vn/blog/redis-caching-django/): Dùng Redis giảm tải database.
+- [Dự án](https://maiviet.vietdon.vn/projects/): Haven, One Management System, EightyTwenty, VietDon và các dự án mã nguồn.
+- [VietDon](https://maiviet.vietdon.vn/vietdon/): Trang lưu trữ về VietDon — nền tảng donate realtime cho streamer, đã dừng hoạt động từ 11/2026.
 
 ## Liên kết mạng xã hội
 - GitHub: https://github.com/maiviet283

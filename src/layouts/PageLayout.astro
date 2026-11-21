@@ -1,9 +1,11 @@
 ---
-import '../theme.css'
-import '../App.css'
-import Header from '../components/Header.astro'
-import SiteFooter from '../components/SiteFooter.astro'
+/**
+ * Subpages (Vietnamese only): a coloured page header with breadcrumb
+ * stickers, then the page body. Emits the BreadcrumbList JSON-LD.
+ */
+import Layout from './Layout.astro'
 import text from '../localet/vi.json'
+import { SITE } from '../lib/site'
 
 interface Crumb {
   label: string
@@ -17,49 +19,18 @@ interface Props {
   path: string
   ogType?: string
   crumbLabel: string
-  crumbItems?: Crumb[]
-  image?: string
-  imageAlt?: string
-  publishedTime?: string
-  modifiedTime?: string
   jsonLd?: object[]
+  /** Page header content */
+  eyebrow: string
+  heading: string
+  /** Header band colour */
+  tone?: 'blue' | 'sun' | 'mint' | 'pink'
+  noindex?: boolean
 }
 
-const {
-  title,
-  description,
-  keywords,
-  path,
-  ogType = 'website',
-  crumbLabel,
-  crumbItems,
-  image = '/og-image.png',
-  imageAlt,
-  publishedTime,
-  modifiedTime,
-  jsonLd = [],
-} = Astro.props
-
-const siteUrl = 'https://maiviet.vietdon.vn'
-const canonical = `${siteUrl}${path}`
-const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`
-
-// Page links shared by the header nav and the footer so every page exposes
-// the same primary destinations.
-const navLinks = [
-  { href: '/', label: 'Trang chủ' },
-  { href: '/vietdon/', label: 'VietDon' },
-  { href: '/projects/', label: 'Dự án' },
-  { href: '/blog/', label: 'Blog' },
-  { href: '/about/', label: 'Giới thiệu' },
-]
-
-// Breadcrumb: prefer explicit crumbItems, otherwise fall back to the
-// simple "Trang chủ / <crumbLabel>" two-level structure.
-const crumbs: Crumb[] = crumbItems ?? [
-  { label: 'Trang chủ', href: '/' },
-  { label: crumbLabel },
-]
+const { crumbLabel, jsonLd = [], eyebrow, heading, tone = 'blue', noindex = false, ...rest } = Astro.props
+const canonical = `${SITE}${rest.path}`
+const crumbs: Crumb[] = [{ label: 'Trang chủ', href: '/' }, { label: crumbLabel }]
 
 const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
@@ -68,104 +39,154 @@ const breadcrumbJsonLd = {
     '@type': 'ListItem',
     position: index + 1,
     name: crumb.label,
-    item: crumb.href ? `${siteUrl}${crumb.href}` : canonical,
+    item: crumb.href ? `${SITE}${crumb.href}` : canonical,
   })),
 }
 ---
 
-<!doctype html>
-<html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#f5402c" />
-
-    <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
-    {keywords ? <meta name="keywords" content={keywords} /> : null}
-    <meta name="author" content="Mai Quốc Việt" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-    <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="vi" href={canonical} />
-    <link rel="alternate" hreflang="x-default" href={canonical} />
-
-    <!-- Open Graph / Facebook / Zalo -->
-    <meta property="og:type" content={ogType} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={imageAlt ?? title} />
-    <meta property="og:locale" content="vi_VN" />
-    <meta property="og:site_name" content="Mai Quốc Việt – maiviet.vietdon.vn" />
-    {publishedTime ? <meta property="article:published_time" content={publishedTime} /> : null}
-    {modifiedTime ? <meta property="article:modified_time" content={modifiedTime} /> : null}
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={canonical} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:alt" content={imageAlt ?? title} />
-    <meta name="twitter:creator" content="@maiviet283" />
-
-    <!-- Geo -->
-    <meta name="geo.region" content="VN-DN" />
-    <meta name="geo.placename" content="Đà Nẵng, Việt Nam" />
-
-    <link rel="stylesheet" href="/pages.css" />
-
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
-    {jsonLd.map((schema) => (
-      <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
-    ))}
-
-    <!-- Apply saved theme before first paint to avoid flashing. -->
-    <script is:inline>
-      (function () {
-        document.documentElement.classList.add('js')
-        var theme = 'dark'
-        try {
-          theme = localStorage.getItem('theme') || 'dark'
-        } catch (error) {}
-        document.documentElement.dataset.theme = theme
-      })()
-    </script>
-  </head>
-  <body>
-    <main class="site-shell">
-      <Header text={text} logo="/logo.png" langHref="/en/" nav={navLinks} brandHref="/" />
-
-      <div class="page-wrap">
-        <nav class="crumbs" aria-label="Breadcrumb">
+<Layout lang="vi" text={text} noindex={noindex} jsonLd={noindex ? jsonLd : [breadcrumbJsonLd, ...jsonLd]} {...rest}>
+  <header class:list={['page-head', `tone-${tone}`, { dots: tone === 'blue' }]}>
+    <div class="wrap page-head-in">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
           {crumbs.map((crumb, index) => (
-            <>
-              {index > 0 ? <span> / </span> : null}
+            <li>
               {crumb.href && index < crumbs.length - 1 ? (
-                <a href={crumb.href}>{crumb.label}</a>
+                <a class="chip" href={crumb.href}>{crumb.label}</a>
               ) : (
-                <span>{crumb.label}</span>
+                <span class="chip" aria-current="page">{crumb.label}</span>
               )}
-            </>
+            </li>
           ))}
-        </nav>
+        </ol>
+      </nav>
+      <p class="page-eyebrow" data-reveal>{eyebrow}</p>
+      <h1 data-reveal style="--i: 1"><Fragment set:html={heading} /></h1>
+      <div class="page-lead" data-reveal style="--i: 2"><slot name="lead" /></div>
+      <slot name="head-extra" />
+    </div>
+  </header>
 
-        <slot />
-      </div>
+  <div class="page-body">
+    <slot />
+  </div>
+</Layout>
 
-      <SiteFooter text={text} />
-    </main>
+<style>
+  .page-head {
+    border-bottom: var(--line);
+    overflow: hidden;
+  }
 
-    <script src="../scripts/main.js"></script>
-  </body>
-</html>
+  .tone-blue {
+    color: #fffaf2;
+  }
+
+  .tone-sun {
+    background: var(--sun);
+    color: #1a1613;
+  }
+
+  .tone-mint {
+    background: var(--mint);
+    color: #1a1613;
+  }
+
+  .tone-pink {
+    background: var(--pink);
+    color: #1a1613;
+  }
+
+  .page-head-in {
+    position: relative;
+    display: grid;
+    gap: 18px;
+    padding-block: clamp(36px, 6vw, 72px) clamp(48px, 7vw, 88px);
+  }
+
+  .crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .crumbs .chip {
+    color: #1a1613;
+    background: #fffaf2;
+    border-color: #1a1613;
+  }
+
+  .crumbs li + li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .crumbs li + li::before {
+    font-weight: 800;
+    content: '→';
+  }
+
+  .crumbs a.chip {
+    transition: transform 150ms ease-out;
+  }
+
+  @media (hover: hover) {
+    .crumbs a.chip:hover {
+      transform: rotate(-3deg);
+    }
+  }
+
+  .page-eyebrow {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  h1 {
+    max-width: 16ch;
+    font-size: clamp(48px, 9vw, 112px);
+    line-height: 0.92;
+  }
+
+  h1 :global(em) {
+    display: inline-block;
+    padding: 0 0.12em;
+    border: var(--line-w) solid #1a1613;
+    border-radius: 10px;
+    background: var(--sun);
+    color: #1a1613;
+    font-style: normal;
+    box-shadow: 4px 4px 0 #1a1613;
+    transform: rotate(-2deg);
+  }
+
+  .tone-sun h1 :global(em) {
+    background: #fffaf2;
+  }
+
+  .page-lead {
+    max-width: 62ch;
+    font-size: clamp(17px, 1.6vw, 20px);
+    line-height: 1.6;
+  }
+
+  .page-lead :global(a) {
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--sun);
+  }
+
+  .tone-sun .page-lead :global(a) {
+    text-decoration-color: #1a1613;
+  }
+
+  .page-body {
+    padding-block: clamp(56px, 8vw, 104px) clamp(72px, 10vw, 128px);
+  }
+</style>

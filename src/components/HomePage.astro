@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ContactSection from './ContactSection.astro'
+import FamilySection from './FamilySection.astro'
+import HeroSection from './HeroSection.astro'
+import ProductsSection from './ProductsSection.astro'
+import ProjectsSection from './ProjectsSection.astro'
+import SignalsSection from './SignalsSection.astro'
+import StackSection from './StackSection.astro'
+import StatsSection from './StatsSection.astro'
+import WorkSection from './WorkSection.astro'
+import { HOME_KEYWORDS, SITE, personJsonLd, profilePageJsonLd, websiteJsonLd } from '../lib/site'
+import type { Locale } from '../types'
+
+interface Props {
+  lang: 'vi' | 'en'
+  text: Locale
+}
+
+const { lang, text } = Astro.props
+const path = lang === 'en' ? '/en/' : '/'
+---
+
+<Layout
+  lang={lang}
+  text={text}
+  title={text.meta.pageTitle}
+  description={text.meta.description}
+  keywords={HOME_KEYWORDS}
+  path={path}
+  bilingual
+  isHome
+  jsonLd={[personJsonLd, websiteJsonLd, profilePageJsonLd(`${SITE}${path}`, lang)]}
+>
+  <HeroSection text={text} />
+  <StatsSection text={text} lang={lang} />
+  <ProductsSection text={text} num={1} />
+  <WorkSection text={text} num={2} />
+  <ProjectsSection text={text} num={3} />
+  <StackSection text={text} num={4} />
+  <SignalsSection text={text} num={5} />
+  <FamilySection text={text} num={6} />
+  <ContactSection text={text} num={7} />
+</Layout>

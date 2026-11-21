@@ -1,129 +1,79 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro'
+import ProductFeature from '../../components/ProductFeature.astro'
+import ProjectList from '../../components/ProjectList.astro'
+import SectionHead from '../../components/SectionHead.astro'
+import text from '../../localet/vi.json'
+import { SITE } from '../../lib/site'
+
+const products = text.products
+const projects = text.projects.items
+const tones = ['blue', 'mint', 'sun', 'tomato'] as const
 
 const itemListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Dự án của Mai Quốc Việt',
+  name: 'Sản phẩm và dự án của Mai Quốc Việt',
   itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      item: {
-        '@type': 'SoftwareSourceCode',
-        name: 'Network Intrusion Detection & Alert System',
-        codeRepository: 'https://github.com/maiviet283/analyze_logs',
-        programmingLanguage: 'Python',
-        author: { '@type': 'Person', name: 'Mai Quốc Việt' },
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      item: {
-        '@type': 'SoftwareSourceCode',
-        name: 'BookStore',
-        codeRepository: 'https://github.com/maiviet283/bookstore',
-        programmingLanguage: 'Python',
-        author: { '@type': 'Person', name: 'Mai Quốc Việt' },
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 3,
-      item: {
-        '@type': 'SoftwareSourceCode',
-        name: 'Clothing Shop API',
-        codeRepository: 'https://github.com/maiviet283/my_shop',
-        programmingLanguage: 'Python',
-        author: { '@type': 'Person', name: 'Mai Quốc Việt' },
-      },
-    },
-  ],
+    ...products.items.map((product) => ({
+      '@type': 'SoftwareApplication',
+      name: product.name,
+      description: product.tagline,
+      applicationCategory: 'BusinessApplication',
+      url: product.link.href.startsWith('http') ? product.link.href : `${SITE}${product.link.href}`,
+      author: { '@type': 'Person', name: 'Mai Quốc Việt' },
+    })),
+    ...projects.map((project) => ({
+      '@type': 'SoftwareSourceCode',
+      name: project.name,
+      codeRepository: project.href,
+      programmingLanguage: 'Python',
+      author: { '@type': 'Person', name: 'Mai Quốc Việt' },
+    })),
+  ].map((item, index) => ({ '@type': 'ListItem', position: index + 1, item })),
 }
 ---
 
 <PageLayout
-  title="Dự án – Backend, bảo mật & hệ thống | Mai Quốc Việt"
-  description="Các dự án của Mai Quốc Việt (maiviet283): hệ thống phát hiện xâm nhập mạng, BookStore API, Clothing Shop API và VietDon. Python, Django, FastAPI, Elasticsearch, Redis."
+  title="Dự án – Haven, One Management System, EightyTwenty | Mai Quốc Việt"
+  description="Sản phẩm và dự án của Mai Quốc Việt (maiviet283): Haven (bác sĩ tại nhà), One Management System (SaaS kế toán & thuế), EightyTwenty (chuỗi cà phê tại Úc), VietDon và các dự án mã nguồn. Django, React, PostgreSQL."
   path="/projects/"
   crumbLabel="Dự án"
+  eyebrow="Dự án"
+  heading="Sản phẩm mình xây <em>&amp;</em> vận hành"
+  tone="sun"
   jsonLd={[itemListJsonLd]}
 >
-  <section class="page-hero">
-    <span class="eyebrow">Dự án</span>
-    <h1>Dự án backend, bảo mật & hệ thống</h1>
-    <p class="lead">
-      Những dự án <a href="/about/">Mai Quốc Việt</a> dùng để rèn kỹ năng backend,
-      bảo mật và tư duy hệ thống. Dự án chính hiện tại là
-      <a href="/vietdon/">VietDon</a>.
+  <Fragment slot="lead">
+    <p>
+      Từ nền tảng sức khoẻ, SaaS kế toán cho doanh nghiệp nhỏ đến hệ thống cho chuỗi cà phê tại Úc —
+      đây là những sản phẩm <a href="/about/">Mai Quốc Việt</a> đã thiết kế, ship và chạy production,
+      cùng vài dự án mã nguồn dùng để rèn kỹ năng.
     </p>
-  </section>
+  </Fragment>
 
-  <section class="section">
-    <div class="cards">
-      <article class="card">
-        <h3>Network Intrusion Detection &amp; Alert System</h3>
-        <p>
-          Hệ thống thu thập và phân tích log bảo mật từ Zeek, Nginx và Django bằng
-          Python + Elasticsearch để phát hiện hành vi bất thường và gửi cảnh báo realtime.
-        </p>
-        <ul class="clean">
-          <li>Phát hiện DDoS, SQL Injection, brute-force thư mục và đăng nhập.</li>
-          <li>AI Advisor dùng ChatGPT API gợi ý hướng xử lý theo từng mối đe dọa.</li>
-          <li>Notifier gửi cảnh báo qua Telegram cho admin.</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">Elasticsearch</span>
-          <span class="tag">Zeek</span>
-          <span class="tag">Nginx</span>
-          <span class="tag">Telegram Bot</span>
-        </div>
-        <div class="actions">
-          <a class="btn btn-ghost" href="https://github.com/maiviet283/analyze_logs" target="_blank" rel="noopener">Xem GitHub</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>BookStore</h3>
-        <p>API quản lý sách xây bằng Django REST Framework, JWT, MySQL, Redis và React TypeScript.</p>
-        <ul class="clean">
-          <li>RESTful API cho hệ thống quản lý sách.</li>
-          <li>Xác thực bằng JWT.</li>
-          <li>Redis caching để giảm tải database.</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">Django</span>
-          <span class="tag">DRF</span>
-          <span class="tag">JWT</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">Redis</span>
-        </div>
-        <div class="actions">
-          <a class="btn btn-ghost" href="https://github.com/maiviet283/bookstore" target="_blank" rel="noopener">Xem GitHub</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Clothing Shop API</h3>
-        <p>Backend e-commerce với xác thực, chống spam, Redis cache, Gunicorn và Nginx.</p>
-        <ul class="clean">
-          <li>API backend cho luồng thương mại điện tử.</li>
-          <li>Bảo mật: chống brute-force, anti-spam, kiểm tra request.</li>
-          <li>Deploy production với Gunicorn và Nginx.</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">Django</span>
-          <span class="tag">DRF</span>
-          <span class="tag">Redis</span>
-          <span class="tag">Gunicorn</span>
-          <span class="tag">Nginx</span>
-        </div>
-        <div class="actions">
-          <a class="btn btn-ghost" href="https://github.com/maiviet283/my_shop" target="_blank" rel="noopener">Xem GitHub</a>
-        </div>
-      </article>
+  <section class="wrap block" aria-labelledby="products-title">
+    <SectionHead num={1} eyebrow={products.eyebrow} title="Sản phẩm" id="products-title" />
+    <div class="stack">
+      {products.items.map((product, index) => (
+        <ProductFeature product={product} labels={products} tone={tones[index % tones.length]} />
+      ))}
     </div>
   </section>
+
+  <section class="wrap block" aria-labelledby="oss-title">
+    <SectionHead num={2} eyebrow={text.projects.eyebrow} title="Mã nguồn mở" id="oss-title" />
+    <ProjectList items={projects} githubLabel="Xem trên GitHub" open />
+  </section>
 </PageLayout>
+
+<style>
+  .block {
+    padding-bottom: clamp(56px, 8vw, 96px);
+  }
+
+  .stack {
+    display: grid;
+    gap: clamp(28px, 4vw, 48px);
+  }
+</style>

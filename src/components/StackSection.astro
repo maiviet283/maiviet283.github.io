@@ -1,25 +1,178 @@
 ---
+import Mascot from './Mascot.astro'
+import SectionHead from './SectionHead.astro'
 import type { Locale } from '../types'
 
 interface Props {
   text: Locale
+  num: number
 }
 
-const { text } = Astro.props
+const { text, num } = Astro.props
+const stack = text.stack
+const tones = ['sun', 'mint', 'pink', 'blue', 'tomato']
 ---
 
-<section class="section split-section" id="stack">
-  <div class="section-heading compact reveal">
-    <p class="eyebrow">{text.stack.eyebrow}</p>
-    <h2>{text.stack.title}</h2>
-  </div>
+<section class="section wrap" id="stack" aria-labelledby="stack-title">
+  <SectionHead num={num} eyebrow={stack.eyebrow} title={stack.title} id="stack-title" />
 
-  <div class="stack-cloud reveal" aria-label={text.meta.technologyStack}>
-    {text.stack.items.map((item) => <span>{item}</span>)}
-  </div>
+  <div class="layout">
+    <dl class="groups" data-reveal-group>
+      {stack.groups.map((group, index) => (
+        <div class="group card lift" style={`--i: ${index}; --hover-rot: ${index % 2 ? 1.5 : -1.5}deg`}>
+          <dt class:list={['tag', `tone-${tones[index % tones.length]}`]}>{group.label}</dt>
+          <dd>
+            <ul>
+              {group.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </dd>
+        </div>
+      ))}
+    </dl>
 
-  <div class="belief-panel reveal">
-    <h3>{text.stack.beliefTitle}</h3>
-    <p>{text.stack.beliefBody}</p>
+    <figure class="belief card dots" data-reveal>
+      <figcaption>{stack.beliefTitle}</figcaption>
+      <blockquote><p>{stack.beliefBody}</p></blockquote>
+      <Mascot size={86} class="belief-mascot" />
+    </figure>
   </div>
 </section>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: clamp(20px, 3vw, 36px);
+    align-items: start;
+  }
+
+  .groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .group {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .group:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .tag {
+    justify-self: start;
+    padding: 4px 14px;
+    border: var(--line);
+    border-radius: 999px;
+    color: #1a1613;
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    rotate: -3deg;
+  }
+
+  .tone-sun {
+    background: var(--sun);
+  }
+
+  .tone-mint {
+    background: var(--mint);
+  }
+
+  .tone-pink {
+    background: var(--pink);
+  }
+
+  .tone-blue {
+    background: var(--blue);
+    color: var(--on-blue);
+  }
+
+  .tone-tomato {
+    background: var(--tomato);
+    color: #fffaf2;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  li {
+    padding: 4px 12px;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    background: var(--paper);
+    font-size: 15px;
+    font-weight: 700;
+    transition-property: background-color, rotate;
+    transition-duration: 150ms;
+  }
+
+  @media (hover: hover) {
+    li:hover {
+      background: var(--sun);
+      color: #1a1613;
+      rotate: -3deg;
+    }
+  }
+
+  .belief {
+    position: sticky;
+    top: calc(var(--header-h) + 24px);
+    display: grid;
+    gap: 16px;
+    padding: clamp(24px, 3vw, 36px);
+    color: #fffaf2;
+  }
+
+  figcaption {
+    justify-self: start;
+    padding: 4px 14px;
+    border: var(--line-w) solid #1a1613;
+    border-radius: 999px;
+    background: var(--sun);
+    color: #1a1613;
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  blockquote p {
+    font-family: var(--display);
+    font-size: clamp(26px, 2.6vw, 32px);
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+  }
+
+  .belief :global(.belief-mascot) {
+    justify-self: end;
+    margin: -8px -8px -8px 0;
+    box-shadow: 5px 5px 0 #1a1613;
+  }
+
+  @media (max-width: 960px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+
+    .belief {
+      position: static;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .groups {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

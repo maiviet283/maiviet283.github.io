@@ -1,37 +1,345 @@
 ---
+import Mascot from './Mascot.astro'
+import Marquee from './Marquee.astro'
 import type { Locale } from '../types'
 
 interface Props {
   text: Locale
-  avatar: string
 }
 
-const { text, avatar } = Astro.props
+const { text } = Astro.props
+const hero = text.hero
+const stickerTones = ['sun', 'mint', 'pink', 'card']
 ---
 
-<section class="hero" id="top">
-  <div class="hero-copy reveal">
-    {text.hero.eyebrow ? <p class="eyebrow">{text.hero.eyebrow}</p> : null}
-    <h1>{text.hero.title}</h1>
-    <p class="hero-text">{text.hero.body}</p>
-    <div class="hero-actions" aria-label={text.meta.heroActions}>
-      <a class="primary-action" href="https://vietdon.vn" target="_blank" rel="noreferrer">
-        {text.hero.primaryAction}
-      </a>
-      <a class="secondary-action" href="#contact">
-        {text.hero.contactAction}
-      </a>
+<section class="hero dots" id="top">
+  <div class="wrap hero-in">
+    <div class="copy">
+      <p class="hero-eyebrow" data-reveal>
+        <span class="live-dot" aria-hidden="true"></span>
+        {hero.status}
+      </p>
+      <h1 data-reveal style="--i: 1">
+        <span class="line">Mai Quốc</span>
+        <span class="line"><span class="hl">Việt</span></span>
+      </h1>
+      <p class="hero-lead" data-reveal style="--i: 2">{hero.lead}</p>
+      <p class="hero-body" data-reveal style="--i: 3">{hero.body}</p>
+      <div class="actions" data-reveal style="--i: 4">
+        <a class="btn btn-sun btn-lg" href="#products">
+          {hero.primaryAction}
+          <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M6 13l6 6 6-6"></path>
+          </svg>
+        </a>
+        <a class="btn btn-lg" href="#contact">{hero.contactAction}</a>
+      </div>
+    </div>
+
+    <div class="art" data-parallax-root>
+      <div class="portrait" data-reveal style="--i: 1">
+        <Mascot size="100%" alive label={hero.avatarAlt} />
+      </div>
+      <p class="bubble" data-reveal style="--i: 3">{hero.greeting}</p>
+      {hero.stickers.map((sticker, index) => (
+        <span
+          class:list={['sticker', `s${index + 1}`, `tone-${stickerTones[index % stickerTones.length]}`]}
+          data-parallax={String(0.6 + index * 0.35)}
+        >
+          {sticker}
+        </span>
+      ))}
     </div>
   </div>
 
-  <div class="hero-visual" aria-label={text.meta.profileVisual}>
-    <div class="portrait-frame reveal">
-      <img src={avatar} alt={text.hero.avatarAlt} />
-    </div>
-    <div class="signal-panel reveal">
-      <span>{text.hero.signalLabel}</span>
-      <strong>{text.hero.signalTitle}</strong>
-      <small>{text.hero.signalText}</small>
-    </div>
-  </div>
+  <dl class="wrap facts" data-reveal-group>
+    {hero.facts.map((fact) => (
+      <div>
+        <dt>{fact.label}</dt>
+        <dd>{fact.value}</dd>
+      </div>
+    ))}
+  </dl>
+
+  <Marquee items={text.marquee} />
 </section>
+
+<style>
+  .hero {
+    position: relative;
+    border-bottom: var(--line);
+    color: #fffaf2;
+    overflow: hidden;
+  }
+
+  .hero-in {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+    padding-block: clamp(40px, 7vw, 88px) clamp(32px, 4vw, 48px);
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px;
+    border: var(--line-w) solid #1a1613;
+    border-radius: 999px;
+    background: #fffaf2;
+    color: #1a1613;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 3px 3px 0 #1a1613;
+  }
+
+  h1 {
+    margin-top: 22px;
+    font-size: clamp(76px, 13vw, 168px);
+    line-height: 0.86;
+    text-shadow: 5px 5px 0 #1a1613;
+  }
+
+  h1 .line {
+    display: block;
+  }
+
+  h1 .hl {
+    margin-top: 0.08em;
+    padding: 0.02em 0.14em 0;
+    border-color: #1a1613;
+    box-shadow: 8px 8px 0 #1a1613;
+    text-shadow: none;
+    border-radius: 14px;
+  }
+
+  .hero-lead {
+    max-width: 30ch;
+    margin-top: 30px;
+    font-family: var(--display);
+    font-size: clamp(26px, 2.8vw, 34px);
+    font-weight: 700;
+    line-height: 1.12;
+    text-transform: uppercase;
+  }
+
+  .hero-body {
+    max-width: 52ch;
+    margin-top: 14px;
+    font-size: 17px;
+    color: rgb(255 250 242 / 0.88);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .actions .btn {
+    border-color: #1a1613;
+    box-shadow: 4px 4px 0 #1a1613;
+  }
+
+  .actions .btn:not(.btn-sun) {
+    --bg: #fffaf2;
+    --fg: #1a1613;
+  }
+
+  /* ---------- Art ---------- */
+  .art {
+    position: relative;
+    justify-self: center;
+    width: min(100%, 460px);
+    aspect-ratio: 1;
+  }
+
+  .portrait {
+    position: absolute;
+    inset: 4%;
+  }
+
+  .portrait :global(.mascot) {
+    box-shadow: 14px 14px 0 #1a1613;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .portrait :global(.mascot) {
+      animation: bob 5s ease-in-out infinite;
+    }
+  }
+
+  .bubble {
+    position: absolute;
+    top: -2%;
+    right: -4%;
+    padding: 12px 18px;
+    border: var(--line-w) solid #1a1613;
+    border-radius: 18px 18px 18px 4px;
+    background: #fffaf2;
+    color: #1a1613;
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    box-shadow: 5px 5px 0 #1a1613;
+    --reveal-rot: 8deg;
+  }
+
+  .sticker {
+    --rot: -6deg;
+    position: absolute;
+    padding: 8px 16px;
+    border: var(--line-w) solid #1a1613;
+    border-radius: 999px;
+    color: #1a1613;
+    font-family: var(--display);
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 4px 4px 0 #1a1613;
+    translate: 0 var(--py, 0px);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .sticker {
+      animation: float 6s ease-in-out infinite;
+    }
+  }
+
+  .tone-sun {
+    background: var(--sun);
+  }
+
+  .tone-mint {
+    background: var(--mint);
+  }
+
+  .tone-pink {
+    background: var(--pink);
+  }
+
+  .tone-card {
+    background: #fffaf2;
+  }
+
+  .s1 {
+    top: 18%;
+    left: -10%;
+  }
+
+  .s2 {
+    --rot: 5deg;
+    bottom: 22%;
+    left: -14%;
+    animation-delay: -2s;
+  }
+
+  .s3 {
+    --rot: -4deg;
+    bottom: 4%;
+    right: -2%;
+    animation-delay: -4s;
+  }
+
+  .s4 {
+    --rot: 7deg;
+    top: 40%;
+    right: -12%;
+    animation-delay: -1s;
+  }
+
+  /* ---------- Quick facts ---------- */
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    padding-bottom: clamp(36px, 5vw, 56px);
+  }
+
+  .facts div {
+    padding: 12px 16px;
+    border: var(--line-w) solid #1a1613;
+    border-radius: 12px;
+    background: #fffaf2;
+    color: #1a1613;
+    box-shadow: 4px 4px 0 #1a1613;
+  }
+
+  .facts dt {
+    font-family: var(--display);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #2f55d4;
+  }
+
+  .facts dd {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+      transform: translateY(-12px) rotate(2deg);
+    }
+  }
+
+  @media (max-width: 1040px) {
+    .facts {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 860px) {
+    .hero-in {
+      grid-template-columns: 1fr;
+    }
+
+    .art {
+      order: -1;
+      width: min(78%, 360px);
+      margin-top: 16px;
+    }
+
+    .s1 {
+      left: -16%;
+    }
+
+    .s4 {
+      right: -16%;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .facts {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .facts div:last-child {
+      grid-column: 1 / -1;
+    }
+
+    .sticker {
+      font-size: 16px;
+      padding: 6px 12px;
+    }
+
+    .bubble {
+      font-size: 18px;
+      right: -8%;
+    }
+  }
+</style>

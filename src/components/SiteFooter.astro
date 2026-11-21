@@ -1,22 +1,141 @@
 ---
+import Mascot from './Mascot.astro'
 import type { Locale } from '../types'
 
 interface Props {
   text: Locale
+  lang: 'vi' | 'en'
 }
 
 const { text } = Astro.props
-
-const year = new Date().getFullYear()
 const footer = text.footer
+const year = new Date().getFullYear()
+const elsewhere = text.contact.links.filter((link) => link.href.startsWith('http'))
 ---
 
-<footer class="site-footer" aria-label="Footer">
-  <div class="site-footer-inner">
-    <p class="site-footer-tagline">{footer.tagline}</p>
-    <nav class="site-footer-nav" aria-label={footer.pagesLabel}>
-      {footer.pages.map((page) => <a href={page.href}>{page.label}</a>)}
+<footer class="site-footer">
+  <div class="wrap grid">
+    <div class="sign">
+      <Mascot size={88} alive />
+      <p class="tagline">{footer.tagline}</p>
+    </div>
+
+    <nav aria-label={footer.pagesLabel}>
+      <p class="label">{footer.pagesLabel}</p>
+      <ul>
+        {footer.pages.map((page) => <li><a href={page.href}>{page.label}</a></li>)}
+      </ul>
     </nav>
-    <p class="site-footer-rights">© {year} Mai Quốc Việt. {footer.rights}</p>
+
+    <div>
+      <p class="label">{footer.elsewhereLabel}</p>
+      <ul>
+        {elsewhere.map((link) => <li><a href={link.href} target="_blank" rel="noreferrer">{link.label}</a></li>)}
+      </ul>
+    </div>
   </div>
+
+  <div class="wrap base">
+    <p>© {year} Mai Quốc Việt. {footer.rights}</p>
+    <p>{footer.made}</p>
+  </div>
+
+  <p class="giant" aria-hidden="true">maiviet283</p>
 </footer>
+
+<style>
+  .site-footer {
+    overflow: hidden;
+    border-top: var(--line);
+    background: #1a1613;
+    color: #f2ebdf;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-block: clamp(56px, 7vw, 88px) 40px;
+  }
+
+  .sign {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .sign :global(.mascot) {
+    box-shadow: 6px 6px 0 var(--sun);
+  }
+
+  .tagline {
+    max-width: 22ch;
+    font-family: var(--display);
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+
+  .label {
+    margin-bottom: 12px;
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sun);
+  }
+
+  ul {
+    display: grid;
+    gap: 6px;
+  }
+
+  ul a {
+    font-weight: 600;
+    background: linear-gradient(var(--sun), var(--sun)) 0 100% / 0 3px no-repeat;
+    transition: background-size 250ms var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    ul a:hover {
+      background-size: 100% 3px;
+    }
+  }
+
+  .base {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
+    padding-block: 20px;
+    border-top: 3px solid rgb(242 235 223 / 0.18);
+    font-size: 14px;
+    color: #b9b0a2;
+  }
+
+  .giant {
+    margin: 0 0 -0.22em;
+    font-family: var(--display);
+    font-size: clamp(80px, 21vw, 300px);
+    font-weight: 800;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: transparent;
+    -webkit-text-stroke: 3px rgb(242 235 223 / 0.22);
+    user-select: none;
+  }
+
+  @media (max-width: 760px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .sign {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

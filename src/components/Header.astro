@@ -1,55 +1,352 @@
 ---
+import Mascot from './Mascot.astro'
 import type { Locale } from '../types'
 
 interface Props {
   text: Locale
-  logo: string
+  lang: 'vi' | 'en'
   langHref: string
-  /** Override the displayed nav links (defaults to the home in-page nav). */
-  nav?: { label: string; href: string }[]
-  /** Where the brand logo links to (home uses #top, subpages use /). */
-  brandHref?: string
+  isHome: boolean
 }
 
-const { text, logo, langHref, nav = text.nav, brandHref = '#top' } = Astro.props
+const { text, lang, langHref, isHome } = Astro.props
+const homeHref = lang === 'en' ? '/en/' : '/'
+
+// In-page anchors only work on the home page; elsewhere they lead back to it.
+const resolve = (href: string) => (href.startsWith('#') && !isHome ? `${homeHref}${href}` : href)
+const current = Astro.url.pathname
+const isCurrent = (href: string) => !href.startsWith('#') && href !== '/' && current.startsWith(href)
 ---
 
-<header class="topbar" aria-label={text.meta.primaryNavigation}>
-  <a class="brand" href={brandHref} aria-label={text.meta.homeAria}>
-    <span class="brand-mark">
-      <img src={logo} alt="" aria-hidden="true" />
-    </span>
-    <span>{text.brand.name}</span>
-  </a>
-
-  <div class="header-controls">
-    <button class="menu-backdrop" type="button" aria-hidden="true" tabindex="-1"></button>
-    <nav>
-      {nav.map((link) => <a href={link.href}>{link.label}</a>)}
-    </nav>
-    <a class="language-toggle" href={langHref} aria-label={text.meta.switchLanguage}>
-      {text.language.current}
-      <span>{text.language.next}</span>
+<header class="site-header" data-header>
+  <div class="wrap bar">
+    <a class="brand" href={homeHref} aria-label={text.meta.homeAria}>
+      <Mascot size={46} alive />
+      <span class="brand-name">Mai Quốc<b>Việt</b></span>
     </a>
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-label={text.menu.open}
-      data-label-open={text.menu.open}
-      data-label-close={text.menu.close}
-    >
-      <span aria-hidden="true"></span>
-      {text.menu.label}
-    </button>
-    <button
-      class="theme-toggle"
-      type="button"
-      aria-label={text.meta.switchTheme}
-      data-label-to-light={text.theme.toLight}
-      data-label-to-dark={text.theme.toDark}
-    >
-      <span class="theme-icon moon-icon" aria-hidden="true"></span>{text.theme.toLight}
-    </button>
+
+    <nav class="nav" aria-label={text.meta.primaryNavigation}>
+      {text.nav.map((link) => (
+        <a href={resolve(link.href)} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
+      ))}
+    </nav>
+
+    <div class="tools">
+      <a class="lang" href={langHref} hreflang={text.language.next.toLowerCase()} aria-label={text.meta.switchLanguage}>
+        <span aria-current="true">{text.language.current}</span>
+        <span>{text.language.next}</span>
+      </a>
+
+      <button class="round theme" type="button" aria-label={text.meta.switchTheme} data-theme-toggle>
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.5"></circle>
+          <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path>
+        </svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"></path>
+        </svg>
+      </button>
+
+      <a class="btn btn-sun btn-sm cta" href={resolve(text.navCta.href)}>{text.navCta.label}</a>
+
+      <button class="round burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label={text.meta.openMenu} data-menu-toggle>
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="sheet dots" id="mobile-menu" data-menu hidden>
+    <nav class="wrap sheet-nav" aria-label={text.meta.primaryNavigation}>
+      {[...text.nav, text.navCta].map((link, index) => (
+        <a href={resolve(link.href)} style={`--i: ${index}`}>
+          <span class="num">{String(index + 1).padStart(2, '0')}</span>{link.label}
+        </a>
+      ))}
+    </nav>
+    <div class="sheet-foot wrap">
+      <Mascot size={72} />
+      <p>{text.footer.tagline}</p>
+    </div>
   </div>
 </header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: var(--line);
+    background: var(--paper);
+    transition: transform 350ms var(--ease-out);
+  }
+
+  .site-header.is-tucked {
+    transform: translateY(calc(-100% - 6px));
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: var(--header-h);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-right: auto;
+  }
+
+  .brand :global(.mascot) {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .brand-name {
+    display: grid;
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .brand-name b {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--blue-text);
+  }
+
+  .nav {
+    display: flex;
+    gap: 6px;
+  }
+
+  .nav a {
+    position: relative;
+    padding: 8px 12px;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    transition-property: background-color, border-color, transform;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+  }
+
+  .nav a[aria-current='page'] {
+    border-color: var(--ink);
+    background: var(--sun);
+    color: #1a1613;
+  }
+
+  @media (hover: hover) {
+    .nav a:hover {
+      border-color: var(--ink);
+      background: var(--card);
+      transform: rotate(-2deg);
+    }
+
+    .nav a[aria-current='page']:hover {
+      background: var(--sun);
+    }
+  }
+
+  .tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .lang {
+    display: inline-flex;
+    padding: 3px;
+    border: var(--line);
+    border-radius: 999px;
+    background: var(--card);
+    font-family: var(--display);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+
+  .lang span {
+    padding: 3px 9px;
+    border-radius: 999px;
+    color: var(--muted);
+  }
+
+  .lang [aria-current] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .round {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: var(--line);
+    border-radius: 50%;
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+    transition-property: transform, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+  }
+
+  .round:active {
+    transform: translate(3px, 3px) scale(0.96);
+    box-shadow: 0 0 0 var(--ink);
+  }
+
+  .theme svg {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition-property: opacity, transform, filter;
+    transition-duration: 300ms;
+    transition-timing-function: var(--ease-out);
+  }
+
+  .theme .sun circle {
+    fill: var(--sun);
+  }
+
+  .theme .moon {
+    opacity: 0;
+    filter: blur(4px);
+    transform: scale(0.25) rotate(-40deg);
+  }
+
+  :global(:root[data-theme='dark']) .theme .moon {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  :global(:root[data-theme='dark']) .theme .sun {
+    opacity: 0;
+    filter: blur(4px);
+    transform: scale(0.25) rotate(40deg);
+  }
+
+  .burger {
+    display: none;
+  }
+
+  .burger span {
+    position: absolute;
+    left: 12px;
+    width: 18px;
+    height: 3px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 250ms var(--ease-out);
+  }
+
+  .burger span:first-child {
+    transform: translateY(-4px);
+  }
+
+  .burger span:last-child {
+    transform: translateY(4px);
+  }
+
+  .burger[aria-expanded='true'] span:first-child {
+    transform: rotate(45deg);
+  }
+
+  .burger[aria-expanded='true'] span:last-child {
+    transform: rotate(-45deg);
+  }
+
+  /* ---------- Mobile sheet ---------- */
+  .sheet {
+    position: fixed;
+    inset: calc(var(--header-h) + var(--line-w)) 0 0;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-block: 24px 32px;
+    color: #fffaf2;
+  }
+
+  .sheet[hidden] {
+    display: none;
+  }
+
+  .sheet-nav {
+    display: grid;
+  }
+
+  .sheet-nav a {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 3px solid rgb(255 250 242 / 0.25);
+    font-family: var(--display);
+    font-size: clamp(40px, 11vw, 60px);
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .sheet-nav .num {
+    font-size: 18px;
+    color: var(--sun);
+  }
+
+  .sheet-foot {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: auto;
+    padding-top: 28px;
+  }
+
+  .sheet-foot :global(.mascot) {
+    box-shadow: 5px 5px 0 #1a1613;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .sheet:not([hidden]) .sheet-nav a {
+      animation: sheet-in 500ms var(--ease-pop) both;
+      animation-delay: calc(var(--i) * 60ms);
+    }
+  }
+
+  @keyframes sheet-in {
+    from {
+      opacity: 0;
+      transform: translateX(-24px) rotate(-3deg);
+    }
+  }
+
+  @media (max-width: 960px) {
+    .nav,
+    .cta {
+      display: none;
+    }
+
+    .burger {
+      display: grid;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .brand-name {
+      display: none;
+    }
+  }
+</style>

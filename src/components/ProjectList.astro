@@ -1,0 +1,223 @@
+---
+/**
+ * Open-source projects as accordion cards built on native <details>, so they
+ * open without JavaScript and read well with a screen reader.
+ */
+interface Project {
+  name: string
+  detail: string
+  tech: string[]
+  features: string[]
+  href: string
+}
+
+interface Props {
+  items: Project[]
+  githubLabel: string
+  open?: boolean
+  headingLevel?: 'h2' | 'h3'
+}
+
+const { items, githubLabel, open = false, headingLevel = 'h3' } = Astro.props
+const Heading = headingLevel
+---
+
+<ol class="list" data-reveal-group>
+  {items.map((project, index) => (
+    <li style={`--i: ${index}`}>
+      <details class="item card" open={open}>
+        <summary>
+          <span class="num">{String(index + 1).padStart(2, '0')}</span>
+          <span class="head">
+            <Heading class="name">{project.name}</Heading>
+            <span class="tech">{project.tech.slice(0, 3).join(' · ')}</span>
+          </span>
+          <span class="toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="body">
+          <p>{project.detail}</p>
+          <ul class="features">
+            {project.features.map((feature) => <li>{feature}</li>)}
+          </ul>
+          <ul class="chips">
+            {project.tech.map((item) => <li class="chip">{item}</li>)}
+          </ul>
+          <a class="btn btn-sm" href={project.href} target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 3.8a8.2 8.2 0 0 0-2.6 16c.4.1.6-.2.6-.4v-1.5c-2.3.5-2.8-1-2.8-1-.4-1-.9-1.2-.9-1.2-.8-.5.1-.5.1-.5.8.1 1.3.9 1.3.9.8 1.3 2 1 2.5.8.1-.6.3-1 .5-1.2-1.9-.2-3.8-.9-3.8-4a3.2 3.2 0 0 1 .8-2.2 3 3 0 0 1 .1-2.2s.7-.2 2.3.8a7.8 7.8 0 0 1 4.2 0c1.6-1 2.3-.8 2.3-.8.4 1 .2 1.8.1 2.2.5.6.8 1.3.8 2.2 0 3.1-1.9 3.8-3.8 4 .3.2.6.8.6 1.6v2.1c0 .2.2.5.6.4A8.2 8.2 0 0 0 12 3.8z"></path></svg>
+            {githubLabel}
+          </a>
+        </div>
+      </details>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .list {
+    display: grid;
+    gap: 18px;
+  }
+
+  .item {
+    overflow: hidden;
+    transition-property: box-shadow, transform;
+    transition-duration: 200ms;
+    transition-timing-function: var(--ease-out);
+  }
+
+  .item[open] {
+    box-shadow: 6px 6px 0 var(--blue);
+  }
+
+  summary {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 18px;
+    align-items: center;
+    padding: 18px clamp(16px, 3vw, 26px);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .num {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border: var(--line);
+    border-radius: 12px;
+    background: var(--mint);
+    color: #1a1613;
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 800;
+    rotate: -4deg;
+    transition: rotate 200ms var(--ease-out);
+  }
+
+  .item[open] .num {
+    background: var(--sun);
+    rotate: 4deg;
+  }
+
+  .head {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .name {
+    font-size: clamp(26px, 3vw, 36px);
+  }
+
+  .tech {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+
+  .toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border: var(--line);
+    border-radius: 50%;
+    background: var(--card);
+    transition: rotate 300ms var(--ease-pop), background-color 150ms;
+  }
+
+  .toggle::before,
+  .toggle::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--ink);
+    content: '';
+    translate: -50% -50%;
+  }
+
+  .toggle::after {
+    rotate: 90deg;
+  }
+
+  .item[open] .toggle {
+    rotate: 135deg;
+    background: var(--sun);
+  }
+
+  @media (hover: hover) {
+    summary:hover .toggle {
+      background: var(--sun);
+    }
+  }
+
+  .body {
+    display: grid;
+    gap: 16px;
+    padding: 4px clamp(16px, 3vw, 26px) 24px calc(clamp(16px, 3vw, 26px) + 64px);
+    color: var(--ink-2);
+  }
+
+  .item[open] .body {
+    animation: open 400ms var(--ease-out);
+  }
+
+  .features {
+    display: grid;
+    gap: 8px;
+  }
+
+  .features li {
+    position: relative;
+    padding-left: 22px;
+  }
+
+  .features li::before {
+    position: absolute;
+    top: 0.55em;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border: 2px solid var(--ink);
+    border-radius: 3px;
+    background: var(--tomato);
+    content: '';
+    rotate: 45deg;
+  }
+
+  .body .btn {
+    justify-self: start;
+  }
+
+  @keyframes open {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .item[open] .body {
+      animation: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .body {
+      padding-left: clamp(16px, 3vw, 26px);
+    }
+
+    .num {
+      width: 38px;
+      height: 38px;
+      font-size: 18px;
+    }
+  }
+</style>
