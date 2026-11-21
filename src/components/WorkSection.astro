@@ -1,18 +1,21 @@
 ---
 /** Experience as a timeline: a thick ink spine, numbered nodes, sticker cards. */
+import Icon from './Icon.astro'
 import SectionHead from './SectionHead.astro'
 import type { Locale } from '../types'
 
 interface Props {
   text: Locale
   num: number
+  /** Home page: roles only, the full story lives on /about/. */
+  compact?: boolean
 }
 
-const { text, num } = Astro.props
+const { text, num, compact = false } = Astro.props
 const tones = ['sun', 'mint', 'pink', 'card']
 ---
 
-<section class="section work" id="work" aria-labelledby="work-title">
+<section class:list={['section', 'work', { 'is-compact': compact }]} id="work" aria-labelledby="work-title">
   <div class="wrap">
     <SectionHead num={num} eyebrow={text.work.eyebrow} title={text.work.title} id="work-title" />
 
@@ -25,13 +28,22 @@ const tones = ['sun', 'mint', 'pink', 'card']
             <h3>{item.role}</h3>
             <a class="company" href={item.href} target="_blank" rel="noreferrer">
               {item.company}
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+              <Icon name="arrow-up-right" size={18} />
             </a>
-            <p class="text">{item.body}</p>
+            {compact ? null : <p class="text">{item.body}</p>}
           </div>
         </li>
       ))}
     </ol>
+
+    {compact ? (
+      <p class="more" data-reveal>
+        <a class="btn" href="/about/#work">
+          <Icon name="briefcase" />
+          {text.work.more}
+        </a>
+      </p>
+    ) : null}
   </div>
 </section>
 
@@ -145,19 +157,25 @@ const tones = ['sun', 'mint', 'pink', 'card']
     font-weight: 800;
   }
 
-  .company svg {
-    width: 18px;
-    height: 18px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  .company :global(.icon) {
     transition: transform 200ms var(--ease-out);
   }
 
+  .is-compact .body {
+    grid-template-columns: 1fr;
+  }
+
+  .is-compact .timeline {
+    gap: 18px;
+  }
+
+  .more {
+    margin-top: 32px;
+    padding-left: calc(60px + clamp(16px, 3vw, 32px));
+  }
+
   @media (hover: hover) {
-    .company:hover svg {
+    .company:hover :global(.icon) {
       transform: translate(2px, -2px);
     }
 
@@ -192,6 +210,10 @@ const tones = ['sun', 'mint', 'pink', 'card']
       width: 44px;
       height: 44px;
       font-size: 18px;
+    }
+
+    .more {
+      padding-left: 0;
     }
 
     .timeline::before {

@@ -1,66 +1,65 @@
 ---
+/** The toolbox as logo tiles, grouped on sticker cards. */
 import Mascot from './Mascot.astro'
 import SectionHead from './SectionHead.astro'
+import TechTile from './TechTile.astro'
 import type { Locale } from '../types'
 
 interface Props {
   text: Locale
   num: number
+  /** Show the "how I work" quote card (About page). */
+  belief?: boolean
 }
 
-const { text, num } = Astro.props
+const { text, num, belief = false } = Astro.props
 const stack = text.stack
-const tones = ['sun', 'mint', 'pink', 'blue', 'tomato']
+const tones = ['sun', 'mint', 'pink', 'blue', 'tomato'] as const
 ---
 
 <section class="section wrap" id="stack" aria-labelledby="stack-title">
   <SectionHead num={num} eyebrow={stack.eyebrow} title={stack.title} id="stack-title" />
 
-  <div class="layout">
-    <dl class="groups" data-reveal-group>
-      {stack.groups.map((group, index) => (
-        <div class="group card lift" style={`--i: ${index}; --hover-rot: ${index % 2 ? 1.5 : -1.5}deg`}>
-          <dt class:list={['tag', `tone-${tones[index % tones.length]}`]}>{group.label}</dt>
-          <dd>
-            <ul>
-              {group.items.map((item) => <li>{item}</li>)}
-            </ul>
-          </dd>
-        </div>
-      ))}
-    </dl>
-
-    <figure class="belief card dots" data-reveal>
-      <figcaption>{stack.beliefTitle}</figcaption>
-      <blockquote><p>{stack.beliefBody}</p></blockquote>
-      <Mascot size={86} class="belief-mascot" />
-    </figure>
+  <div class="groups" data-reveal-group>
+    {stack.groups.map((group, index) => (
+      <section class="group card" aria-label={group.label}>
+        <h3 class:list={['tag', `tone-${tones[index % tones.length]}`]}>{group.label}</h3>
+        <ul class="tiles">
+          {group.items.map((item) => <TechTile name={item} tone={tones[index % tones.length]} />)}
+        </ul>
+      </section>
+    ))}
   </div>
+
+  {belief ? (
+    <figure class="belief card dots" data-reveal>
+      <Mascot size={86} class="belief-mascot" />
+      <div>
+        <figcaption>{stack.beliefTitle}</figcaption>
+        <blockquote><p>{stack.beliefBody}</p></blockquote>
+      </div>
+    </figure>
+  ) : null}
 </section>
 
 <style>
-  .layout {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: clamp(20px, 3vw, 36px);
-    align-items: start;
-  }
-
   .groups {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: clamp(16px, 2.4vw, 24px);
   }
 
   .group {
     display: grid;
     align-content: start;
-    gap: 14px;
+    gap: 18px;
     padding: 20px;
+    grid-column: span 2;
   }
 
-  .group:last-child {
-    grid-column: 1 / -1;
+  .group:nth-child(4),
+  .group:nth-child(5) {
+    grid-column: span 3;
   }
 
   .tag {
@@ -69,11 +68,8 @@ const tones = ['sun', 'mint', 'pink', 'blue', 'tomato']
     border: var(--line);
     border-radius: 999px;
     color: #1a1613;
-    font-family: var(--display);
     font-size: 20px;
-    font-weight: 800;
     letter-spacing: 0.06em;
-    text-transform: uppercase;
     rotate: -3deg;
   }
 
@@ -91,7 +87,7 @@ const tones = ['sun', 'mint', 'pink', 'blue', 'tomato']
 
   .tone-blue {
     background: var(--blue);
-    color: var(--on-blue);
+    color: #fffaf2;
   }
 
   .tone-tomato {
@@ -99,79 +95,81 @@ const tones = ['sun', 'mint', 'pink', 'blue', 'tomato']
     color: #fffaf2;
   }
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  li {
-    padding: 4px 12px;
-    border: 2px solid var(--ink);
-    border-radius: 8px;
-    background: var(--paper);
-    font-size: 15px;
-    font-weight: 700;
-    transition-property: background-color, rotate;
-    transition-duration: 150ms;
-  }
-
-  @media (hover: hover) {
-    li:hover {
-      background: var(--sun);
-      color: #1a1613;
-      rotate: -3deg;
-    }
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(74px, 1fr));
+    gap: 16px 10px;
   }
 
   .belief {
-    position: sticky;
-    top: calc(var(--header-h) + 24px);
     display: grid;
-    gap: 16px;
-    padding: clamp(24px, 3vw, 36px);
+    grid-template-columns: auto 1fr;
+    gap: 22px;
+    align-items: center;
+    margin-top: clamp(24px, 3vw, 36px);
+    padding: clamp(22px, 3vw, 32px);
     color: #fffaf2;
   }
 
+  .belief :global(.belief-mascot) {
+    box-shadow: 5px 5px 0 #1a1613;
+  }
+
   figcaption {
-    justify-self: start;
-    padding: 4px 14px;
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 2px 12px;
     border: var(--line-w) solid #1a1613;
     border-radius: 999px;
     background: var(--sun);
     color: #1a1613;
     font-family: var(--display);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 800;
     text-transform: uppercase;
   }
 
   blockquote p {
-    font-family: var(--display);
-    font-size: clamp(26px, 2.6vw, 32px);
-    font-weight: 700;
-    line-height: 1.15;
-    text-transform: uppercase;
-  }
-
-  .belief :global(.belief-mascot) {
-    justify-self: end;
-    margin: -8px -8px -8px 0;
-    box-shadow: 5px 5px 0 #1a1613;
+    font-size: clamp(16px, 1.6vw, 19px);
+    font-weight: 600;
+    line-height: 1.55;
   }
 
   @media (max-width: 960px) {
-    .layout {
-      grid-template-columns: 1fr;
+    .groups {
+      grid-template-columns: 1fr 1fr;
     }
 
-    .belief {
-      position: static;
+    .group,
+    .group:nth-child(4),
+    .group:nth-child(5) {
+      grid-column: span 1;
+    }
+
+    .group:nth-child(5) {
+      grid-column: 1 / -1;
     }
   }
 
-  @media (max-width: 560px) {
+  @media (max-width: 600px) {
     .groups {
+      grid-template-columns: 1fr;
+    }
+
+    .group:nth-child(5) {
+      grid-column: auto;
+    }
+
+    .group {
+      padding: 16px;
+    }
+
+    .tiles {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px 6px;
+    }
+
+    .belief {
       grid-template-columns: 1fr;
     }
   }

@@ -26,25 +26,35 @@
   },
   "nav": [
     {
+      "label": "Family",
+      "href": "#family",
+      "icon": "heart"
+    },
+    {
       "label": "Products",
-      "href": "#products"
+      "href": "#products",
+      "icon": "rocket"
     },
     {
       "label": "Work",
-      "href": "#work"
+      "href": "#work",
+      "icon": "briefcase"
     },
     {
       "label": "Projects",
-      "href": "/projects/"
+      "href": "/projects/",
+      "icon": "grid"
     },
     {
       "label": "About",
-      "href": "/about/"
+      "href": "/about/",
+      "icon": "user"
     }
   ],
   "navCta": {
     "label": "Contact",
-    "href": "#contact"
+    "href": "#contact",
+    "icon": "mail"
   },
   "hero": {
     "kicker": "Profile · maiviet283",
@@ -56,28 +66,6 @@
     "avatarAlt": "Portrait of Mai Quốc Việt",
     "caption": "Mai Quốc Việt, Da Nang.",
     "status": "Building Haven",
-    "facts": [
-      {
-        "label": "Role",
-        "value": "Full-stack Developer & Team Lead"
-      },
-      {
-        "label": "Now",
-        "value": "BNH Digital · remote (AU)"
-      },
-      {
-        "label": "Based in",
-        "value": "Da Nang"
-      },
-      {
-        "label": "From",
-        "value": "Kỳ Anh, Hà Tĩnh"
-      },
-      {
-        "label": "Studied",
-        "value": "VKU · InfoSec · 8.2/10"
-      }
-    ],
     "greeting": "Hi! I'm Việt.",
     "eyebrow": "Full-stack · Team Lead · Da Nang",
     "stickers": [
@@ -103,7 +91,7 @@
   ],
   "work": {
     "eyebrow": "Experience",
-    "title": "Learning from real systems and teams, then leading them to ship real products.",
+    "title": "Where I've worked",
     "items": [
       {
         "period": "06/2026 – now",
@@ -133,7 +121,8 @@
         "href": "https://www.vnnic.vn/",
         "body": "Worked close to real infrastructure: routing, security fundamentals, and monitoring with Nagios and ELK Stack. This helped me see backend as a running system, not only code."
       }
-    ]
+    ],
+    "more": "Full journey"
   },
   "projects": {
     "eyebrow": "Source",
@@ -201,7 +190,7 @@
   },
   "stack": {
     "eyebrow": "Stack",
-    "title": "I build a solid core, then finish it into a clear experience.",
+    "title": "My toolbox",
     "groups": [
       {
         "label": "Backend",
@@ -261,7 +250,7 @@
   },
   "api": {
     "eyebrow": "Signals",
-    "title": "A few real-time signals pulled directly from public APIs.",
+    "title": "Right now",
     "body": "This page isn't only static content. It pulls a few real-time data points: GitHub activity, Da Nang weather, and Vietnam time.",
     "loading": "Catching signals…",
     "error": "The signal is noisy. Try again later.",
@@ -308,8 +297,8 @@
   },
   "family": {
     "eyebrow": "Family",
-    "title": "Family, friends, and a few lines I keep coming back to.",
-    "body": "The people who keep me grounded at work and in life — and a handful of short lines I keep coming back to.",
+    "title": "Family & friends",
+    "body": "The people who keep me grounded — and a few lines I keep coming back to.",
     "imageAlt": "Mai Quoc Viet family photo",
     "quotes": [
       {
@@ -410,7 +399,7 @@
   },
   "products": {
     "eyebrow": "Products",
-    "title": "Products I've built, the ones running now, and one I've closed.",
+    "title": "Things I've built",
     "status": {
       "building": "Building",
       "live": "Live",
@@ -530,8 +519,8 @@
           "OpenAPI"
         ],
         "link": {
-          "label": "GitHub",
-          "href": "https://github.com/maiviet283/EightyTwenty"
+          "label": "eightytwenty.pages.dev",
+          "href": "https://eightytwenty.pages.dev/"
         }
       },
       {
@@ -577,7 +566,8 @@
           "href": "/vietdon/"
         }
       }
-    ]
+    ],
+    "more": "Product details"
   },
   "marquee": [
     "Haven",

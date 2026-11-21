@@ -14,9 +14,7 @@ const api = text.api
 <section class="section wrap" id="signals" aria-labelledby="signals-title" data-live-signals>
   <script is:inline type="application/json" data-live-i18n set:html={JSON.stringify(api)} />
 
-  <SectionHead num={num} eyebrow={api.eyebrow} title={api.title} id="signals-title">
-    <p>{api.body}</p>
-  </SectionHead>
+  <SectionHead num={num} eyebrow={api.eyebrow} title={api.title} id="signals-title" />
 
   <div class="console card" data-reveal>
     <div class="bar">

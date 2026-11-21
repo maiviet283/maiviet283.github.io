@@ -4,6 +4,13 @@ import PageLayout from '../../layouts/PageLayout.astro'
 import Mascot from '../../components/Mascot.astro'
 import SectionHead from '../../components/SectionHead.astro'
 import WorkSection from '../../components/WorkSection.astro'
+import StackSection from '../../components/StackSection.astro'
+import Icon, { type IconName } from '../../components/Icon.astro'
+import type { ImageMetadata } from 'astro'
+import parents from '../../data/images/parents.jpg'
+import familyNow from '../../data/images/myfamily2.png'
+import birthday from '../../data/images/birthday-17.jpg'
+import friends from '../../data/images/friends.webp'
 import avatar from '../../data/images/avatar.png'
 import text from '../../localet/vi.json'
 import { aboutProfileJsonLd } from '../../lib/site'
@@ -55,43 +62,52 @@ const faqJsonLd = {
   ],
 }
 
-const facts = [
-  ['Họ tên', 'Mai Quốc Việt'],
-  ['Vai trò', 'Full-stack Developer & Team Lead'],
-  ['Công việc', 'BNH Digital — agency phần mềm tại Úc, làm remote'],
-  ['Sản phẩm', 'Haven (co-founder & lead engineer)'],
-  ['Nơi ở', 'Đà Nẵng, Việt Nam'],
-  ['Quê quán', 'Kỳ Khang, Kỳ Anh, Hà Tĩnh, Việt Nam'],
-  ['Học vấn', 'VKU — Kỹ sư An toàn thông tin & Mạng máy tính, 2021 – 2026'],
-  ['Mã sinh viên', '21IT595 — lớp 21NS'],
-  ['GPA', '8.2/10'],
-  ['Ngoại ngữ', 'Tiếng Anh B1 (VSTEP), làm việc hằng ngày với team tại Úc'],
+const facts: [IconName, string, string][] = [
+  ['briefcase', 'Vai trò', 'Full-stack Developer & Team Lead'],
+  ['building', 'Công việc', 'BNH Digital · remote (Úc)'],
+  ['rocket', 'Sản phẩm', 'Haven · co-founder'],
+  ['map-pin', 'Nơi ở', 'Đà Nẵng'],
+  ['home', 'Quê quán', 'Kỳ Khang, Kỳ Anh, Hà Tĩnh'],
+  ['graduation', 'Học vấn', 'VKU · ATTT & Mạng máy tính'],
+  ['id', 'Mã sinh viên', '21IT595 · lớp 21NS'],
+  ['star', 'GPA', '8.2/10'],
+  ['globe', 'Ngoại ngữ', 'Tiếng Anh B1 (VSTEP)'],
 ]
 
-const stack = text.stack.groups.flatMap((group) => group.items)
-const story = [
+const story: { icon: IconName; tag: string; title: string; body: string }[] = [
   {
+    icon: 'home',
     tag: 'Quê quán',
     title: 'Kỳ Khang, Kỳ Anh, Hà Tĩnh',
-    body: 'Mai Quốc Việt sinh ra và lớn lên ở xã Kỳ Khang, huyện Kỳ Anh, tỉnh Hà Tĩnh — vùng đất miền Trung nhiều nắng gió. Sau khi tốt nghiệp phổ thông, mình vào Đà Nẵng học đại học và gắn bó với thành phố này đến nay.',
+    body: 'Lớn lên ở vùng quê miền Trung nhiều nắng gió, rồi vào Đà Nẵng học đại học và ở lại đến giờ.',
   },
   {
+    icon: 'graduation',
     tag: 'Học vấn',
-    title: 'VKU — An toàn thông tin & Mạng máy tính',
-    body: 'Mình học ngành An toàn thông tin & Mạng máy tính tại VKU – Trường Đại học Công nghệ Thông tin và Truyền thông Việt – Hàn (Đại học Đà Nẵng), khoá 2021 – 2026, mã sinh viên 21IT595, lớp 21NS, GPA 8.2/10. Nền tảng bảo mật đó theo mình vào mọi hệ thống: phân quyền, 2FA, cô lập dữ liệu giữa các tenant và audit log.',
+    title: 'VKU — An toàn thông tin',
+    body: 'Khoá 2021 – 2026, GPA 8.2/10. Nền bảo mật theo mình vào mọi hệ thống: phân quyền, 2FA, cô lập dữ liệu, audit log.',
   },
   {
+    icon: 'users',
     tag: 'Công việc',
     title: 'Team lead tại BNH Digital',
-    body: 'Mình dẫn một team 3 kỹ sư tại BNH Digital, agency phần mềm tại Úc. Trong 5 tháng, team ship 6 ứng dụng web và mobile lên production — với test tự động, CI và tài liệu OpenAPI trên mọi dự án.',
+    body: 'Dẫn team 3 kỹ sư, ship 6 ứng dụng web & mobile trong 5 tháng, test tự động và CI trên mọi dự án.',
   },
   {
+    icon: 'rocket',
     tag: 'Sản phẩm',
     title: 'Từ VietDon đến Haven',
-    body: 'Sản phẩm cá nhân đầu tiên của mình là VietDon — nền tảng donate realtime cho streamer, chạy 9 tháng với 200+ người dùng trước khi dừng vào 11/2026. Giờ mình là co-founder và lead engineer của Haven, nền tảng bác sĩ khám tại nhà.',
+    body: 'VietDon chạy 9 tháng với 200+ người dùng rồi dừng vào 11/2026. Giờ mình là co-founder của Haven.',
   },
 ]
 const tones = ['sun', 'mint', 'pink', 'card']
+
+const moments: { src: ImageMetadata; alt: string; caption: string; tilt: number }[] = [
+  { src: parents, alt: 'Bố mẹ của Mai Quốc Việt', caption: 'Bố mẹ', tilt: -3 },
+  { src: familyNow, alt: 'Gia đình Mai Quốc Việt', caption: 'Gia đình', tilt: 2 },
+  { src: birthday, alt: 'Mai Quốc Việt sinh nhật 17 tuổi', caption: 'Sinh nhật 17', tilt: -2 },
+  { src: friends, alt: 'Mai Quốc Việt cùng bạn bè', caption: 'Cùng bạn bè', tilt: 3 },
+]
 ---
 
 <PageLayout
@@ -107,10 +123,8 @@ const tones = ['sun', 'mint', 'pink', 'card']
 >
   <Fragment slot="lead">
     <p>
-      Mình là Mai Quốc Việt (maiviet283), full-stack developer &amp; team lead tại Đà Nẵng,
-      sinh ra ở Kỳ Khang, Kỳ Anh, Hà Tĩnh. Mình thiết kế, ship và vận hành hệ thống production
-      từ đầu đến cuối với Python, Django, FastAPI và React. Hiện mình dẫn một team tại BNH Digital
-      và đang xây <a href="/projects/#product-haven">Haven</a> — nền tảng bác sĩ khám tại nhà.
+      Full-stack developer &amp; team lead tại Đà Nẵng, quê Kỳ Anh, Hà Tĩnh. Mình dẫn một team tại
+      BNH Digital và đang xây <a href="/projects/#product-haven">Haven</a> — nền tảng bác sĩ khám tại nhà.
     </p>
   </Fragment>
   <figure slot="head-extra" class="portrait" data-reveal style="--reveal-rot: 6deg">
@@ -121,21 +135,39 @@ const tones = ['sun', 'mint', 'pink', 'card']
   <section class="wrap block">
     <SectionHead num={1} eyebrow="Thông tin nhanh" title="Vài dòng về mình" />
     <dl class="facts" data-reveal-group>
-      {facts.map(([label, value], index) => (
-        <div class="fact card" style={`--i: ${index}`}>
-          <dt>{label}</dt>
-          <dd>{value}</dd>
+      {facts.map(([icon, label, value]) => (
+        <div class="fact card">
+          <span class="fact-ico"><Icon name={icon} size={22} /></span>
+          <div>
+            <dt>{label}</dt>
+            <dd>{value}</dd>
+          </div>
         </div>
       ))}
     </dl>
   </section>
 
   <section class="wrap block">
-    <SectionHead num={2} eyebrow="Câu chuyện" title="Mai Quốc Việt là ai?" />
+    <SectionHead num={2} eyebrow="Khoảnh khắc" title="Ngoài giờ code" />
+    <ul class="moments" data-reveal-group>
+      {moments.map((m) => (
+        <li class="polaroid" style={`--tilt: ${m.tilt}deg`}>
+          <Image src={m.src} alt={m.alt} widths={[320, 560]} sizes="(min-width: 960px) 280px, 45vw" />
+          <span>{m.caption}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="more" data-reveal>
+      <a class="btn" href="/#family"><Icon name="camera" />Xem thêm ảnh</a>
+    </p>
+  </section>
+
+  <section class="wrap block">
+    <SectionHead num={3} eyebrow="Câu chuyện" title="Mai Quốc Việt là ai?" />
     <ol class="story" data-reveal-group>
       {story.map((item, index) => (
         <li class:list={['card', 'lift', `tone-${tones[index]}`]} style={`--hover-rot: ${index % 2 ? 1 : -1}deg`}>
-          <span class="tag">{item.tag}</span>
+          <span class="tag"><Icon name={item.icon} size={16} />{item.tag}</span>
           <h3>{item.title}</h3>
           <p>{item.body}</p>
         </li>
@@ -143,18 +175,14 @@ const tones = ['sun', 'mint', 'pink', 'card']
     </ol>
   </section>
 
-  <WorkSection text={text} num={3} />
+  <WorkSection text={text} num={4} />
 
-  <section class="wrap block">
-    <SectionHead num={4} eyebrow="Công nghệ" title="Bộ đồ nghề" />
-    <ul class="chips big" data-reveal-group>
-      {stack.map((item) => <li class="chip">{item}</li>)}
-    </ul>
-    <div class="cta" data-reveal>
-      <a class="btn btn-sun btn-lg" href="/projects/">Xem sản phẩm</a>
-      <a class="btn btn-lg" href="/#contact">Liên hệ</a>
-    </div>
-  </section>
+  <StackSection text={text} num={5} belief />
+
+  <div class="wrap cta" data-reveal>
+    <a class="btn btn-sun btn-lg" href="/projects/"><Icon name="rocket" />Xem sản phẩm</a>
+    <a class="btn btn-lg" href="/#contact"><Icon name="mail" />Liên hệ</a>
+  </div>
 </PageLayout>
 
 <style>
@@ -192,18 +220,41 @@ const tones = ['sun', 'mint', 'pink', 'card']
 
   .facts {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
   }
 
   .fact {
-    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
     box-shadow: var(--shadow-sm);
+  }
+
+  .fact-ico {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: var(--line);
+    border-radius: 12px;
+    background: var(--sun);
+    color: #1a1613;
+  }
+
+  .fact:nth-child(3n + 2) .fact-ico {
+    background: var(--mint);
+  }
+
+  .fact:nth-child(3n + 3) .fact-ico {
+    background: var(--pink);
   }
 
   .fact dt {
     font-family: var(--display);
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -212,7 +263,55 @@ const tones = ['sun', 'mint', 'pink', 'card']
 
   .fact dd {
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 1.35;
+  }
+
+  .moments {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(14px, 2.4vw, 28px);
+  }
+
+  .polaroid {
+    display: grid;
+    gap: 8px;
+    padding: 10px 10px 12px;
+    border: var(--line);
+    border-radius: 6px;
+    background: #fffaf2;
+    color: #1a1613;
+    box-shadow: var(--shadow);
+    rotate: var(--tilt);
+    transition-property: rotate, scale;
+    transition-duration: 300ms;
+    transition-timing-function: var(--ease-pop);
+  }
+
+  @media (hover: hover) {
+    .polaroid:hover {
+      rotate: 0deg;
+      scale: 1.04;
+    }
+  }
+
+  .polaroid img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: 2px solid #1a1613;
+    border-radius: 3px;
+  }
+
+  .polaroid span {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .more {
+    margin-top: 28px;
   }
 
   .story {
@@ -244,6 +343,9 @@ const tones = ['sun', 'mint', 'pink', 'card']
   }
 
   .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     justify-self: start;
     padding: 2px 12px;
     border: 2px solid #1a1613;
@@ -262,17 +364,10 @@ const tones = ['sun', 'mint', 'pink', 'card']
     opacity: 0.88;
   }
 
-  .chips.big .chip {
-    padding: 6px 16px;
-    font-size: 16px;
-    box-shadow: var(--shadow-sm);
-  }
-
   .cta {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
-    margin-top: 40px;
   }
 
   :global(.page-body) > :global(.work) {
@@ -298,6 +393,14 @@ const tones = ['sun', 'mint', 'pink', 'card']
   @media (max-width: 720px) {
     .story {
       grid-template-columns: 1fr;
+    }
+
+    .moments {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .polaroid span {
+      font-size: 16px;
     }
   }
 </style>

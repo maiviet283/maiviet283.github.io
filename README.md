@@ -9,6 +9,7 @@ A sticker-book look: warm paper, thick ink strokes, hard offset shadows and flat
 - Type: Barlow Condensed (headings) + Be Vietnam Pro (body), self-hosted via Fontsource with Vietnamese subsets.
 - Mark: a round cartoon portrait drawn in SVG from the avatar (`src/lib/mascot.mjs`). The same drawing feeds the `<Mascot>` component, the favicons and the social card.
 - Global tokens and shared pieces live in `src/styles/global.css`; each component keeps its own scoped styles.
+- Icons: line icons in `src/components/Icon.astro`; technology logos from Simple Icons (CC0) mapped in `src/lib/tech.ts`, inlined at build time.
 - Light theme by default; the toggle reveals the dark theme in a circle from the button.
 
 ## Motion

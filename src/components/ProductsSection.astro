@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro'
 import ProductFeature from './ProductFeature.astro'
 import ProductStatus from './ProductStatus.astro'
 import SectionHead from './SectionHead.astro'
@@ -18,7 +19,7 @@ const tones = ['mint', 'sun', 'tomato']
 <section class="section wrap" id="products" aria-labelledby="products-title">
   <SectionHead num={num} eyebrow={products.eyebrow} title={products.title} id="products-title" />
 
-  <ProductFeature product={featured} labels={products} />
+  <ProductFeature product={featured} labels={products} compact />
 
   <ul class="cards" data-reveal-group>
     {rest.map((product, index) => {
@@ -35,7 +36,6 @@ const tones = ['mint', 'sun', 'tomato']
               <a href={`/projects/#product-${product.key}`}>{product.name}</a>
             </h3>
             <p class="tagline">{product.tagline}</p>
-            <p class="summary">{product.summary}</p>
             <dl class="nums">
               {product.metrics.slice(0, 3).map((metric) => (
                 <div>
@@ -52,7 +52,8 @@ const tones = ['mint', 'sun', 'tomato']
                 target={external ? '_blank' : undefined}
                 rel={external ? 'noreferrer' : undefined}
               >
-                {product.link.label} <span aria-hidden="true">{external ? '↗' : '→'}</span>
+                {product.link.label}
+                <Icon name={external ? 'arrow-up-right' : 'arrow-right'} size={16} />
               </a>
             </div>
           </div>
@@ -61,6 +62,13 @@ const tones = ['mint', 'sun', 'tomato']
       )
     })}
   </ul>
+
+  <p class="more" data-reveal>
+    <a class="btn btn-blue" href="/projects/">
+      <Icon name="grid" />
+      {products.more}
+    </a>
+  </p>
 </section>
 
 <style>
@@ -137,9 +145,8 @@ const tones = ['mint', 'sun', 'tomato']
     line-height: 1.4;
   }
 
-  .summary {
-    font-size: 15px;
-    color: var(--ink-2);
+  .more {
+    margin-top: clamp(28px, 4vw, 40px);
   }
 
   .nums {

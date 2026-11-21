@@ -1,4 +1,5 @@
 ---
+import Icon, { type IconName } from './Icon.astro'
 import Mascot from './Mascot.astro'
 import type { Locale } from '../types'
 
@@ -27,7 +28,9 @@ const isCurrent = (href: string) => !href.startsWith('#') && href !== '/' && cur
 
     <nav class="nav" aria-label={text.meta.primaryNavigation}>
       {text.nav.map((link) => (
-        <a href={resolve(link.href)} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
+        <a href={resolve(link.href)} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+          <Icon name={link.icon as IconName} size={17} />{link.label}
+        </a>
       ))}
     </nav>
 
@@ -47,7 +50,9 @@ const isCurrent = (href: string) => !href.startsWith('#') && href !== '/' && cur
         </svg>
       </button>
 
-      <a class="btn btn-sun btn-sm cta" href={resolve(text.navCta.href)}>{text.navCta.label}</a>
+      <a class="btn btn-sun btn-sm cta" href={resolve(text.navCta.href)}>
+        <Icon name="mail" size={18} />{text.navCta.label}
+      </a>
 
       <button class="round burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label={text.meta.openMenu} data-menu-toggle>
         <span></span><span></span>
@@ -59,7 +64,7 @@ const isCurrent = (href: string) => !href.startsWith('#') && href !== '/' && cur
     <nav class="wrap sheet-nav" aria-label={text.meta.primaryNavigation}>
       {[...text.nav, text.navCta].map((link, index) => (
         <a href={resolve(link.href)} style={`--i: ${index}`}>
-          <span class="num">{String(index + 1).padStart(2, '0')}</span>{link.label}
+          <span class="num"><Icon name={link.icon as IconName} size={24} /></span>{link.label}
         </a>
       ))}
     </nav>
@@ -125,6 +130,9 @@ const isCurrent = (href: string) => !href.startsWith('#') && href !== '/' && cur
 
   .nav a {
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     padding: 8px 12px;
     border: 2px solid transparent;
     border-radius: 999px;
@@ -303,8 +311,16 @@ const isCurrent = (href: string) => !href.startsWith('#') && href !== '/' && cur
   }
 
   .sheet-nav .num {
-    font-size: 18px;
-    color: var(--sun);
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: var(--line-w) solid #1a1613;
+    border-radius: 12px;
+    background: var(--sun);
+    color: #1a1613;
+    box-shadow: 3px 3px 0 #1a1613;
+    align-self: center;
   }
 
   .sheet-foot {
@@ -330,6 +346,12 @@ const isCurrent = (href: string) => !href.startsWith('#') && href !== '/' && cur
     from {
       opacity: 0;
       transform: translateX(-24px) rotate(-3deg);
+    }
+  }
+
+  @media (max-width: 1180px) {
+    .nav :global(.icon) {
+      display: none;
     }
   }
 

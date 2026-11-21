@@ -26,25 +26,35 @@
   },
   "nav": [
     {
+      "label": "Gia đình",
+      "href": "#family",
+      "icon": "heart"
+    },
+    {
       "label": "Sản phẩm",
-      "href": "#products"
+      "href": "#products",
+      "icon": "rocket"
     },
     {
       "label": "Kinh nghiệm",
-      "href": "#work"
+      "href": "#work",
+      "icon": "briefcase"
     },
     {
       "label": "Dự án",
-      "href": "/projects/"
+      "href": "/projects/",
+      "icon": "grid"
     },
     {
       "label": "Giới thiệu",
-      "href": "/about/"
+      "href": "/about/",
+      "icon": "user"
     }
   ],
   "navCta": {
     "label": "Liên hệ",
-    "href": "#contact"
+    "href": "#contact",
+    "icon": "mail"
   },
   "hero": {
     "kicker": "Hồ sơ · maiviet283",
@@ -56,28 +66,6 @@
     "avatarAlt": "Chân dung Mai Quốc Việt",
     "caption": "Mai Quốc Việt, Đà Nẵng.",
     "status": "Đang xây Haven",
-    "facts": [
-      {
-        "label": "Vai trò",
-        "value": "Full-stack Developer & Team Lead"
-      },
-      {
-        "label": "Hiện tại",
-        "value": "BNH Digital · remote (Úc)"
-      },
-      {
-        "label": "Sống tại",
-        "value": "Đà Nẵng"
-      },
-      {
-        "label": "Quê",
-        "value": "Kỳ Anh, Hà Tĩnh"
-      },
-      {
-        "label": "Học",
-        "value": "VKU · ATTT & Mạng · 8.2/10"
-      }
-    ],
     "greeting": "Chào bạn! Mình là Việt.",
     "eyebrow": "Full-stack · Team Lead · Đà Nẵng",
     "stickers": [
@@ -103,7 +91,7 @@
   ],
   "work": {
     "eyebrow": "Kinh nghiệm",
-    "title": "Học từ hệ thống và đội ngũ thực tế, rồi dẫn dắt để ship sản phẩm thật.",
+    "title": "Hành trình nghề",
     "items": [
       {
         "period": "06/2026 – nay",
@@ -133,7 +121,8 @@
         "href": "https://www.vnnic.vn/",
         "body": "Chạm vào hạ tầng thật: routing, security fundamentals, monitoring với Nagios và ELK Stack. Giai đoạn này giúp mình nhìn backend không chỉ là code, mà còn là hệ thống đang chạy."
       }
-    ]
+    ],
+    "more": "Xem hành trình đầy đủ"
   },
   "projects": {
     "eyebrow": "Mã nguồn",
@@ -201,7 +190,7 @@
   },
   "stack": {
     "eyebrow": "Công nghệ",
-    "title": "Mình xây phần lõi chắc chắn, rồi hoàn thiện thành trải nghiệm rõ ràng.",
+    "title": "Bộ đồ nghề",
     "groups": [
       {
         "label": "Backend",
@@ -261,7 +250,7 @@
   },
   "api": {
     "eyebrow": "Tín hiệu",
-    "title": "Vài tín hiệu thời gian thực lấy trực tiếp từ API công khai.",
+    "title": "Ngay lúc này",
     "body": "Trang này không chỉ là nội dung tĩnh. Nó kéo vài dữ liệu thật theo thời gian thực: hoạt động GitHub, thời tiết Đà Nẵng và giờ Việt Nam.",
     "loading": "Đang bắt tín hiệu…",
     "error": "Tín hiệu đang nhiễu, thử lại sau.",
@@ -308,8 +297,8 @@
   },
   "family": {
     "eyebrow": "Gia đình",
-    "title": "Gia đình, bạn bè, và vài câu nói mình hay nhắc lại.",
-    "body": "Những người giữ mình vững khi làm việc và khi sống — cùng vài câu nói ngắn mình hay nhắc lại.",
+    "title": "Gia đình & bạn bè",
+    "body": "Những người giữ mình vững — và vài câu mình hay nhắc lại.",
     "imageAlt": "Ảnh gia đình của Mai Quốc Việt",
     "quotes": [
       {
@@ -410,7 +399,7 @@
   },
   "products": {
     "eyebrow": "Sản phẩm",
-    "title": "Những sản phẩm mình đã xây, đang chạy, và đã khép lại.",
+    "title": "Sản phẩm mình làm",
     "status": {
       "building": "Đang xây",
       "live": "Đang chạy",
@@ -530,8 +519,8 @@
           "OpenAPI"
         ],
         "link": {
-          "label": "GitHub",
-          "href": "https://github.com/maiviet283/EightyTwenty"
+          "label": "eightytwenty.pages.dev",
+          "href": "https://eightytwenty.pages.dev/"
         }
       },
       {
@@ -577,7 +566,8 @@
           "href": "/vietdon/"
         }
       }
-    ]
+    ],
+    "more": "Xem chi tiết sản phẩm"
   },
   "marquee": [
     "Haven",

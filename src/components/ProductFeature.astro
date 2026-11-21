@@ -3,6 +3,7 @@
  * One product told in full: the story on a paper card, the spec sheet on a
  * dotted colour panel (role, period, numbers, stack, link).
  */
+import Icon from './Icon.astro'
 import ProductStatus from './ProductStatus.astro'
 import type { Locale } from '../types'
 
@@ -14,9 +15,11 @@ interface Props {
   labels: Products
   headingLevel?: 'h2' | 'h3'
   tone?: 'blue' | 'tomato' | 'mint' | 'sun'
+  /** Home page: story without the bullet points. */
+  compact?: boolean
 }
 
-const { product, labels, headingLevel = 'h3', tone = 'blue' } = Astro.props
+const { product, labels, headingLevel = 'h3', tone = 'blue', compact = false } = Astro.props
 const Heading = headingLevel
 const external = product.link.href.startsWith('http')
 const ended = product.status === 'ended'
@@ -32,14 +35,16 @@ const endedOn = product.period.split('–').pop()?.trim()
     <Heading class="name">{product.name}</Heading>
     <p class="tagline">{product.tagline}</p>
     <p class="summary">{product.summary}</p>
-    <ul class="points">
-      {product.points.map((point) => (
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"></path></svg>
-          <span>{point}</span>
-        </li>
-      ))}
-    </ul>
+    {compact ? null : (
+      <ul class="points">
+        {product.points.map((point) => (
+          <li>
+            <span class="tick"><Icon name="check" size={18} /></span>
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
+    )}
   </div>
 
   <aside class:list={['spec', { dots: tone === 'blue' }]} aria-label={`${product.name}: ${labels.roleLabel}, ${labels.stackLabel}`}>
@@ -63,9 +68,7 @@ const endedOn = product.period.split('–').pop()?.trim()
       rel={external ? 'noreferrer' : undefined}
     >
       {product.link.label}
-      <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        {external ? <path d="M7 17 17 7M8 7h9v9"></path> : <path d="M5 12h14M13 6l6 6-6 6"></path>}
-      </svg>
+      <Icon name={external ? 'arrow-up-right' : 'arrow-right'} class="arrow" />
     </a>
   </aside>
 </article>
@@ -138,18 +141,15 @@ const endedOn = product.period.split('–').pop()?.trim()
     color: var(--ink-2);
   }
 
-  .points svg {
+  .tick {
+    display: grid;
+    place-items: center;
     width: 26px;
     height: 26px;
-    padding: 3px;
     border: 2px solid var(--ink);
     border-radius: 8px;
     background: var(--mint);
-    fill: none;
-    stroke: #1a1613;
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    color: #1a1613;
   }
 
   /* ---------- Spec panel ---------- */

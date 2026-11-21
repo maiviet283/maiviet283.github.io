@@ -40,7 +40,6 @@ const elsewhere = text.contact.links.filter((link) => link.href.startsWith('http
     <p>{footer.made}</p>
   </div>
 
-  <p class="giant" aria-hidden="true">maiviet283</p>
 </footer>
 
 <style>
@@ -113,20 +112,6 @@ const elsewhere = text.contact.links.filter((link) => link.href.startsWith('http
     border-top: 3px solid rgb(242 235 223 / 0.18);
     font-size: 14px;
     color: #b9b0a2;
-  }
-
-  .giant {
-    margin: 0 0 -0.22em;
-    font-family: var(--display);
-    font-size: clamp(80px, 21vw, 300px);
-    font-weight: 800;
-    line-height: 1;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    color: transparent;
-    -webkit-text-stroke: 3px rgb(242 235 223 / 0.22);
-    user-select: none;
   }
 
   @media (max-width: 760px) {

@@ -25,7 +25,7 @@ const PAGE = [...LAYOUT, 'src/layouts/PageLayout.astro']
 const SOURCES: Record<string, string[]> = {
   '/': ['src/pages/index.astro', 'src/components', 'src/localet/vi.json', ...LAYOUT],
   '/en/': ['src/pages/en/index.astro', 'src/components', 'src/localet/en.json', ...LAYOUT],
-  '/about/': ['src/pages/about/index.astro', 'src/localet/vi.json', 'src/components/WorkSection.astro', ...PAGE],
+  '/about/': ['src/pages/about/index.astro', 'src/localet/vi.json', 'src/components/WorkSection.astro', 'src/components/StackSection.astro', 'src/components/TechTile.astro', ...PAGE],
   '/vietdon/': ['src/pages/vietdon/index.astro', ...PAGE],
   '/projects/': ['src/pages/projects/index.astro', 'src/localet/vi.json', 'src/components/ProjectList.astro', 'src/components/ProductFeature.astro', ...PAGE],
 }

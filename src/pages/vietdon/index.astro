@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro'
 import SectionHead from '../../components/SectionHead.astro'
+import Icon from '../../components/Icon.astro'
 import { SITE } from '../../lib/site'
 
 const webAppJsonLd = {
@@ -103,8 +104,8 @@ const tones = ['sun', 'mint', 'pink']
       </ul>
     </div>
     <div class="cta" data-reveal>
-      <a class="btn btn-sun btn-lg" href="/projects/">Sản phẩm hiện tại</a>
-      <a class="btn btn-lg" href="/">Về trang chủ</a>
+      <a class="btn btn-sun btn-lg" href="/projects/"><Icon name="rocket" />Sản phẩm hiện tại</a>
+      <a class="btn btn-lg" href="/"><Icon name="home" />Về trang chủ</a>
     </div>
   </section>
 </PageLayout>

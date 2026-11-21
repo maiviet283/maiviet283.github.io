@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Mascot from '../components/Mascot.astro'
+import Icon from '../components/Icon.astro'
 import text from '../localet/vi.json'
 ---
 
@@ -26,8 +27,8 @@ import text from '../localet/vi.json'
           sản phẩm mình đang làm nhé.
         </p>
         <div class="actions" data-reveal style="--i: 4">
-          <a class="btn btn-sun btn-lg" href="/">Về trang chủ</a>
-          <a class="btn btn-lg" href="/projects/">Xem dự án</a>
+          <a class="btn btn-sun btn-lg" href="/"><Icon name="home" />Về trang chủ</a>
+          <a class="btn btn-lg" href="/projects/"><Icon name="grid" />Xem dự án</a>
         </div>
       </div>
     </div>

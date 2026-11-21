@@ -1,0 +1,83 @@
+---
+/** One technology: its logo on a colour badge and the name under it. */
+import Icon from './Icon.astro'
+import { techMark } from '../lib/tech'
+
+interface Props {
+  name: string
+  tone?: 'sun' | 'mint' | 'pink' | 'blue' | 'tomato'
+}
+
+const { name, tone = 'sun' } = Astro.props
+const mark = techMark(name)
+---
+
+<li class="tile">
+  <span class:list={['badge', `tone-${tone}`]}>
+    {'brand' in mark ? (
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d={mark.brand}></path></svg>
+    ) : (
+      <Icon name={mark.line} size={26} />
+    )}
+  </span>
+  <span class="name">{name}</span>
+</li>
+
+<style>
+  .tile {
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .badge {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border: var(--line);
+    border-radius: 16px;
+    color: #1a1613;
+    box-shadow: var(--shadow-sm);
+    transition-property: transform, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: var(--ease-pop);
+  }
+
+  .tone-sun {
+    background: var(--sun);
+  }
+
+  .tone-mint {
+    background: var(--mint);
+  }
+
+  .tone-pink {
+    background: var(--pink);
+  }
+
+  .tone-blue {
+    background: var(--blue);
+    color: #fffaf2;
+  }
+
+  .tone-tomato {
+    background: var(--tomato);
+    color: #fffaf2;
+  }
+
+  @media (hover: hover) {
+    .tile:hover .badge {
+      transform: translate(-2px, -3px) rotate(-6deg);
+      box-shadow: 5px 6px 0 var(--ink);
+    }
+  }
+
+  .name {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+</style>

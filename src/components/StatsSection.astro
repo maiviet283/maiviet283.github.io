@@ -1,5 +1,6 @@
 ---
 /** Three big numbers on tilted stickers; the leading number counts up once in view. */
+import Icon, { type IconName } from './Icon.astro'
 import type { Locale } from '../types'
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 
 const { text, lang } = Astro.props
 const tones = ['sun', 'mint', 'pink']
+const icons: IconName[] = ['rocket', 'check', 'zap']
 
 const split = (value: string) => {
   const match = value.match(/^([\d.,]+)(.*)$/)
@@ -27,6 +29,7 @@ const split = (value: string) => {
       const { number, rest, grouped } = split(stat.value)
       return (
         <li class:list={['stat', 'card', 'lift', `tone-${tones[index]}`]} style={`--i: ${index}; --tilt: ${index % 2 ? 2 : -2}deg`}>
+          <span class="ico"><Icon name={icons[index]} size={22} /></span>
           <strong class="value">
             {number === null ? (
               stat.value
@@ -55,7 +58,22 @@ const split = (value: string) => {
     gap: clamp(18px, 3vw, 32px);
   }
 
+  .ico {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: var(--line-w) solid #1a1613;
+    border-radius: 50%;
+    background: #fffaf2;
+    color: #1a1613;
+  }
+
   .stat {
+    position: relative;
     --hover-rot: 0deg;
     display: grid;
     align-content: start;

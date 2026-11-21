@@ -4,7 +4,6 @@ import ContactSection from './ContactSection.astro'
 import FamilySection from './FamilySection.astro'
 import HeroSection from './HeroSection.astro'
 import ProductsSection from './ProductsSection.astro'
-import ProjectsSection from './ProjectsSection.astro'
 import SignalsSection from './SignalsSection.astro'
 import StackSection from './StackSection.astro'
 import StatsSection from './StatsSection.astro'
@@ -34,11 +33,10 @@ const path = lang === 'en' ? '/en/' : '/'
 >
   <HeroSection text={text} />
   <StatsSection text={text} lang={lang} />
-  <ProductsSection text={text} num={1} />
-  <WorkSection text={text} num={2} />
-  <ProjectsSection text={text} num={3} />
+  <FamilySection text={text} num={1} />
+  <ProductsSection text={text} num={2} />
+  <WorkSection text={text} num={3} compact />
   <StackSection text={text} num={4} />
   <SignalsSection text={text} num={5} />
-  <FamilySection text={text} num={6} />
-  <ContactSection text={text} num={7} />
+  <ContactSection text={text} num={6} />
 </Layout>

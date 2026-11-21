@@ -405,7 +405,7 @@ button {
 
 /* ---------- Sections ---------- */
 .section {
-  padding-block: clamp(72px, 10vw, 128px);
+  padding-block: clamp(56px, 10vw, 128px);
 }
 
 .section-head {
@@ -416,7 +416,24 @@ button {
 }
 
 .section-head h2 {
-  font-size: clamp(42px, 6.4vw, 76px);
+  font-size: clamp(40px, 6.4vw, 76px);
+}
+
+@media (max-width: 600px) {
+  .section-head {
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .section-head p {
+    font-size: 16px;
+  }
+
+  .section-num {
+    width: 40px;
+    height: 40px;
+    font-size: 19px;
+  }
 }
 
 .section-head p {
