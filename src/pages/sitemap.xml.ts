@@ -1,7 +1,6 @@
 import type { APIRoute } from 'astro'
 import { lastModified, w3cDate } from '../lib/lastmod'
-
-const SITE = 'https://maiviet.vietdon.vn'
+import { SITE } from '../lib/site'
 
 /**
  * Chỉ trang chủ có bản song ngữ, nên chỉ cặp này khai hreflang. Khai alternate

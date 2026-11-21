@@ -1,6 +1,6 @@
 /** Thông tin dùng chung cho SEO và JSON-LD trên toàn site. */
 
-export const SITE = 'https://maiviet.vietdon.vn'
+export const SITE = 'https://maiviet283.github.io'
 
 export const SAME_AS = [
   'https://github.com/maiviet283',

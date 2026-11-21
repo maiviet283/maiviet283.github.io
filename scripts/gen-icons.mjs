@@ -71,7 +71,7 @@ const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" vi
   <rect x="600" y="346" width="540" height="62" rx="10" fill="#f4b740" stroke="${c.ink}" stroke-width="4"/>
   <text x="620" y="388" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="30" fill="${c.ink}">Full-stack Developer &amp; Team Lead</text>
   <text x="600" y="470" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#4a423b">Python · Django · React · Đà Nẵng</text>
-  <text x="60" y="604" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="24" letter-spacing="3" fill="#f5eee2">MAIVIET.VIETDON.VN</text>
+  <text x="60" y="604" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="24" letter-spacing="3" fill="#f5eee2">MAIVIET283.GITHUB.IO</text>
 </svg>`
 
 const markPng = await sharp(round, { density: 300 }).resize(420, 420).png().toBuffer()

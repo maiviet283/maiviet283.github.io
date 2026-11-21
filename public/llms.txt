@@ -14,10 +14,10 @@
 - Email: maiviet283@gmail.com
 
 ## Trang chính
-- [Trang chủ](https://maiviet.vietdon.vn/): Hồ sơ cá nhân Mai Quốc Việt, full-stack developer & team lead tại Đà Nẵng.
-- [Giới thiệu](https://maiviet.vietdon.vn/about/): Tiểu sử, học vấn VKU, kinh nghiệm và công nghệ.
-- [Dự án](https://maiviet.vietdon.vn/projects/): Haven, One Management System, EightyTwenty, VietDon và các dự án mã nguồn.
-- [VietDon](https://maiviet.vietdon.vn/vietdon/): Trang lưu trữ về VietDon — nền tảng donate realtime cho streamer, đã dừng hoạt động từ 11/2026.
+- [Trang chủ](https://maiviet283.github.io/): Hồ sơ cá nhân Mai Quốc Việt, full-stack developer & team lead tại Đà Nẵng.
+- [Giới thiệu](https://maiviet283.github.io/about/): Tiểu sử, học vấn VKU, kinh nghiệm và công nghệ.
+- [Dự án](https://maiviet283.github.io/projects/): Haven, One Management System, EightyTwenty, VietDon và các dự án mã nguồn.
+- [VietDon](https://maiviet283.github.io/vietdon/): Trang lưu trữ về VietDon — nền tảng donate realtime cho streamer, đã dừng hoạt động từ 11/2026.
 
 ## Liên kết mạng xã hội
 - GitHub: https://github.com/maiviet283

@@ -1,4 +1,4 @@
-# robots.txt — https://maiviet.vietdon.vn
+# robots.txt — https://maiviet283.github.io
 # Mọi trình thu thập đều được phép truy cập toàn bộ site.
 
 User-agent: *
@@ -38,4 +38,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://maiviet.vietdon.vn/sitemap.xml
+Sitemap: https://maiviet283.github.io/sitemap.xml
